@@ -1,0 +1,2118 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Pierre Fabre Mexico — Executive Dashboard</title><style> :root {
+    --bg: #f6f7f4;
+    --panel: #ffffff;
+    --panel-2: #fbfcfa;
+    --ink: #1f2a24;
+    --muted: #6f7a73;
+    --line: #dde3dc;
+    --line-strong: #cfd7cf;
+    --green: #557a61;
+    --green-2: #6f9278;
+    --green-soft: #e8efe9;
+    --red: #b86462;
+    --amber: #b18e53;
+    --shadow: 0 1px 0 rgba(24, 36, 27, .03), 0 8px 22px rgba(31, 42, 36, .03);
+    --radius: 14px;
+    --radius-sm: 10px;
+    --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #f7f8f5 0%, #f2f4ef 100%);
+    color: var(--ink);
+    font-family: var(--font);
+}
+
+.page {
+    width: 1480px;
+    margin: 0 auto;
+    padding: 22px 22px 34px;
+}
+
+.topbar {
+    display: grid;
+    grid-template-columns: 320px 1fr 420px;
+    gap: 18px;
+    align-items: center;
+    padding: 10px 2px 16px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand-mark {
+    width: auto;
+    min-width: 54px;
+    height: 54px;
+    padding: 6px 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ffffff, #eff4ee);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+
+.brand-mark-img {
+    height: 46px;
+    width: auto;
+    max-width: 120px;
+    display: block;
+    object-fit: contain;
+}
+
+.brand-copy h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 650;
+    letter-spacing: .01em;
+}
+
+.brand-copy .sub {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.context-strip {
+    justify-self: end;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.context-pill {
+    min-width: 126px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .9);
+    box-shadow: var(--shadow);
+}
+
+.context-pill .k {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+    margin-bottom: 4px
+}
+
+.context-pill .v {
+    font-size: 13px;
+    font-weight: 600
+}
+
+.nav {
+    display: flex;
+    gap: 4px;
+    padding: 6px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .78);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    margin-bottom: 14px;
+}
+
+.nav a {
+    padding: 11px 18px;
+    border-radius: 10px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .01em;
+}
+
+.nav a.active {
+    color: var(--ink);
+    background: linear-gradient(180deg, #f4f8f4, #ecf3ec);
+    border: 1px solid var(--line);
+}
+
+.dashboard-view[hidden] {
+    display: none !important
+}
+
+.reg-strip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 2px 14px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: linear-gradient(90deg, #f8faf7, #f4f7f3);
+    font-size: 11px;
+    color: var(--muted)
+}
+
+.reg-strip strong {
+    color: var(--ink);
+    font-weight: 650
+}
+
+.reg-obj-cards {
+    grid-template-columns: repeat(5, 1fr)
+}
+
+.chart-svg--compact {
+    height: 200px
+}
+
+.panel-head .panel-sub--full {
+    display: block;
+    width: 100%;
+    margin-bottom: 0
+}
+
+#regPrimarySelector,
+#regSecondarySelector,
+#regComplaintsChartSelectors,
+#regSecTrendSelectors {
+    flex-wrap: wrap;
+    overflow: visible;
+    justify-content: flex-start
+}
+
+#regPrimarySelector button,
+#regSecondarySelector button,
+#regComplaintsChartSelectors button,
+#regSecTrendSelectors button {
+    flex: 0 1 auto;
+    font-size: 10px;
+    padding: 6px 8px
+}
+
+.reg-obj-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.reg-obj-row4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px
+}
+
+.reg-obj-row5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px
+}
+
+.reg-obj-row3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px
+}
+
+.reg-obj-row7 {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+    align-items: stretch
+}
+
+.reg-obj-row7.obj-cards {
+    grid-template-columns: repeat(7, minmax(0, 1fr))
+}
+
+.reg-obj-row7 .card {
+    padding: 10px 8px 8px;
+    min-width: 0
+}
+
+.reg-obj-wrap .card .metric-label {
+    min-height: 36px;
+    font-size: 10px
+}
+
+.reg-obj-wrap .metric-value {
+    font-size: 22px;
+    margin: 4px 0 8px
+}
+
+.reg-obj-wrap .reg-obj-row7 .card .metric-label {
+    font-size: 9px;
+    min-height: 32px;
+    line-height: 1.25
+}
+
+.reg-obj-wrap .reg-obj-row7 .card .metric-value {
+    font-size: 18px;
+    margin: 2px 0 6px
+}
+
+.reg-obj-wrap .reg-obj-row7 .card .meta-box .k,
+.reg-obj-wrap .reg-obj-row7 .card .attain .k {
+    font-size: 8px
+}
+
+.reg-obj-wrap .reg-obj-row7 .card .meta-box .v,
+.reg-obj-wrap .reg-obj-row7 .card .attain .v {
+    font-size: 11px
+}
+
+.analysis-row--reg-band .panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 440px
+}
+
+.analysis-row--reg-band .panel .table-wrap {
+    flex: 1
+}
+
+/* Regulatory: alinear matriz + gráfica con las scorecards (misma rejilla / gap) */
+#view-regulatory .analysis-row--reg-grid7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+    align-items: stretch
+}
+
+#view-regulatory .analysis-row--reg-grid7 > .panel:first-child {
+    grid-column: span 4
+}
+
+#view-regulatory .analysis-row--reg-grid7 > .panel:last-child {
+    grid-column: span 3
+}
+
+#view-regulatory .analysis-row--reg-grid5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    align-items: stretch
+}
+
+#view-regulatory .analysis-row--reg-grid5 > .panel:first-child {
+    grid-column: span 3
+}
+
+#view-regulatory .analysis-row--reg-grid5 > .panel:last-child {
+    grid-column: span 2
+}
+
+#view-regulatory .analysis-row--reg-grid7 .table-wrap,
+#view-regulatory .analysis-row--reg-grid5 .table-wrap {
+    padding: 4px 16px 12px
+}
+
+#view-regulatory .analysis-row--reg-grid7 .chart-area,
+#view-regulatory .analysis-row--reg-grid5 .chart-area {
+    padding: 10px 16px 12px
+}
+
+#view-regulatory .analysis-row--reg-grid7 .legend,
+#view-regulatory .analysis-row--reg-grid5 .legend {
+    padding: 0 16px 12px
+}
+
+#view-regulatory > .section-title:first-of-type {
+    margin-left: 0;
+    margin-right: 0
+}
+
+.ca-section {
+    margin-top: 22px
+}
+
+.ca-filters {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 14px
+}
+
+.ca-kpi-hero {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow)
+}
+
+.ca-kpi-hero .lbl {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 6px
+}
+
+.ca-kpi-hero .num {
+    font-size: 32px;
+    font-weight: 650;
+    letter-spacing: -.02em
+}
+
+.ca-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 12px
+}
+
+.ca-span-6 {
+    grid-column: span 6
+}
+
+.ca-span-4 {
+    grid-column: span 4
+}
+
+.ca-span-8 {
+    grid-column: span 8
+}
+
+@media (max-width: 1480px) {
+    .ca-span-6,
+    .ca-span-4,
+    .ca-span-8 {
+        grid-column: span 12
+    }
+}
+
+.ca-chart-panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    min-height: 260px
+}
+
+.ca-chart-panel .panel-head {
+    padding: 12px 14px 8px
+}
+
+.ca-chart-panel .panel-title {
+    font-size: 13px
+}
+
+.ca-svg {
+    width: 100%;
+    height: 220px;
+    display: block
+}
+
+.ca-legend-mini {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    padding: 0 14px 12px;
+    font-size: 10px;
+    color: var(--muted)
+}
+
+.ca-legend-mini span.i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-right: 5px;
+    vertical-align: middle
+}
+
+.promo-queue-row .rowhead {
+    max-width: 140px
+}
+
+.ma-two-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 14px
+}
+
+@media (max-width: 1480px) {
+    .ma-two-charts {
+        grid-template-columns: 1fr
+    }
+}
+
+.promo-module {
+    margin-top: 22px
+}
+
+.promo-kpi-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-bottom: 14px
+}
+
+.promo-kpi-row .card {
+    padding: 12px 12px 10px
+}
+
+.promo-kpi-row .metric-value {
+    font-size: 22px;
+    margin: 4px 0 0
+}
+
+.promo-kpi-row .metric-label {
+    min-height: 0;
+    font-size: 10px
+}
+
+.promo-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1fr;
+    gap: 14px;
+    margin-top: 4px
+}
+
+.promo-side-list {
+    display: grid;
+    gap: 8px
+}
+
+.promo-side-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--panel-2);
+    font-size: 11px
+}
+
+.promo-side-item span:last-child {
+    font-weight: 700;
+    color: var(--ink)
+}
+
+.audience-bars {
+    padding: 8px 4px 4px
+}
+
+.audience-row {
+    margin-bottom: 10px
+}
+
+.audience-row .lbl {
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: .06em
+}
+
+.audience-track {
+    height: 14px;
+    border-radius: 999px;
+    background: #eef2ee;
+    overflow: hidden;
+    display: flex
+}
+
+.audience-seg {
+    height: 100%
+}
+
+.audience-seg.pg {
+    background: linear-gradient(90deg, #8aab92, #557a61)
+}
+
+.audience-seg.hcp {
+    background: linear-gradient(90deg, #b8c9bb, #6f9278)
+}
+
+.ma-section {
+    margin-top: 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 18px
+}
+
+.ma-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 14px;
+    margin-top: 8px
+}
+
+.ma-scorecard .rowhead {
+    max-width: 200px
+}
+
+.ma-studies {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.ma-study-card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: var(--panel);
+    box-shadow: var(--shadow)
+}
+
+.ma-study-card h4 {
+    margin: 0 0 6px;
+    font-size: 12px;
+    font-weight: 650
+}
+
+.ma-study-card p {
+    margin: 0;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.45
+}
+
+.ma-trend-row {
+    margin-top: 14px
+}
+
+.alert-panel {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid #e0e8e2;
+    background: linear-gradient(180deg, #fbfcfa, #f6f8f4)
+}
+
+.alert-panel h4 {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 650
+}
+
+.alert-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px
+}
+
+.alert-cell {
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: #fff;
+    font-size: 11px
+}
+
+.alert-cell .t {
+    color: var(--muted);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 4px
+}
+
+.alert-cell .n {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink)
+}
+
+.reg-sec-cards-top {
+    grid-template-columns: repeat(5, 1fr)
+}
+
+.reg-sec-cards-bottom {
+    grid-template-columns: repeat(4, 1fr);
+    width: calc(4 * (100% - 4 * 12px) / 5 + 3 * 12px);
+    margin-inline: auto
+}
+
+.medium-bars {
+    padding: 4px 0 8px
+}
+
+.medium-row {
+    display: grid;
+    grid-template-columns: 88px 1fr 36px;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 10px
+}
+
+.medium-row .track {
+    height: 10px;
+    border-radius: 999px;
+    background: #eef2ee;
+    overflow: hidden
+}
+
+.medium-row .fill {
+    height: 100%;
+    background: linear-gradient(90deg, #7b9b84, #557a61);
+    border-radius: 999px
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.filter {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px 12px;
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 1;
+}
+
+.filter.is-open {
+    z-index: 40;
+}
+
+.filter .label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+.filter-trigger {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--ink);
+    text-align: left;
+}
+
+.filter-trigger:focus-visible {
+    outline: 2px solid var(--green-2);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.filter-current {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.3;
+}
+
+.filter-chev {
+    flex-shrink: 0;
+    font-size: 10px;
+    color: var(--muted);
+    transition: transform .15s ease;
+}
+
+.filter.is-open .filter-chev {
+    transform: rotate(-180deg);
+}
+
+.filter-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 6px);
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: var(--shadow), 0 14px 32px rgba(31, 42, 36, .1);
+    max-height: min(280px, 55vh);
+    overflow-y: auto;
+}
+
+.filter.is-open .filter-menu {
+    display: block;
+}
+
+.filter-option {
+    display: block;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer;
+}
+
+.filter-option:hover {
+    background: var(--green-soft);
+}
+
+.filter-option.is-selected {
+    color: var(--green);
+    background: rgba(232, 239, 233, .65);
+}
+
+.section-title {
+    margin: 18px 2px 12px;
+    font-size: 22px;
+    font-weight: 650;
+    letter-spacing: .01em;
+}
+
+#view-executive > .section-title:first-of-type {
+    margin-left: 0;
+    margin-right: 0
+}
+
+.cards-row {
+    display: grid;
+    gap: 12px;
+}
+
+.obj-cards {
+    grid-template-columns: repeat(5, 1fr)
+}
+
+.sec-cards-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%
+}
+
+.sec-cards.sec-cards-top {
+    grid-template-columns: repeat(7, 1fr)
+}
+
+.sec-cards.sec-cards-bottom {
+    grid-template-columns: repeat(6, 1fr);
+    width: calc(6 * (100% - 6 * 12px) / 7 + 5 * 12px);
+    margin-inline: auto
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 14px 14px 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sec-cards .card {
+    padding: 10px 10px 8px;
+}
+
+.sec-cards .metric-label {
+    font-size: 10px;
+    min-height: 0;
+    margin-bottom: 2px;
+}
+
+.sec-cards .metric-value {
+    font-size: 20px;
+    margin: 2px 0 6px;
+}
+
+.sec-cards .metric-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 4px;
+}
+
+.sec-cards .meta-box {
+    border: none;
+    background: none;
+    padding: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.sec-cards .meta-box .k {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.sec-cards .meta-box .v {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.sec-cards .spark {
+    height: 28px;
+    width: auto;
+    aspect-ratio: 150 / 48;
+    max-width: 100%;
+    margin: 4px auto 0;
+    display: block;
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green) 0%, #a9c0ad 100%);
+    opacity: .65;
+}
+
+.metric-label {
+    font-size: 11px;
+    line-height: 1.35;
+    color: var(--muted);
+    min-height: 32px
+}
+
+.metric-value {
+    font-size: 28px;
+    font-weight: 650;
+    letter-spacing: -.02em;
+    margin: 8px 0 10px
+}
+
+.metric-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px
+}
+
+.meta-box {
+    padding: 8px 9px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--panel-2)
+}
+
+.meta-box .k {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 3px
+}
+
+.meta-box .v {
+    font-size: 13px;
+    font-weight: 600
+}
+
+.attain {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 6px
+}
+
+.attain .k {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted)
+}
+
+.attain .v {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--green)
+}
+
+.spark {
+    height: 48px;
+    width: 150px;
+    max-width: 100%;
+    margin: 8px auto 0;
+    display: block;
+}
+
+.spark polyline,
+.spark path {
+    fill: none;
+    stroke: var(--green);
+    stroke-width: 2.2
+}
+
+.spark .fill {
+    fill: rgba(111, 146, 120, .09);
+    stroke: none
+}
+
+.analysis-row {
+    display: grid;
+    grid-template-columns: 1.2fr .95fr;
+    gap: 14px;
+    margin-top: 14px
+}
+
+.analysis-row--objectives {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    align-items: stretch
+}
+
+.analysis-row--objectives > .panel:first-child {
+    grid-column: span 3
+}
+
+.analysis-row--objectives > .panel:last-child {
+    grid-column: span 2
+}
+
+.analysis-row--objectives .table-wrap {
+    padding: 4px 16px 12px
+}
+
+.analysis-row--objectives .chart-area {
+    padding: 10px 16px 12px
+}
+
+.analysis-row--objectives .legend {
+    padding: 0 16px 12px
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    min-height: 100%;
+}
+
+.panel-head {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcfa 100%);
+}
+
+.panel-title {
+    font-size: 15px;
+    font-weight: 650;
+    margin: 0 0 5px
+}
+
+.panel-sub {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0
+}
+
+.segmented {
+    display: flex;
+    gap: 6px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+#secSelector {
+    flex-wrap: wrap;
+    overflow: visible
+}
+
+.segmented button {
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--muted);
+    padding: 8px 10px;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex: 1 1 auto;
+}
+
+.segmented button.active {
+    background: var(--green-soft);
+    color: var(--ink);
+    border-color: #c9d7cc;
+}
+
+.table-wrap {
+    padding: 4px 8px 12px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse
+}
+
+th,
+td {
+    padding: 6px 5px;
+    border-bottom: 1px solid #e9eee9;
+    text-align: right;
+    font-size: 10px;
+    white-space: nowrap
+}
+
+th:first-child,
+td:first-child {
+    text-align: left
+}
+
+thead th {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+    background: #fafbfa;
+    position: sticky;
+    top: 0
+}
+
+tbody tr:nth-child(even) {
+    background: #fcfdfc
+}
+
+.rowhead {
+    font-weight: 600;
+    color: #334039
+}
+
+.positive {
+    color: var(--green);
+    font-weight: 600
+}
+
+.negative {
+    color: var(--red);
+    font-weight: 600
+}
+
+.neutral {
+    color: #48534d;
+    font-weight: 600
+}
+
+.chart-area {
+    padding: 10px 16px 14px
+}
+
+.chart-svg {
+    width: 100%;
+    height: 250px;
+    display: block
+}
+
+.axis text {
+    fill: var(--muted);
+    font-size: 11px
+}
+
+.grid line {
+    stroke: #ebefeb;
+    stroke-width: 1
+}
+
+.series-a {
+    fill: none;
+    stroke: var(--green);
+    stroke-width: 2.6
+}
+
+.series-b {
+    fill: none;
+    stroke: #9aa69d;
+    stroke-width: 2.2;
+    stroke-dasharray: 5 4
+}
+
+.legend {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    padding: 0 16px 14px;
+    color: var(--muted);
+    font-size: 11px
+}
+
+.lg {
+    display: flex;
+    align-items: center;
+    gap: 7px
+}
+
+.lg span {
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background: var(--green)
+}
+
+.lg .dashed {
+    background: linear-gradient(90deg, #9aa69d 0 50%, transparent 50% 100%);
+    background-size: 8px 2px
+}
+
+.secondary-block {
+    margin-top: 20px
+}
+
+.dual-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 12px
+}
+
+.dual-panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden
+}
+
+.dual-body {
+    padding: 14px 16px 16px
+}
+
+.dual-toggles {
+    display: inline-flex;
+    gap: 6px;
+    padding: 4px;
+    background: #f6f8f5;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin: 12px 0
+}
+
+.dual-toggles button {
+    border: 0;
+    background: transparent;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    cursor: pointer
+}
+
+.dual-toggles button.active {
+    background: #fff;
+    color: var(--ink);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .04)
+}
+
+.dual-main {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 14px;
+    align-items: center
+}
+
+.dual-big {
+    font-size: 28px;
+    font-weight: 650;
+    letter-spacing: -.02em
+}
+
+.dual-mini {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 6px
+}
+
+.bars {
+    display: grid;
+    gap: 10px
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 1fr 70px;
+    gap: 10px;
+    align-items: center
+}
+
+.bar-track {
+    height: 12px;
+    border-radius: 999px;
+    background: #eef2ee;
+    overflow: hidden;
+    border: 1px solid #e4ebe4
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #7b9b84, #557a61)
+}
+
+.bottom-row {
+    display: grid;
+    grid-template-columns: 1.1fr .75fr;
+    gap: 14px;
+    margin-top: 20px
+}
+
+.sob-table td,
+.sob-table th {
+    padding: 10px 8px
+}
+
+.sob-table th:last-child,
+.sob-table td.spark-cell {
+    width: 118px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.spark-cell svg {
+    width: 110px;
+    height: 24px;
+    display: block;
+    margin-left: auto;
+}
+
+.launch-summary {
+    padding: 2px 16px 14px;
+    background: linear-gradient(180deg, #fbfcfa 0%, #fafbf9 100%);
+    border-top: 1px solid var(--line);
+}
+
+.launch-hero {
+    padding-top: 2px;
+}
+
+.launch-kicker {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 5px;
+}
+
+.launch-hero-title {
+    font-size: 13px;
+    font-weight: 650;
+    color: var(--ink);
+    line-height: 1.35;
+    margin-bottom: 10px;
+}
+
+.launch-hero-stat {
+    margin-bottom: 6px;
+}
+
+.launch-hero-pct {
+    font-size: 28px;
+    font-weight: 650;
+    letter-spacing: -.02em;
+    color: var(--ink);
+}
+
+.launch-hero-pct-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.launch-hero-split {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.launch-hero-split strong {
+    color: var(--ink);
+    font-weight: 650;
+}
+
+.launch-split-sep {
+    margin: 0 5px;
+    opacity: .5;
+}
+
+.launch-hero-foot {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+.launch-split-rule {
+    height: 1px;
+    background: var(--line);
+    margin: 12px 0 2px;
+}
+
+.launch-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.launch-line {
+    display: grid;
+    grid-template-columns: 1fr minmax(76px, auto);
+    gap: 10px 12px;
+    padding: 10px 0;
+    border-top: 1px solid #eef1ed;
+    align-items: start;
+}
+
+.launch-line:first-child {
+    border-top: none;
+    padding-top: 8px;
+}
+
+.launch-line-main {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.launch-line-name {
+    font-size: 12px;
+    font-weight: 650;
+    color: var(--ink);
+}
+
+.launch-line-hint {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
+    line-height: 1.35;
+}
+
+.launch-line-fig {
+    text-align: right;
+}
+
+.launch-line-val {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+}
+
+.launch-line-unit {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.launch-line-note {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 4px;
+    line-height: 1.35;
+}
+
+.note {
+    font-size: 11px;
+    color: var(--muted)
+}
+
+</style></head><body><div class="page"><header class="topbar"><div class="brand"><div class="brand-mark"><img class="brand-mark-img" src="pierre-fabre-logo.png" alt="Pierre Fabre" width="225" height="135" decoding="async"></div><div class="brand-copy"><h1>Pierre Fabre Mexico</h1><div class="sub">Executive Dashboard</div></div></div><div></div></header><nav class="nav"><a class="active" href="#" data-app-view="executive">Overview</a><a href="#">Commercial</a><a href="#">Finance</a><a href="#">Mkt</a><a href="#">Dermo</a><a href="#">Medical</a><a href="#" data-app-view="regulatory">Regulatory</a><a href="#">RH</a></nav><div id="view-executive" class="dashboard-view"><div class="section-title">Mexico Objectives</div><section class="cards-row obj-cards"><div class="card"><div class="metric-label">Market Share Value Gain</div><div class="metric-value">+0.42 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.42 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.50 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">84.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 41 L18 39 L36 37 L54 33 L72 31 L90 26 L108 24 L126 18 L144 14 L144 48 L0 48 Z"></path><polyline points="0,41 18,39 36,37 54,33 72,31 90,26 108,24 126,18 144,14"></polyline></svg></div><div class="card"><div class="metric-label">GP %</div><div class="metric-value">68.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">68.6%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">70.0%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">98.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L18 29 L36 31 L54 28 L72 27 L90 24 L108 25 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,30 18,29 36,31 54,28 72,27 90,24 108,25 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Staff Cost % Revenue</div><div class="metric-value">14.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">14.8%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">14.2%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">95.9%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 18 L18 20 L36 22 L54 23 L72 24 L90 26 L108 25 L126 27 L144 28 L144 48 L0 48 Z"></path><polyline points="0,18 18,20 36,22 54,23 72,24 90,26 108,25 126,27 144,28"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain DCPC</div><div class="metric-value">+0.31 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.31 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.35 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">88.6%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 39 L18 37 L36 36 L54 34 L72 31 L90 28 L108 24 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,39 18,37 36,36 54,34 72,31 90,28 108,24 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain MC including Dexeryl</div><div class="metric-value">+0.27 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.27 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.30 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">90.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 40 L18 40 L36 38 L54 35 L72 34 L90 31 L108 28 L126 24 L144 23 L144 48 L0 48 Z"></path><polyline points="0,40 18,40 36,38 54,35 72,34 90,31 108,28 126,24 144,23"></polyline></svg></div></section><section class="analysis-row analysis-row--objectives"><div class="panel"><div class="panel-head"><h3 class="panel-title">Objectives Period Matrix</h3><p class="panel-sub">Standardized comparative read across fiscal year,
+YTD,
+quarterly and monthly cuts,
+including explicit market share views by business unit.</p></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>Y-1</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Y-1</th><th>ene-25</th><th>ene-26</th><th>Y-1</th></tr></thead><tbody><tr><td class="rowhead">MS Value Gain DC</td><td class="positive">+0.58</td><td class="positive">+0.22</td><td class="positive">+0.42</td><td class="positive">+0.20</td><td>+0.18</td><td>+0.11</td><td>+0.16</td><td>+0.13</td><td>+0.07</td><td>+0.14</td><td class="positive">+0.19</td><td>+0.05</td></tr><tr><td class="rowhead">MS Value Gain DCPC</td><td class="positive">+0.44</td><td class="positive">+0.16</td><td class="positive">+0.31</td><td class="positive">+0.15</td><td>+0.09</td><td>+0.10</td><td>+0.12</td><td>+0.13</td><td>+0.05</td><td>+0.11</td><td class="positive">+0.15</td><td>+0.04</td></tr><tr><td class="rowhead">MS Value Gain MC incl. Dexeryl</td><td class="positive">+0.37</td><td class="positive">+0.12</td><td class="positive">+0.27</td><td class="positive">+0.15</td><td>+0.07</td><td>+0.08</td><td>+0.10</td><td>+0.12</td><td>+0.04</td><td>+0.08</td><td class="positive">+0.12</td><td>+0.04</td></tr><tr><td class="rowhead">GP %</td><td>69.4%</td><td>67.9%</td><td class="positive">68.6%</td><td class="positive">+0.7</td><td>68.2%</td><td>69.0%</td><td>69.6%</td><td>70.1%</td><td>+0.5</td><td>67.8%</td><td class="positive">68.4%</td><td>+0.6</td></tr><tr><td class="rowhead">Staff Cost % Revenue</td><td>14.3%</td><td>14.6%</td><td class="negative">14.8%</td><td class="negative">+0.2</td><td>14.2%</td><td>14.4%</td><td>14.3%</td><td>14.5%</td><td>+0.1</td><td>14.5%</td><td class="negative">14.8%</td><td>+0.3</td></tr><tr><td class="rowhead">Revenue MXN</td><td>$2.94B</td><td>$598M</td><td class="positive">$662M</td><td class="positive">+10.7%</td><td>$721M</td><td>$738M</td><td>$744M</td><td>$737M</td><td>+7.4%</td><td>$201M</td><td class="positive">$224M</td><td>+11.4%</td></tr></tbody></table></div></div><div class="panel"><div class="panel-head"><h3 class="panel-title">KPI Year vs Prior Year Trend</h3><p class="panel-sub">Monthly comparison view across the core objective KPIs,
+keeping a compact executive read with standardized current year versus prior year structure.</p><div class="segmented" id="objSelector"><button data-key="gp" class="active">GP %</button><button data-key="staff" class="">Staff Cost % Revenue</button><button data-key="dcpc" class="">MS Gain DCPC</button><button data-key="mc" class="">MS Gain MC incl. Dexeryl</button></div></div><div class="chart-area"><svg class="chart-svg" id="objChart" viewBox="0 0 560 250"><g class="grid"><line x1="40" y1="14" x2="544" y2="14"></line><line x1="40" y1="81.33333333333333" x2="544" y2="81.33333333333333"></line><line x1="40" y1="148.66666666666666" x2="544" y2="148.66666666666666"></line><line x1="40" y1="216" x2="544" y2="216"></line></g><g class="axis"><text x="40" y="238" text-anchor="middle">Jan</text><text x="85.81818181818181" y="238" text-anchor="middle">Feb</text><text x="131.63636363636363" y="238" text-anchor="middle">Mar</text><text x="177.45454545454547" y="238" text-anchor="middle">Apr</text><text x="223.27272727272728" y="238" text-anchor="middle">May</text><text x="269.0909090909091" y="238" text-anchor="middle">Jun</text><text x="314.90909090909093" y="238" text-anchor="middle">Jul</text><text x="360.72727272727275" y="238" text-anchor="middle">Aug</text><text x="406.54545454545456" y="238" text-anchor="middle">Sep</text><text x="452.3636363636364" y="238" text-anchor="middle">Oct</text><text x="498.1818181818182" y="238" text-anchor="middle">Nov</text><text x="544" y="238" text-anchor="middle">Dec</text></g><path class="series-b" d="M 40 192.6923076923077 L 85.81818181818181 188.25274725274727 L 131.63636363636363 174.93406593406593 L 177.45454545454547 166.05494505494508 L 223.27272727272728 152.73626373626377 L 269.0909090909091 148.2967032967033 L 314.90909090909093 134.978021978022 L 360.72727272727275 130.53846153846155 L 406.54545454545456 121.65934065934069 L 452.3636363636364 108.34065934065936 L 498.1818181818182 99.46153846153847 L 544 90.58241758241758"></path><path class="series-a" d="M 40 174.93406593406593 L 85.81818181818181 157.1758241758242 L 131.63636363636363 152.73626373626377 L 177.45454545454547 130.53846153846155 L 223.27272727272728 112.7802197802198 L 269.0909090909091 99.46153846153847 L 314.90909090909093 86.14285714285717 L 360.72727272727275 77.26373626373629 L 406.54545454545456 63.94505494505495 L 452.3636363636364 55.0659340659341 L 498.1818181818182 50.62637362637366 L 544 37.30769230769232"></path></svg></div><div class="legend"><div class="lg"><span></span>2026</div><div class="lg"><span class="dashed"></span>2025</div></div></div></section><section class="secondary-block"><div class="section-title">Secondary Metrics</div><div class="filters"><div class="filter filter--dropdown" data-filter="brand"><div class="label">Brand</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-brand"><span class="filter-current">Portfolio total</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-brand"><li><button type="button" class="filter-option is-selected" role="option">Portfolio total</button></li><li><button type="button" class="filter-option" role="option">Eau Thermale Avène</button></li><li><button type="button" class="filter-option" role="option">Ducray</button></li><li><button type="button" class="filter-option" role="option">Klorane</button></li><li><button type="button" class="filter-option" role="option">René Furterer</button></li><li><button type="button" class="filter-option" role="option">Dexeryl</button></li><li><button type="button" class="filter-option" role="option">Pierre Fabre Dermo (combined)</button></li><li><button type="button" class="filter-option" role="option">Rx-focused basket</button></li></ul></div><div class="filter filter--dropdown" data-filter="channel"><div class="label">Channel / Customer</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-channel"><span class="filter-current">All channels</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-channel"><li><button type="button" class="filter-option" role="option">Modern trade+pharmacy</button></li><li><button type="button" class="filter-option" role="option">Pharmacy only</button></li><li><button type="button" class="filter-option" role="option">Modern trade</button></li><li><button type="button" class="filter-option" role="option">Wholesale / CDC</button></li><li><button type="button" class="filter-option" role="option">E-commerce &amp; marketplace</button></li><li><button type="button" class="filter-option" role="option">Hospital / institutional</button></li><li><button type="button" class="filter-option is-selected" role="option">All channels</button></li></ul></div><div class="filter filter--dropdown" data-filter="category"><div class="label">Categoría</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-period"><span class="filter-current">Todas las categorías</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-period"><li><button type="button" class="filter-option is-selected" role="option">Todas las categorías</button></li><li><button type="button" class="filter-option" role="option">Acné e imperfecciones</button></li><li><button type="button" class="filter-option" role="option">Dermo aclarantes / anti-manchas</button></li><li><button type="button" class="filter-option" role="option">Rosácea y piel sensible</button></li><li><button type="button" class="filter-option" role="option">Piel atópica / dermatitis</button></li><li><button type="button" class="filter-option" role="option">Antiedad y reparación cutánea</button></li><li><button type="button" class="filter-option" role="option">Fotoprotección solar</button></li><li><button type="button" class="filter-option" role="option">Cuidado capilar</button></li><li><button type="button" class="filter-option" role="option">Higiene dermatológica</button></li><li><button type="button" class="filter-option" role="option">Oncología dermatológica</button></li><li><button type="button" class="filter-option" role="option">Pediatría / dermo pediátrica</button></li></ul></div></div><div class="sec-cards-wrap"><div class="cards-row sec-cards sec-cards-top"><div class="card"><div class="metric-label">Market Share Value Gain DC (MS Gain Value)</div><div class="metric-value">+0.42 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.05 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.20</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,40 18,38 36,36 54,33 72,30 90,27 108,24 126,21 144,18"></polyline></svg></div><div class="card"><div class="metric-label">GP %</div><div class="metric-value">68.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.4 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.7</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,31 18,30 36,31 54,29 72,27 90,25 108,25 126,23 144,21"></polyline></svg></div><div class="card"><div class="metric-label">Sell In</div><div class="metric-value">$662M</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+4.8%</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+10.7%</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,38 18,35 36,34 54,31 72,28 90,25 108,22 126,18 144,16"></polyline></svg></div><div class="card"><div class="metric-label">Sell Out</div><div class="metric-value">$618M</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+3.9%</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+8.6%</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,39 18,37 36,33 54,30 72,29 90,26 108,24 126,22 144,19"></polyline></svg></div><div class="card"><div class="metric-label">Budget vs Actual</div><div class="metric-value">101.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.9 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.2 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,30 18,29 36,30 54,28 72,25 90,24 108,22 126,20 144,18"></polyline></svg></div><div class="card"><div class="metric-label">Share of Business</div><div class="metric-value">34.7%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.6 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.1 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,36 18,34 36,34 54,31 72,29 90,27 108,24 126,21 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Days on Hand</div><div class="metric-value">54</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+2 days</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v negative">+4 days</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,18 18,19 36,21 54,22 72,24 90,25 108,27 126,28 144,31"></polyline></svg></div></div><div class="cards-row sec-cards sec-cards-bottom"><div class="card"><div class="metric-label">TIFI / OTIF</div><div class="metric-value">94.2%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.5 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.0 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,32 18,31 36,30 54,29 72,27 90,26 108,24 126,23 144,22"></polyline></svg></div><div class="card"><div class="metric-label">Fill Rate</div><div class="metric-value">96.1%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.4 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.8 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,33 18,32 36,31 54,30 72,28 90,27 108,25 126,24 144,23"></polyline></svg></div><div class="card"><div class="metric-label">PM / Credit Notes</div><div class="metric-value">2.4%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+0.2 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v negative">+0.1 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,20 18,20 36,21 54,22 72,23 90,25 108,25 126,26 144,28"></polyline></svg></div><div class="card"><div class="metric-label">SOI</div><div class="metric-value">14.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.8 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.4 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,36 18,35 36,33 54,31 72,29 90,27 108,24 126,21 144,18"></polyline></svg></div><div class="card"><div class="metric-label">SOE</div><div class="metric-value">12.1%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.5 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.9 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,34 18,34 36,32 54,31 72,28 90,26 108,25 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">CARS</div><div class="metric-value">89.4%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+1.3 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+2.2 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,38 18,37 36,35 54,32 72,30 90,27 108,24 126,20 144,18"></polyline></svg></div></div></div><section class="analysis-row"><div class="panel"><div class="panel-head"><h3 class="panel-title">Secondary Metrics Matrix</h3><p class="panel-sub">Broader operating follow-up using the same standardized period schema,
+preserving a compact executive table-led reading style.</p></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>Y-1</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Y-1</th><th>ene-25</th><th>ene-26</th><th>Y-1</th></tr></thead><tbody><tr><td class="rowhead">Market Share Value Gain DC (MS Gain Value)</td><td class="positive">+0.58</td><td class="positive">+0.22</td><td class="positive">+0.42</td><td class="positive">+0.20</td><td>+0.18</td><td>+0.11</td><td>+0.16</td><td>+0.13</td><td>+0.07</td><td>+0.14</td><td class="positive">+0.19</td><td>+0.05</td></tr><tr><td class="rowhead">GP %</td><td>67.8%</td><td>68.0%</td><td class="positive">68.6%</td><td class="positive">+0.8</td><td>68.1%</td><td>68.3%</td><td>68.5%</td><td>68.4%</td><td>+0.5</td><td>68.2%</td><td class="positive">68.6%</td><td>+0.6</td></tr><tr><td class="rowhead">Sell In</td><td>$2.94B</td><td>$598M</td><td class="positive">$662M</td><td class="positive">+10.7%</td><td>$721M</td><td>$738M</td><td>$744M</td><td>$737M</td><td>+7.4%</td><td>$201M</td><td class="positive">$224M</td><td>+11.4%</td></tr><tr><td class="rowhead">Sell Out</td><td>$2.71B</td><td>$569M</td><td class="positive">$618M</td><td class="positive">+8.6%</td><td>$676M</td><td>$688M</td><td>$690M</td><td>$656M</td><td>+6.3%</td><td>$190M</td><td class="positive">$209M</td><td>+10.0%</td></tr><tr><td class="rowhead">Budget vs Actual</td><td>100.9%</td><td>100.6%</td><td class="positive">101.8%</td><td class="positive">+1.2</td><td>99.8%</td><td>100.5%</td><td>101.2%</td><td>102.1%</td><td>+0.9</td><td>100.2%</td><td class="positive">101.5%</td><td>+1.3</td></tr><tr><td class="rowhead">Share of Business</td><td>33.8%</td><td>33.6%</td><td class="positive">34.7%</td><td class="positive">+1.1</td><td>33.4%</td><td>33.7%</td><td>34.0%</td><td>34.1%</td><td>+0.8</td><td>33.5%</td><td class="positive">34.3%</td><td>+0.8</td></tr><tr><td class="rowhead">Days on Hand</td><td>50</td><td>50</td><td class="negative">54</td><td class="negative">+4</td><td>48</td><td>49</td><td>51</td><td>52</td><td>+3</td><td>49</td><td class="negative">54</td><td>+5</td></tr><tr><td class="rowhead">TIFI / OTIF</td><td>93.4%</td><td>93.2%</td><td class="positive">94.2%</td><td class="positive">+1.0</td><td>92.9%</td><td>93.4%</td><td>93.8%</td><td>93.6%</td><td>+0.8</td><td>93.1%</td><td class="positive">94.0%</td><td>+0.9</td></tr><tr><td class="rowhead">Fill Rate</td><td>95.3%</td><td>95.3%</td><td class="positive">96.1%</td><td class="positive">+0.8</td><td>95.0%</td><td>95.5%</td><td>95.7%</td><td>95.4%</td><td>+0.7</td><td>95.1%</td><td class="positive">95.9%</td><td>+0.8</td></tr><tr><td class="rowhead">PM / Credit Notes</td><td>2.1%</td><td>2.3%</td><td class="negative">2.4%</td><td class="negative">+0.1</td><td>2.0%</td><td>2.1%</td><td>2.2%</td><td>2.1%</td><td>+0.1</td><td>2.2%</td><td class="negative">2.4%</td><td>+0.2</td></tr><tr><td class="rowhead">SOI</td><td>13.0%</td><td>13.2%</td><td class="positive">14.6%</td><td class="positive">+1.4</td><td>12.7%</td><td>13.1%</td><td>13.4%</td><td>13.8%</td><td>+1.1</td><td>13.1%</td><td class="positive">14.2%</td><td>+1.1</td></tr><tr><td class="rowhead">SOE</td><td>11.2%</td><td>11.2%</td><td class="positive">12.1%</td><td class="positive">+0.9</td><td>10.9%</td><td>11.1%</td><td>11.4%</td><td>11.6%</td><td>+0.8</td><td>11.1%</td><td class="positive">11.9%</td><td>+0.8</td></tr><tr><td class="rowhead">CARS</td><td>87.2%</td><td>87.9%</td><td class="positive">89.4%</td><td class="positive">+1.5</td><td>86.8%</td><td>87.4%</td><td>88.1%</td><td>88.5%</td><td>+1.2</td><td>87.1%</td><td class="positive">89.0%</td><td>+1.9</td></tr></tbody></table></div></div><div class="panel"><div class="panel-head"><h3 class="panel-title">Secondary Metrics Year vs Prior Year</h3><p class="panel-sub">Switchable trend comparison for the broader monitoring KPIs,
+aligned to the same compact structure used above for consistency and fast scanning.</p><div class="segmented" id="secSelector"><button class="active" data-key="msgv">Market Share Value Gain DC (MS Gain Value)</button><button data-key="gpsec">GP %</button><button data-key="sellin">Sell In</button><button data-key="sellout">Sell Out</button><button data-key="budget">Budget vs Actual</button><button data-key="sob">Share of Business</button><button data-key="doh">Days on Hand</button><button data-key="otif">TIFI / OTIF</button><button data-key="fill">Fill Rate</button><button data-key="pm">PM / Credit Notes</button><button data-key="soi">SOI</button><button data-key="soe">SOE</button><button data-key="cars">CARS</button></div></div><div class="chart-area"><svg class="chart-svg" id="secChart" viewBox="0 0 560 250"><g class="grid"><line x1="40" y1="14" x2="544" y2="14"></line><line x1="40" y1="81.33333333333333" x2="544" y2="81.33333333333333"></line><line x1="40" y1="148.66666666666666" x2="544" y2="148.66666666666666"></line><line x1="40" y1="216" x2="544" y2="216"></line></g><g class="axis"><text x="40" y="238" text-anchor="middle">Jan</text><text x="85.81818181818181" y="238" text-anchor="middle">Feb</text><text x="131.63636363636363" y="238" text-anchor="middle">Mar</text><text x="177.45454545454547" y="238" text-anchor="middle">Apr</text><text x="223.27272727272728" y="238" text-anchor="middle">May</text><text x="269.0909090909091" y="238" text-anchor="middle">Jun</text><text x="314.90909090909093" y="238" text-anchor="middle">Jul</text><text x="360.72727272727275" y="238" text-anchor="middle">Aug</text><text x="406.54545454545456" y="238" text-anchor="middle">Sep</text><text x="452.3636363636364" y="238" text-anchor="middle">Oct</text><text x="498.1818181818182" y="238" text-anchor="middle">Nov</text><text x="544" y="238" text-anchor="middle">Dec</text></g><path class="series-b" d="M 40 192.69230769230768 L 85.81818181818181 170.29452529452527 L 131.63636363636363 153.4961884961885 L 177.45454545454547 135.29799029799028 L 223.27272727272728 121.29937629937628 L 269.0909090909091 112.90020790020789 L 314.90909090909093 103.10117810117808 L 360.72727272727275 93.30214830214828 L 406.54545454545456 87.70270270270268 L 452.3636363636364 82.10325710325708 L 498.1818181818182 70.90436590436587 L 544 62.50519750519746"></path><path class="series-a" d="M 40 171.69438669438668 L 85.81818181818181 153.4961884961885 L 131.63636363636363 121.29937629937628 L 177.45454545454547 104.50103950103949 L 223.27272727272728 87.70270270270268 L 269.0909090909091 83.50311850311849 L 314.90909090909093 72.30422730422728 L 360.72727272727275 66.70478170478168 L 406.54545454545456 61.10533610533608 L 452.3636363636364 55.50589050589048 L 498.1818181818182 44.30699930699927 L 544 37.307692307692264"></path></svg></div><div class="legend"><div class="lg"><span></span>2026</div><div class="lg"><span class="dashed"></span>2025</div></div></div></section></section><section class="secondary-block"><div class="section-title">Dual Metrics</div> <div class="filters"><div class="filter filter--dropdown" data-filter="brand"><div class="label">Brand</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-brand-dual"><span class="filter-current">Portfolio total</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-brand-dual"><li><button type="button" class="filter-option is-selected" role="option">Portfolio total</button></li><li><button type="button" class="filter-option" role="option">Eau Thermale Avène</button></li><li><button type="button" class="filter-option" role="option">Ducray</button></li><li><button type="button" class="filter-option" role="option">Klorane</button></li><li><button type="button" class="filter-option" role="option">René Furterer</button></li><li><button type="button" class="filter-option" role="option">Dexeryl</button></li><li><button type="button" class="filter-option" role="option">Pierre Fabre Dermo (combined)</button></li><li><button type="button" class="filter-option" role="option">Rx-focused basket</button></li></ul></div><div class="filter filter--dropdown" data-filter="category"><div class="label">Categoría</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-period-dual"><span class="filter-current">Todas las categorías</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-period-dual"><li><button type="button" class="filter-option is-selected" role="option">Todas las categorías</button></li><li><button type="button" class="filter-option" role="option">Acné e imperfecciones</button></li><li><button type="button" class="filter-option" role="option">Dermo aclarantes / anti-manchas</button></li><li><button type="button" class="filter-option" role="option">Rosácea y piel sensible</button></li><li><button type="button" class="filter-option" role="option">Piel atópica / dermatitis</button></li><li><button type="button" class="filter-option" role="option">Antiedad y reparación cutánea</button></li><li><button type="button" class="filter-option" role="option">Fotoprotección solar</button></li><li><button type="button" class="filter-option" role="option">Cuidado capilar</button></li><li><button type="button" class="filter-option" role="option">Higiene dermatológica</button></li><li><button type="button" class="filter-option" role="option">Oncología dermatológica</button></li><li><button type="button" class="filter-option" role="option">Pediatría / dermo pediátrica</button></li></ul></div></div>
+
+<div class="dual-grid"><div class="dual-panel"><div class="panel-head"><h3 class="panel-title">Sell Out: Client View vs Auditable View</h3><p class="panel-sub">Weekly follow-up lens for commercial tracking versus auditable consolidation.</p></div><div class="dual-body"><div class="dual-toggles" data-dual="sellout"><button class="active" data-view="client">Client View</button><button data-view="audit">Auditable View</button></div><div class="dual-main"><div><div class="dual-big" id="selloutValue">$618M</div><div class="dual-mini" id="selloutMeta"></div></div><div class="bars"><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="selloutBar1" style="width:78%"></div></div><div id="selloutLbl1">78%</div></div><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="selloutBar2" style="width:84%"></div></div><div id="selloutLbl2">84%</div></div><div class="note" id="selloutNote"></div></div></div></div></div><div class="dual-panel"><div class="panel-head"><h3 class="panel-title">Market Share: With Amazon vs Without Amazon</h3><p class="panel-sub">Monthly market share view showing the effect of marketplace inclusion on the executive read.</p></div><div class="dual-body"><div class="dual-toggles" data-dual="share"><button class="active" data-view="with">With Amazon</button><button data-view="without">Without Amazon</button></div><div class="dual-main"><div><div class="dual-big" id="shareValue">12.8%</div><div class="dual-mini" id="shareMeta"></div></div><div class="bars"><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="shareBar1" style="width:64%"></div></div><div id="shareLbl1">12.8%</div></div><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="shareBar2" style="width:58%"></div></div><div id="shareLbl2">11.6%</div></div><div class="note" id="shareNote"></div></div></div></div></div><div class="dual-panel"><div class="panel-head"><h3 class="panel-title">Days on Hand: Client Reported vs Finance Calculated</h3><p class="panel-sub">Inventory lens to surface operational reading differences while preserving a single executive visual frame.</p></div><div class="dual-body"><div class="dual-toggles" data-dual="dohdual"><button class="active" data-view="client">Client Reported</button><button data-view="finance">Finance Calculated</button></div><div class="dual-main"><div><div class="dual-big" id="dohValue">54</div><div class="dual-mini" id="dohMeta"></div></div><div class="bars"><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="dohBar1" style="width:54%"></div></div><div id="dohLbl1">54 days</div></div><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="dohBar2" style="width:48%"></div></div><div id="dohLbl2">48 days</div></div><div class="note" id="dohNote"></div></div></div></div></div></div></section><section class="bottom-row"><div class="panel"><div class="panel-head"><h3 class="panel-title">Share of Business</h3><p class="panel-sub">Ranked customer distribution with contribution,
+value and in-line trend,
+preserving a table-led read for executive monitoring.</p></div><div class="table-wrap"><table class="sob-table"><thead><tr><th>Customer / Account</th><th>Contribution</th><th>Value</th><th>Trend</th></tr></thead><tbody><tr><td class="rowhead">Farmacias Guadalajara</td><td class="positive">17.8%</td><td>$118.2M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,17 15,15 30,16 45,13 60,12 75,10 90,8 105,6"></polyline></svg></td></tr><tr><td class="rowhead">Farmacias del Ahorro</td><td class="positive">15.3%</td><td>$101.4M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,18 15,17 30,15 45,14 60,13 75,12 90,10 105,9"></polyline></svg></td></tr><tr><td class="rowhead">Farmacias Benavides</td><td>12.6%</td><td>$83.5M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,19 15,19 30,17 45,15 60,15 75,13 90,12 105,10"></polyline></svg></td></tr><tr><td class="rowhead">Walmart México</td><td>10.9%</td><td>$72.1M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,20 15,18 30,19 45,16 60,14 75,13 90,13 105,11"></polyline></svg></td></tr><tr><td class="rowhead">San Pablo Farmacia</td><td>9.4%</td><td>$62.3M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,18 15,18 30,16 45,15 60,14 75,12 90,11 105,11"></polyline></svg></td></tr><tr><td class="rowhead">Liverpool</td><td>7.7%</td><td>$50.9M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,20 15,19 30,18 45,17 60,16 75,15 90,13 105,12"></polyline></svg></td></tr><tr><td class="rowhead">Chedraui</td><td>6.8%</td><td>$45.1M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,21 15,20 30,18 45,18 60,17 75,15 90,14 105,13"></polyline></svg></td></tr><tr><td class="rowhead">Amazon México</td><td>5.6%</td><td>$37.2M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,22 15,20 30,19 45,16 60,15 75,12 90,10 105,8"></polyline></svg></td></tr></tbody></table></div></div><div class="panel"><div class="panel-head"><h3 class="panel-title">Launches</h3><p class="panel-sub">Executive launch summary for the steering discussion: incremental pull-through versus base, supply cover, and medical activation in one scan.</p></div><div class="launch-summary"><div class="launch-hero"><div class="launch-kicker">Lead indicator</div><div class="launch-hero-title">Incremental contribution vs base sales</div><div class="launch-hero-stat"><span class="launch-hero-pct">31%</span><span class="launch-hero-pct-label"> incremental share</span></div><div class="launch-hero-split"><strong>$13.3M</strong> incremental<span class="launch-split-sep">·</span><strong>$29.3M</strong> base-attributed</div><div class="launch-hero-foot">Launch perimeter · YTD 2026 · indexed to pre-launch run-rate</div></div><div class="launch-split-rule"></div><div class="launch-stack"><div class="launch-line"><div class="launch-line-main"><div><div class="launch-line-name">Launch inventory</div><div class="launch-line-hint">Weeks of cover vs distribution plan</div></div></div><div class="launch-line-fig"><div class="launch-line-val">6.2<span class="launch-line-unit"> wks</span></div></div></div><div class="launch-line"><div class="launch-line-main"><div><div class="launch-line-name">Prescription / close-up</div><div class="launch-line-hint">Detailing and pharmacy pull-through</div></div></div><div class="launch-line-fig"><div class="launch-line-val">82.1%</div><div class="launch-line-note">+4.8 pts vs prior month</div></div></div></div></div></div></section></div><div id="view-regulatory" class="dashboard-view" hidden><div class="reg-strip"><strong>Regulatory</strong> · Pierre Fabre Mexico · Mock data — bind to Complaints 2026 / approvals platform / Speaker-Events AMERICAS</div>
+<div class="section-title">Objectives</div>
+<div class="reg-obj-wrap"><div class="reg-obj-row7 obj-cards"><div class="card"><div class="metric-label">NPS – Internal Scientific Training</div><div class="metric-value">8.2</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">8.2</div></div><div class="meta-box"><div class="k">Target</div><div class="v">≥ 8</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">103%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,28 18,26 36,27 54,25 72,24 90,22 108,21 126,20 144,18"></polyline></svg></div><div class="card"><div class="metric-label">NPS – Scientific Events</div><div class="metric-value">8.0</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">8.0</div></div><div class="meta-box"><div class="k">Target</div><div class="v">≥ 8</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">100%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,26 18,28 36,27 54,26 72,25 90,24 108,23 126,22 144,21"></polyline></svg></div><div class="card"><div class="metric-label">Practice Impact Score</div><div class="metric-value">3.4</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">3.4</div></div><div class="meta-box"><div class="k">Target</div><div class="v">≥ 3</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">113%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,32 18,30 36,29 54,28 72,27 90,26 108,25 126,24 144,22"></polyline></svg></div><div class="card"><div class="metric-label">Renewal of the KOL Ecosystem</div><div class="metric-value">12%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">12%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">≥ 10%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">120%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,30 18,29 36,28 54,27 72,26 90,25 108,24 126,23 144,21"></polyline></svg></div><div class="card"><div class="metric-label">Investigator Study &amp; RWE Projects Aligned</div><div class="metric-value">96%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">96%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">100%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">96%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,27 18,26 36,25 54,24 72,24 90,23 108,22 126,21 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Omnichannel Journey for Congresses with Medical Event</div><div class="metric-value">88%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">88%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">100%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">88%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,29 18,28 36,27 54,26 72,25 90,24 108,23 126,22 144,21"></polyline></svg></div><div class="card"><div class="metric-label">Medical Reach – All Channels</div><div class="metric-value">+14%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+14%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+20%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">70%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,35 18,33 36,32 54,31 72,30 90,28 108,27 126,26 144,25"></polyline></svg></div></div></div>
+<section class="analysis-row analysis-row--reg-band reg-band analysis-row--reg-grid7">
+<div class="panel"><div class="panel-head"><h3 class="panel-title">Objective matrix</h3><p class="panel-sub">NPS en escala 1–10 y Practice impact score por evento (mock).</p></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>Evento 1</th><th>Evento 2</th><th>Evento 3</th><th>Evento 4</th><th>Evento 5</th></tr></thead><tbody><tr><td class="rowhead">NPS – Internal Scientific Training</td><td>6.8</td><td>7.2</td><td>7.0</td><td>7.6</td><td class="positive">8.2</td></tr><tr><td class="rowhead">NPS – Scientific Events</td><td>6.5</td><td>6.9</td><td>7.1</td><td>6.8</td><td class="positive">8.0</td></tr><tr><td class="rowhead">Practice Impact Score</td><td>2.9</td><td>3.05</td><td>2.98</td><td>3.25</td><td class="positive">3.4</td></tr></tbody></table></div></div>
+<div class="panel"><div class="panel-head"><h3 class="panel-title">Objetivos por evento</h3><p class="panel-sub panel-sub--full">Barras por evento para la métrica seleccionada (sin comparativo vs año anterior).</p><div class="segmented" id="regPrimarySelector"><button type="button" class="active" data-reg-key="npsInternalTraining">NPS – Int. training</button><button type="button" class="" data-reg-key="npsScientificEvents">NPS – Sci. events</button><button type="button" class="" data-reg-key="practiceImpact">Practice impact</button></div></div><div class="chart-area"><svg class="chart-svg chart-svg--compact" id="regPrimaryChart" viewBox="0 0 560 250"></svg></div></div>
+</section>
+<section class="secondary-block"><div class="section-title">Secondary Metrics</div>
+<div class="sec-cards-wrap"><div class="cards-row sec-cards" style="grid-template-columns:repeat(5,1fr)"><div class="card"><div class="metric-label">Total Complaints</div><div class="metric-value">64</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+3</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v negative">+6</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,22 18,24 36,23 54,26 72,25 90,27 108,24 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">% Before Use</div><div class="metric-value">37.5%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">−0.4 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v neutral">stable</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,28 18,28 36,27 54,28 72,27 90,26 108,27 126,26 144,25"></polyline></svg></div><div class="card"><div class="metric-label">% In Use</div><div class="metric-value">62.5%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+0.4 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v neutral">+0.6</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,30 18,29 36,30 54,28 72,29 90,28 108,27 126,26 144,25"></polyline></svg></div><div class="card"><div class="metric-label">Products Affected</div><div class="metric-value">37</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+2</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v negative">+3</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,26 18,25 36,26 54,24 72,25 90,23 108,22 126,21 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Brands Affected</div><div class="metric-value">5</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v neutral">0</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v neutral">0</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,32 18,32 36,31 54,31 72,30 90,30 108,29 126,29 144,28"></polyline></svg></div></div><div class="cards-row sec-cards" style="grid-template-columns:repeat(5,1fr);margin-top:12px"><div class="card"><div class="metric-label">Materials Approved</div><div class="metric-value">142</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+8</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+12</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,30 18,29 36,28 54,27 72,26 90,25 108,24 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Materials Rejected</div><div class="metric-value">15</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+1</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v neutral">+1</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,22 18,23 36,24 54,23 72,24 90,23 108,24 126,23 144,24"></polyline></svg></div><div class="card"><div class="metric-label">Medical Events</div><div class="metric-value">21</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+1</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+3</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,28 18,27 36,26 54,25 72,24 90,23 108,22 126,21 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Academic Trainings</div><div class="metric-value">34</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+2</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+8</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,32 18,31 36,30 54,29 72,28 90,27 108,26 126,24 144,22"></polyline></svg></div><div class="card"><div class="metric-label">Medical NPS YTD</div><div class="metric-value">8.2</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.1</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.3</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,26 18,25 36,24 54,23 72,22 90,21 108,20 126,19 144,18"></polyline></svg></div></div></div>
+<section class="analysis-row analysis-row--reg-band analysis-row--reg-grid5"><div class="panel"><div class="panel-head"><h3 class="panel-title">Secondary Metrics Matrix</h3><p class="panel-sub">Operational follow-up — no commercial linkage.</p></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>Y-1</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Y-1</th><th>ene-25</th><th>ene-26</th><th>Y-1</th></tr></thead><tbody><tr><td class="rowhead">Total Complaints</td><td>312</td><td>58</td><td>64</td><td class="negative">+6</td><td>72</td><td>78</td><td>81</td><td>81</td><td>+9</td><td>19</td><td>21</td><td class="negative">+2</td></tr><tr><td class="rowhead">% Before Use</td><td>37.8%</td><td>37.9%</td><td>37.5%</td><td class="positive">−0.4</td><td>38.9%</td><td>38.5%</td><td>35.8%</td><td>38.3%</td><td>−0.6</td><td>36.8%</td><td>38.1%</td><td>+1.3</td></tr><tr><td class="rowhead">% In Use</td><td>62.2%</td><td>62.1%</td><td>62.5%</td><td>+0.4</td><td>61.1%</td><td>61.5%</td><td>64.2%</td><td>61.7%</td><td>+0.6</td><td>63.2%</td><td>61.9%</td><td>−1.3</td></tr><tr><td class="rowhead">Products Affected</td><td>34</td><td>35</td><td>37</td><td>+2</td><td>36</td><td>37</td><td>38</td><td>39</td><td>+3</td><td>11</td><td>12</td><td>+1</td></tr><tr><td class="rowhead">Brands Affected</td><td>5</td><td>5</td><td>5</td><td>0</td><td>5</td><td>5</td><td>5</td><td>5</td><td>0</td><td>5</td><td>5</td><td>0</td></tr><tr><td class="rowhead">Materials Approved</td><td>418</td><td>86</td><td>94</td><td class="positive">+8</td><td>98</td><td>102</td><td>110</td><td>108</td><td>+12</td><td>28</td><td>31</td><td>+3</td></tr><tr><td class="rowhead">Materials Rejected</td><td>38</td><td>8</td><td>9</td><td>+1</td><td>9</td><td>10</td><td>11</td><td>8</td><td>−1</td><td>2</td><td>3</td><td>+1</td></tr><tr><td class="rowhead">Medical Events</td><td>86</td><td>18</td><td>21</td><td>+3</td><td>20</td><td>22</td><td>24</td><td>20</td><td>+4</td><td>5</td><td>6</td><td>+1</td></tr><tr><td class="rowhead">Academic Trainings</td><td>124</td><td>26</td><td>34</td><td>+8</td><td>28</td><td>30</td><td>32</td><td>34</td><td>+6</td><td>8</td><td>10</td><td>+2</td></tr><tr><td class="rowhead">Medical NPS YTD</td><td>7.8</td><td>7.9</td><td>8.2</td><td class="positive">+0.3</td><td>7.6</td><td>7.7</td><td>7.9</td><td>8.0</td><td>+0.2</td><td>7.9</td><td>8.2</td><td class="positive">+0.3</td></tr></tbody></table></div></div>
+<div class="panel"><div class="panel-head"><h3 class="panel-title">Secondary Metrics Trend</h3><p class="panel-sub panel-sub--full">Comparison of selected secondary metric across time.</p><div class="segmented" id="regSecondarySelector"><button type="button" class="active" data-reg-sec="totalComplaints">Total Complaints</button><button type="button" class="" data-reg-sec="pctBeforeUse">% Before Use</button><button type="button" class="" data-reg-sec="pctInUse">% In Use</button><button type="button" class="" data-reg-sec="productsAffected">Products Affected</button><button type="button" class="" data-reg-sec="brandsAffected">Brands Affected</button><button type="button" class="" data-reg-sec="materialsApproved">Materials Approved</button><button type="button" class="" data-reg-sec="materialsRejected">Materials Rejected</button><button type="button" class="" data-reg-sec="medicalEvents">Medical Events</button><button type="button" class="" data-reg-sec="academicTrainings">Academic Trainings</button><button type="button" class="" data-reg-sec="medicalNpsYtd">Medical NPS YTD</button></div></div><div class="chart-area"><svg class="chart-svg chart-svg--compact" id="regSecondaryChart" viewBox="0 0 560 250"></svg></div><div class="legend"><div class="lg"><span></span>2026</div><div class="lg"><span class="dashed"></span>2025</div></div></div></section></section>
+<section class="ca-section secondary-block"><div class="section-title">Complaints Analytics</div>
+<div class="ca-filters filters"><div class="filter filter--dropdown" data-filter="ca-month"><div class="label">Month</div><button type="button" class="filter-trigger" aria-expanded="false" id="ft-ca-m"><span class="filter-current">All</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All</button></li><li><button type="button" class="filter-option" role="option">Jan</button></li><li><button type="button" class="filter-option" role="option">Feb</button></li></ul></div><div class="filter filter--dropdown" data-filter="ca-year"><div class="label">Year</div><button type="button" class="filter-trigger" id="ft-ca-y"><span class="filter-current">2026</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">2026</button></li><li><button type="button" class="filter-option" role="option">2025</button></li></ul></div><div class="filter filter--dropdown" data-filter="ca-brand"><div class="label">Brand</div><button type="button" class="filter-trigger" id="ft-ca-b"><span class="filter-current">All brands</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All brands</button></li><li><button type="button" class="filter-option" role="option">Avène</button></li><li><button type="button" class="filter-option" role="option">Ducray</button></li></ul></div><div class="filter filter--dropdown" data-filter="ca-type"><div class="label">Complaint Type</div><button type="button" class="filter-trigger" id="ft-ca-t"><span class="filter-current">All types</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All types</button></li><li><button type="button" class="filter-option" role="option">Quality</button></li><li><button type="button" class="filter-option" role="option">Packaging</button></li></ul></div></div>
+<div class="ca-kpi-hero"><div class="lbl">Total PF Complaints</div><div class="num">64</div></div>
+<div class="ca-grid"><div class="ca-chart-panel ca-span-6"><div class="panel-head"><h3 class="panel-title">By Product</h3><p class="panel-sub">Horizontal bars — count by SKU (mock).</p></div><svg class="ca-svg" id="caSvgProduct" viewBox="0 0 400 220"></svg></div><div class="ca-chart-panel ca-span-6"><div class="panel-head"><h3 class="panel-title">By Month</h3><p class="panel-sub">Before Use vs In Use — clustered columns.</p></div><svg class="ca-svg" id="caSvgMonth" viewBox="0 0 400 220"></svg><div class="ca-legend-mini"><span><span class="i" style="background:#557a61"></span>Before Use</span><span><span class="i" style="background:#9aa69d"></span>In Use</span></div></div>
+<div class="ca-chart-panel ca-span-4"><div class="panel-head"><h3 class="panel-title">By Complaint Type</h3><p class="panel-sub">Quality vs Quality with AE.</p></div><svg class="ca-svg" id="caSvgTypeAe" viewBox="0 0 280 200"></svg></div><div class="ca-chart-panel ca-span-4"><div class="panel-head"><h3 class="panel-title">By Brand</h3><p class="panel-sub">Share of complaints.</p></div><svg class="ca-svg" id="caSvgBrand" viewBox="0 0 280 200"></svg></div><div class="ca-chart-panel ca-span-4"><div class="panel-head"><h3 class="panel-title">By Type</h3><p class="panel-sub">Formula · Packaging · Functioning · Other.</p></div><svg class="ca-svg" id="caSvgTypePack" viewBox="0 0 280 200"></svg></div>
+<div class="ca-chart-panel ca-span-12"><div class="panel-head"><h3 class="panel-title">Reasons Distribution</h3><p class="panel-sub">Treemap by count (mock categories).</p></div><svg class="ca-svg" id="caSvgTreemap" viewBox="0 0 900 200" style="height:200px"></svg></div></div></section>
+<section class="promo-module secondary-block"><div class="section-title">Promotional Materials</div>
+<div class="promo-kpi-row" style="grid-template-columns:repeat(4,1fr)"><div class="card"><div class="metric-label">Total Materials Submitted</div><div class="metric-value">186</div></div><div class="card"><div class="metric-label">Approved</div><div class="metric-value">142</div></div><div class="card"><div class="metric-label">Rejected</div><div class="metric-value">15</div></div><div class="card"><div class="metric-label">Without Comments</div><div class="metric-value">118</div></div></div>
+<div class="promo-layout"><div class="ca-chart-panel"><div class="panel-head"><h3 class="panel-title">Audience split</h3><p class="panel-sub">Público en general vs Profesional de la salud.</p></div><svg class="ca-svg" id="promoSvgAudience" viewBox="0 0 280 220"></svg></div><div class="panel"><div class="panel-head"><h3 class="panel-title">Publicity by Product</h3><p class="panel-sub">Dermo vs Farma tint in bars (mock).</p></div><svg class="ca-svg" id="promoSvgProduct" viewBox="0 0 400 240"></svg></div><div class="panel"><div class="panel-head"><h3 class="panel-title">Diffusion Medium</h3><p class="panel-sub">Digital · Tarjeton · Triptico · Otros · Poster.</p></div><svg class="ca-svg" id="promoSvgMedium" viewBox="0 0 360 220"></svg></div></div>
+<div class="panel promo-queue-row" style="margin-top:14px"><div class="panel-head"><h3 class="panel-title">Pending requests (COFEPRIS-style queue)</h3><p class="panel-sub">Operational queue — bind to platform.</p></div><div class="table-wrap"><table><thead><tr><th>ID</th><th>Product</th><th>Requester</th><th>Directed To</th><th>Request Date</th><th>Status</th></tr></thead><tbody><tr><td>REQ-2401</td><td class="rowhead">Cleanance Gel</td><td>M. López</td><td>COFEPRIS</td><td>12-Feb-26</td><td class="negative">Pending</td></tr><tr><td>REQ-2394</td><td class="rowhead">Cicalfate+</td><td>R. Vega</td><td>Medical</td><td>08-Feb-26</td><td>Review</td></tr><tr><td>REQ-2388</td><td class="rowhead">Keracnyl</td><td>A. Ruiz</td><td>Regulatory</td><td>02-Feb-26</td><td class="negative">Clarification</td></tr></tbody></table></div></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;padding:4px 2px"><span style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);align-self:center;margin-right:6px">Request channels</span><div class="dual-toggles" style="margin:0"><button type="button" class="active">Solicitudes Medical</button><button type="button">Solicitudes Regulatorios</button><button type="button">Solicitudes COFEPRIS</button></div></div></section>
+<section class="ma-section secondary-block"><div class="section-title">Medical Affairs</div>
+<p style="margin:4px 2px 0;font-size:12px;color:var(--muted);max-width:920px">Activity and quality metrics only — no sales, Rx, market share or launches.</p>
+<div class="ma-grid"><div class="panel"><div class="panel-head"><h3 class="panel-title">KPI scorecard</h3><p class="panel-sub">Targets vs YTD.</p></div><div class="table-wrap"><table><thead><tr><th>KPI</th><th>Target</th><th>YTD</th></tr></thead><tbody>
+<tr><td class="rowhead">NPS – Academic activities</td><td>≥ 8</td><td class="positive">8.2</td></tr>
+<tr><td class="rowhead">NPS – Academic trainings</td><td>≥ 8</td><td class="positive">8.4</td></tr>
+<tr><td class="rowhead">Practice impact score</td><td>≥ 3</td><td class="positive">3.4</td></tr>
+<tr><td class="rowhead">Renewal of the KOL ecosystem</td><td>≥ 10%</td><td class="positive">12%</td></tr>
+</tbody></table></div></div>
+<div class="panel"><div class="panel-head"><h3 class="panel-title">Ongoing Studies</h3><p class="panel-sub">Speaker-Events-Studies AMERICAS — illustrative.</p></div><div class="ma-studies"><div class="ma-study-card"><h4>RWE tolerability — Avène topical cohort</h4><p>n=420 enrolled · budget on track · DSMB Q1 cleared.</p></div><div class="ma-study-card"><h4>Academic partnership — photoprotection symposium</h4><p>Joint IIT · manuscript pipeline · no commercial endpoints.</p></div><div class="ma-study-card"><h4>Patient advisory board — access &amp; skin health</h4><p>Next cycle Apr 2026 · PAG +1 dermatologist KOL.</p></div></div></div></div>
+<div class="ma-two-charts"><div class="panel"><div class="panel-head"><h3 class="panel-title">Medical Events / Trainings Trend</h3><p class="panel-sub panel-sub--full">Monthly counts — academic activities vs trainings.</p></div><div class="chart-area"><svg class="chart-svg chart-svg--compact" id="regMaActivityChart" viewBox="0 0 560 250"></svg></div><div class="legend"><div class="lg"><span></span>Events</div><div class="lg"><span class="dashed"></span>Trainings</div></div></div>
+<div class="panel"><div class="panel-head"><h3 class="panel-title">NPS Trend</h3><p class="panel-sub panel-sub--full">Academic activities NPS vs academic trainings NPS.</p></div><div class="chart-area"><svg class="chart-svg chart-svg--compact" id="regMaNpsChart" viewBox="0 0 560 250"></svg></div><div class="legend"><div class="lg"><span></span>Activities NPS</div><div class="lg"><span class="dashed"></span>Trainings NPS</div></div></div></div></section></div></div><script>const monthLabels=['Jan',
+'Feb',
+'Mar',
+'Apr',
+'May',
+'Jun',
+'Jul',
+'Aug',
+'Sep',
+'Oct',
+'Nov',
+'Dec'];
+
+const objData= {
+    dc: {
+        label: 'pts', current:[0.14, 0.18, 0.19, 0.24, 0.28, 0.31, 0.34, 0.36, 0.39, 0.41, 0.42, 0.45], prior:[0.10, 0.11, 0.14, 0.16, 0.19, 0.20, 0.23, 0.24, 0.26, 0.29, 0.31, 0.33]
+    }
+
+    ,
+    gp: {
+        label: '%', current:[67.8, 68.0, 68.4, 68.1, 68.5, 68.7, 68.8, 69.0, 68.9, 68.7, 68.6, 68.8], prior:[67.0, 67.3, 67.8, 67.6, 67.9, 68.0, 68.1, 68.2, 68.1, 68.0, 67.9, 68.1]
+    }
+
+    ,
+    staff: {
+        label: '%', current:[14.3, 14.4, 14.8, 14.7, 14.9, 15.0, 14.9, 14.8, 14.7, 14.6, 14.8, 14.7], prior:[14.0, 14.2, 14.5, 14.4, 14.5, 14.6, 14.5, 14.4, 14.3, 14.2, 14.4, 14.3]
+    }
+
+    ,
+    dcpc: {
+        label: 'pts', current:[0.09, 0.11, 0.15, 0.17, 0.20, 0.22, 0.24, 0.26, 0.28, 0.29, 0.31, 0.33], prior:[0.06, 0.08, 0.11, 0.12, 0.14, 0.15, 0.17, 0.19, 0.20, 0.22, 0.24, 0.25]
+    }
+
+    ,
+    mc: {
+        label: 'pts', current:[0.08, 0.10, 0.12, 0.15, 0.18, 0.19, 0.21, 0.22, 0.24, 0.25, 0.27, 0.29], prior:[0.05, 0.07, 0.08, 0.10, 0.11, 0.13, 0.14, 0.15, 0.17, 0.18, 0.19, 0.20]
+    }
+}
+
+;
+
+const secData= {
+    msgv: {
+        current: [0.14, 0.18, 0.19, 0.24, 0.28, 0.31, 0.34, 0.36, 0.39, 0.41, 0.42, 0.45], prior:[0.10, 0.11, 0.14, 0.16, 0.19, 0.20, 0.23, 0.24, 0.26, 0.29, 0.31, 0.33]
+    }
+
+    ,
+    gpsec: {
+        current: [67.8, 68.0, 68.4, 68.1, 68.5, 68.7, 68.8, 69.0, 68.9, 68.7, 68.6, 68.8], prior:[67.0, 67.3, 67.8, 67.6, 67.9, 68.0, 68.1, 68.2, 68.1, 68.0, 67.9, 68.1]
+    }
+
+    ,
+    sellin: {
+        current: [188, 201, 224, 236, 248, 251, 259, 263, 267, 271, 279, 284], prior:[173, 189, 201, 214, 224, 230, 237, 244, 248, 252, 260, 266]
+    }
+
+    ,
+    sellout: {
+        current: [180, 190, 209, 221, 228, 233, 239, 244, 248, 253, 259, 264], prior:[170, 181, 190, 202, 211, 217, 223, 228, 232, 236, 241, 247]
+    }
+
+    ,
+    budget: {
+        current: [99.8, 100.2, 101.5, 101.1, 101.7, 102.0, 101.8, 102.2, 101.9, 102.1, 101.8, 102.3], prior:[99.1, 99.5, 100.2, 100.0, 100.4, 100.8, 100.7, 101.0, 100.9, 101.1, 100.6, 101.2]
+    }
+
+    ,
+    sob: {
+        current: [33.5, 33.7, 34.3, 34.0, 34.2, 34.4, 34.6, 34.8, 34.9, 34.8, 34.7, 35.0], prior:[32.8, 33.0, 33.5, 33.2, 33.4, 33.5, 33.7, 33.8, 33.9, 34.0, 33.9, 34.1]
+    }
+
+    ,
+    doh: {
+        current: [49, 50, 54, 53, 55, 56, 54, 53, 52, 53, 54, 52], prior:[46, 47, 49, 48, 50, 51, 50, 49, 48, 49, 50, 49]
+    }
+
+    ,
+    otif: {
+        current: [93.1, 93.4, 94.0, 94.2, 94.1, 94.4, 94.6, 94.3, 94.1, 94.0, 94.2, 94.4], prior:[92.4, 92.7, 93.1, 93.3, 93.2, 93.4, 93.7, 93.5, 93.3, 93.2, 93.4, 93.5]
+    }
+
+    ,
+    fill: {
+        current: [95.1, 95.4, 95.9, 96.0, 96.1, 96.3, 96.2, 96.1, 95.9, 96.0, 96.1, 96.2], prior:[94.6, 94.9, 95.1, 95.2, 95.4, 95.6, 95.5, 95.4, 95.3, 95.2, 95.4, 95.5]
+    }
+
+    ,
+    pm: {
+        current: [2.1, 2.2, 2.4, 2.5, 2.4, 2.3, 2.2, 2.3, 2.4, 2.4, 2.5, 2.3], prior:[1.9, 2.0, 2.2, 2.2, 2.1, 2.1, 2.0, 2.1, 2.2, 2.1, 2.2, 2.1]
+    }
+
+    ,
+    soi: {
+        current: [13.1, 13.4, 14.2, 14.0, 14.3, 14.4, 14.7, 14.8, 14.6, 14.5, 14.6, 14.9], prior:[12.3, 12.5, 13.1, 13.0, 13.1, 13.2, 13.4, 13.5, 13.3, 13.4, 13.2, 13.5]
+    }
+
+    ,
+    soe: {
+        current: [11.1, 11.3, 11.9, 11.7, 11.8, 12.0, 12.1, 12.3, 12.2, 12.1, 12.1, 12.4], prior:[10.5, 10.7, 11.1, 11.0, 11.1, 11.2, 11.3, 11.4, 11.3, 11.2, 11.2, 11.4]
+    }
+
+    ,
+    cars: {
+        current: [87.1, 87.8, 89.0, 88.9, 89.2, 89.5, 89.8, 90.1, 89.7, 89.4, 89.4, 90.0], prior:[85.9, 86.4, 87.1, 87.4, 87.8, 88.0, 88.2, 88.5, 88.1, 88.0, 87.9, 88.3]
+    }
+}
+
+;
+
+const regPrimaryData= {
+    npsInternalTraining: {
+        current: [6.8, 7.2, 7.0, 7.6, 8.2], scaleMin: 0, scaleMax: 10
+    }
+
+    ,
+    npsScientificEvents: {
+        current: [6.5, 6.9, 7.1, 6.8, 8.0], scaleMin: 0, scaleMax: 10
+    }
+
+    ,
+    practiceImpact: {
+        current: [2.9, 3.05, 2.98, 3.25, 3.4]
+    }
+}
+
+;
+
+const regSecondaryData= {
+    totalComplaints: {
+        current: [22, 21, 24, 23, 25, 26, 24, 25, 27, 26, 28, 30], prior:[20, 19, 22, 21, 23, 24, 22, 23, 24, 23, 25, 24]
+    }
+
+    ,
+    pctBeforeUse: {
+        current: [36.4, 42.9, 37.5, 34.8, 40.0, 38.5, 37.5, 36.0, 37.0, 34.6, 35.7, 33.3], prior:[35.0, 42.1, 36.4, 33.3, 39.1, 37.5, 36.4, 34.8, 37.5, 34.8, 36.0, 33.3]
+    }
+
+    ,
+    pctInUse: {
+        current: [63.6, 57.1, 62.5, 65.2, 60.0, 61.5, 62.5, 64.0, 63.0, 65.4, 64.3, 66.7], prior:[65.0, 57.9, 63.6, 66.7, 60.9, 62.5, 63.6, 65.2, 62.5, 65.2, 64.0, 66.7]
+    }
+
+    ,
+    productsAffected: {
+        current: [28, 29, 30, 31, 32, 33, 32, 33, 34, 35, 36, 37], prior:[26, 27, 28, 29, 30, 31, 30, 31, 32, 33, 34, 35]
+    }
+
+    ,
+    brandsAffected: {
+        current: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], prior:[5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+    }
+
+    ,
+    materialsApproved: {
+        current: [11, 12, 12, 13, 13, 14, 14, 14, 15, 15, 15, 16], prior:[10, 10, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14]
+    }
+
+    ,
+    materialsRejected: {
+        current: [1, 1, 2, 1, 1, 2, 1, 1, 1, 2, 1, 1], prior:[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    }
+
+    ,
+    medicalEvents: {
+        current: [14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 21], prior:[12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 18]
+    }
+
+    ,
+    academicTrainings: {
+        current: [28, 29, 30, 30, 31, 31, 32, 32, 33, 33, 34, 34], prior:[24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 29]
+    }
+
+    ,
+    medicalNpsYtd: {
+        current: [7.6, 7.65, 7.7, 7.75, 7.8, 7.82, 7.85, 7.88, 7.9, 7.95, 8.0, 8.15], prior:[7.2, 7.25, 7.3, 7.32, 7.35, 7.4, 7.42, 7.45, 7.5, 7.55, 7.6, 7.65]
+    }
+}
+
+;
+
+const regMaActivity= {
+    current: [14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 21], prior:[24, 25, 26, 26, 27, 28, 28, 29, 30, 31, 32, 34]
+}
+
+;
+
+const regMaNpsTrend= {
+    current: [7.5, 7.55, 7.6, 7.65, 7.7, 7.75, 7.78, 7.82, 7.85, 7.9, 7.95, 8.0], prior:[7.8, 7.82, 7.85, 7.88, 7.9, 7.92, 7.95, 7.98, 8.0, 8.05, 8.08, 8.1]
+}
+
+;
+
+function regDonutSlice(cx, cy, r0, r1, a0, a1) {
+    const x0=cx+r0*Math.cos(a0),
+    y0=cy+r0*Math.sin(a0);
+    const x1=cx+r1*Math.cos(a0),
+    y1=cy+r1*Math.sin(a0);
+    const x2=cx+r1*Math.cos(a1),
+    y2=cy+r1*Math.sin(a1);
+    const x3=cx+r0*Math.cos(a1),
+    y3=cy+r0*Math.sin(a1);
+    const large=a1-a0 > Math.PI ? 1 : 0;
+    return `M ${x0} ${y0} L ${x1} ${y1} A ${r1} ${r1} 0 ${large} 1 ${x2} ${y2} L ${x3} ${y3} A ${r0} ${r0} 0 ${large} 0 ${x0} ${y0} Z`;
+}
+
+function drawRegDonut(svgId, segments, cx, cy, r0, r1) {
+    const svg=document.getElementById(svgId);
+    if(!svg || !segments.length) return;
+    let a=-Math.PI/2;
+    const t=segments.reduce((s, x)=>s+x.v, 0);
+    let h='';
+    segments.forEach(seg=> {
+            const ang=(seg.v/t)*2*Math.PI;
+            if(ang>0.001) h += `<path fill="${seg.c}" stroke="#fff" stroke-width="1" d="${regDonutSlice(cx, cy, r0, r1, a, a+ang)}"></path>`;
+            a+=ang;
+        });
+    let ly=cy+r1+18;
+    segments.forEach((seg, i)=> {
+            h += `<text x="${cx-r1}" y="${ly+i*12}" font-size="9" fill="#6f7a73">${seg.l} ${(100*seg.v/t).toFixed(0)}%</text>`;
+            h += `<rect x="${cx-r1-14}" y="${ly+i*12-8}" width="8" height="8" rx="2" fill="${seg.c}"></rect>`;
+        });
+    svg.innerHTML=h;
+}
+
+function drawRegHBar(svgId, items, W, H, opts) {
+    const svg=document.getElementById(svgId);
+    if(!svg) return;
+    const L=opts.left || 108,
+    top=opts.top || 14,
+    gap=opts.gap || 6,
+    bw=opts.barH || 14;
+    const max=Math.max(...items.map(x=>x.v), 1);
+    const plotW=W-L-24;
+    let y=top,
+    g='';
+    items.forEach(it=> {
+            const w=(it.v/max)*plotW;
+            const col=it.dermo ? '#557a61' : '#6f9278';
+            g += `<text x="${L-6}" y="${y+bw-2}" text-anchor="end" font-size="9" fill="#334039">${it.label}</text>`;
+            g += `<rect x="${L}" y="${y}" width="${w}" height="${bw}" rx="3" fill="${col}" opacity=".88"></rect>`;
+            g += `<text x="${L+w+4}" y="${y+bw-2}" font-size="9" fill="#6f7a73">${it.v}</text>`;
+            y+=bw+gap;
+        });
+    svg.innerHTML=`<g>${g}</g>`;
+}
+
+function drawRegClusterMonth(svgId, beforeArr, inUseArr, W, H) {
+    const svg=document.getElementById(svgId);
+    if(!svg) return;
+    const m= {
+        l:36, r:8, t:10, b:28
+    }
+
+    ,
+    n=12,
+    iw=W-m.l-m.r,
+    ih=H-m.t-m.b;
+    const bw=iw/n*0.32;
+    const gap=2;
+    const max=Math.max(...beforeArr, ...inUseArr, 1);
+    let g='';
+    for(let i=0; i<n; i++) {
+        const x0=m.l+(iw/n)*i+gap;
+        const hb=ih*(beforeArr[i]/max);
+        const hi=ih*(inUseArr[i]/max);
+        g += `<rect x="${x0}" y="${m.t+ih-hb}" width="${bw}" height="${hb}" fill="#557a61" rx="2"></rect>`;
+        g += `<rect x="${x0+bw+gap}" y="${m.t+ih-hi}" width="${bw}" height="${hi}" fill="#9aa69d" rx="2"></rect>`;
+    }
+
+    monthLabels.forEach((mo, i)=> {
+            g += `<text x="${m.l+(iw/n)*i+iw/n/2}" y="${H-8}" text-anchor="middle" font-size="8" fill="#6f7a73">${mo.slice(0,1)}</text>`;
+        });
+    svg.innerHTML=g;
+}
+
+function drawRegTreemap(svgId, items, W, H) {
+    const svg=document.getElementById(svgId);
+    if(!svg) return;
+    const cols=['#557a61', '#6f9278', '#8aab92', '#a9c0ad', '#7b8f82', '#5d7a66', '#9aa69d'];
+    let x=4,
+    y=4,
+    rowH=0,
+    rowW=0,
+    g='';
+    const total=items.reduce((s, i)=>s+i.v, 0);
+    items.forEach((it, idx)=> {
+            const share=it.v/total;
+            const rw=Math.max(share*W-6, 40);
+            const rh=H-8;
+            g += `<rect x="${x}" y="${y}" width="${rw}" height="${rh}" fill="${cols[idx%cols.length]}" opacity=".85" rx="4" stroke="#fff" stroke-width="1"></rect>`;
+            g += `<text x="${x+6}" y="${y+18}" font-size="10" fill="#fff" font-weight="600">${it.label}</text>`;
+            g += `<text x="${x+6}" y="${y+32}" font-size="9" fill="rgba(255,255,255,.9)">${it.v}</text>`;
+            x+=rw+4;
+        });
+    svg.innerHTML=g;
+}
+
+function drawRegVerticalBars(svgId, items, W, H) {
+    const svg=document.getElementById(svgId);
+    if(!svg) return;
+    const m= {
+        l:88, r:12, t:12, b:36
+    }
+
+    ,
+    iw=W-m.l-m.r,
+    ih=H-m.t-m.b;
+    const max=Math.max(...items.map(x=>x.v), 1);
+    const n=items.length,
+    bw=iw/n*0.55;
+    let g='';
+    items.forEach((it, i)=> {
+            const h=ih*(it.v/max);
+            const x=m.l+(iw/n)*i+(iw/n-bw)/2;
+            g += `<rect x="${x}" y="${m.t+ih-h}" width="${bw}" height="${h}" fill="#557a61" rx="3" opacity=".9"></rect>`;
+            g += `<text x="${x+bw/2}" y="${H-10}" text-anchor="middle" font-size="8" fill="#6f7a73">${it.label}</text>`;
+            g += `<text x="${x+bw/2}" y="${m.t+ih-h-4}" text-anchor="middle" font-size="8" fill="#334039">${it.v}</text>`;
+        });
+    svg.innerHTML=g;
+}
+
+function drawRegulatoryAnalyticsCharts() {
+    drawRegHBar('caSvgProduct', [{label:'Cleanance', v:18, dermo:1}, {label:'Cicalfate+', v:14, dermo:1}, {label:'Keracnyl', v:11, dermo:1}, {label:'Dexeryl', v:8, dermo:0}, {label:'TriXéra', v:6, dermo:1}], 400, 220, {
+        left:100, top:16, gap:8, barH:16
+    });
+    drawRegClusterMonth('caSvgMonth', [8, 9, 9, 8, 10, 10, 9, 9, 10, 9, 10, 9], [14, 12, 15, 15, 15, 16, 15, 16, 17, 17, 18, 18], 400, 220);
+    drawRegDonut('caSvgTypeAe', [{v:52, c:'#557a61', l:'Quality'}, {v:12, c:'#b86462', l:'Quality w/ AE'}], 140, 95, 38, 72);
+    drawRegDonut('caSvgBrand', [{v:28, c:'#557a61', l:'Avène'}, {v:14, c:'#6f9278', l:'Ducray'}, {v:8, c:'#9aa69d', l:'Dexeryl'}, {v:6, c:'#b8c9bb', l:'Other'}], 140, 95, 38, 72);
+    drawRegDonut('caSvgTypePack', [{v:18, c:'#557a61', l:'Formula'}, {v:14, c:'#6f9278', l:'Prim. pack.'}, {v:10, c:'#8aab92', l:'Functioning'}, {v:8, c:'#9aa69d', l:'Other'}, {v:6, c:'#cfd7cf', l:'Sec. pack.'}], 140, 95, 38, 72);
+    drawRegTreemap('caSvgTreemap', [{label:'Formula', v:22}, {label:'Texture', v:14}, {label:'Odor', v:9}, {label:'Functioning', v:12}, {label:'Prim. pack.', v:16}, {label:'Sec. pack.', v:7}, {label:'Other', v:6}], 900, 180);
+    drawRegDonut('promoSvgAudience', [{v:38, c:'#557a61', l:'Público gral.'}, {v:62, c:'#6f9278', l:'Prof. salud'}], 140, 105, 40, 78);
+    drawRegHBar('promoSvgProduct', [{label:'Cicalfate+', v:28, dermo:1}, {label:'Cleanance', v:24, dermo:1}, {label:'Keracnyl', v:18, dermo:1}, {label:'Dexeryl', v:14, dermo:0}, {label:'Klorane', v:11, dermo:0}], 400, 240, {
+        left:92, top:18, gap:10, barH:18
+    });
+    drawRegVerticalBars('promoSvgMedium', [{label:'Digital', v:42}, {label:'Tarjeton', v:22}, {label:'Triptico', v:18}, {label:'Otros', v:10}, {label:'Poster', v:8}], 360, 220);
+}
+
+let regChartsReady=false;
+
+const regEventLabels=['Evento 1', 'Evento 2', 'Evento 3', 'Evento 4', 'Evento 5'];
+
+function drawRegPrimaryBarChart(svgId, series) {
+    const svg=document.getElementById(svgId);
+    if(!svg || !series || !series.current || series.current.length !== 5) return;
+    const W=560,
+    H=250;
+    const m= {
+        t: 14, r: 16, b: 42, l: 50
+    }
+
+    ;
+    const iw=W-m.l-m.r,
+    ih=H-m.t-m.b;
+    const n=5;
+    let yMin,
+    yMax;
+
+    if(typeof series.scaleMax === 'number') {
+        yMin=typeof series.scaleMin === 'number' ? series.scaleMin : 0;
+        yMax=series.scaleMax;
+    }
+
+    else {
+        const max=Math.max(...series.current);
+        const min=Math.min(...series.current);
+        const pad=(max-min)*0.18 || 0.08;
+        yMin=Math.max(0, min-pad);
+        yMax=max+pad;
+    }
+
+    const y0=v=>m.t+ih - ((v-yMin)/(yMax-yMin || 1))*ih;
+    const baseY=m.t+ih;
+    const groupW=iw/n;
+    const barW=groupW*0.48;
+    let grid='';
+
+    for(let g=0; g<4; g++) {
+        const yy=m.t+(ih/3)*g;
+        grid += `<line x1="${m.l}" y1="${yy}" x2="${W-m.r}" y2="${yy}" stroke="#ebefeb"></line>`;
+    }
+
+    let bars='';
+
+    for(let i=0; i<n; i++) {
+        const cx=m.l+i*groupW+groupW/2;
+        const gx=cx-barW/2;
+        const yC=y0(series.current[i]);
+        bars += `<rect x="${gx}" y="${yC}" width="${barW}" height="${Math.max(0, baseY-yC)}" fill="#557a61" rx="3"></rect>`;
+    }
+
+    let labels='';
+
+    regEventLabels.forEach((lab, i)=> {
+        const cx=m.l+i*groupW+groupW/2;
+        labels += `<text x="${cx}" y="${H-12}" text-anchor="middle" fill="#6f7a73" font-size="10">${lab}</text>`;
+    });
+
+    let yticks='';
+
+    for(let g=0; g<4; g++) {
+        const v=yMin+(yMax-yMin)*(3-g)/3;
+        const yy=m.t+(ih/3)*g;
+        yticks += `<text x="${m.l-8}" y="${yy+3}" text-anchor="end" fill="#6f7a73" font-size="9">${v.toFixed(series.scaleMax === 10 ? 1 : 2)}</text>`;
+    }
+
+    svg.innerHTML = `<g class="grid">${grid}</g><g class="axis">${yticks}${labels}</g><g class="reg-bars">${bars}</g>`;
+}
+
+function drawLineChart(svgId, series) {
+    const svg=document.getElementById(svgId);
+    if(!svg || !series || !series.current) return;
+    const W=560,
+    H=250;
+
+    const m= {
+        t: 14, r:16, b:34, l:40
+    }
+
+    ;
+    const iw=W-m.l-m.r,
+    ih=H-m.t-m.b;
+    const max=Math.max(...series.current, ...series.prior);
+    const min=Math.min(...series.current, ...series.prior);
+    const pad=(max-min)*0.15 || 1;
+    const yMin=min-pad,
+    yMax=max+pad;
+    const x=i=>m.l+(iw/(series.current.length-1))*i;
+    const y=v=>m.t+ih - ((v-yMin)/(yMax-yMin))*ih;
+
+    const line = arr => arr.map((v, i) => `${i===0?'M':'L'} ${x(i)} ${y(v)}`).join(' ');
+    let grid = '';
+
+    for(let i=0; i<4; i++) {
+        const yy = m.t + (ih/3)*i;
+        grid += `<line x1="${m.l}" y1="${yy}" x2="${W-m.r}" y2="${yy}"></line>`;
+    }
+
+    let labels = '';
+
+    monthLabels.forEach((mo, i) => {
+        labels += `<text x="${x(i)}" y="${H-12}" text-anchor="middle">${mo}</text>`;
+    });
+
+    svg.innerHTML = `<g class="grid">${grid}</g><g class="axis">${labels}</g><path class="series-b" d="${line(series.prior)}"></path><path class="series-a" d="${line(series.current)}"></path>`;
+}
+
+drawLineChart('objChart', objData.gp);
+drawLineChart('secChart', secData.msgv);
+
+document.querySelectorAll('#objSelector button').forEach(btn=> {
+        btn.addEventListener('click', ()=> {
+                document.querySelectorAll('#objSelector button').forEach(b=>b.classList.remove('active'));
+                btn.classList.add('active');
+                drawLineChart('objChart', objData[btn.dataset.key]);
+            });
+    });
+
+document.querySelectorAll('#secSelector button').forEach(btn=> {
+        btn.addEventListener('click', ()=> {
+                document.querySelectorAll('#secSelector button').forEach(b=>b.classList.remove('active'));
+                btn.classList.add('active');
+                drawLineChart('secChart', secData[btn.dataset.key]);
+            });
+    });
+
+function initRegulatoryCharts() {
+    if(regChartsReady) return;
+    drawRegPrimaryBarChart('regPrimaryChart', regPrimaryData.npsInternalTraining);
+    drawLineChart('regSecondaryChart', regSecondaryData.totalComplaints);
+    drawLineChart('regMaActivityChart', regMaActivity);
+    drawLineChart('regMaNpsChart', regMaNpsTrend);
+    drawRegulatoryAnalyticsCharts();
+    regChartsReady = true;
+}
+
+function setAppView(view) {
+    const ve = document.getElementById('view-executive');
+    const vr = document.getElementById('view-regulatory');
+    if(!ve || !vr) return;
+    ve.hidden = view !== 'executive';
+    vr.hidden = view !== 'regulatory';
+    document.querySelectorAll('.nav a[data-app-view]').forEach(a=> {
+            a.classList.toggle('active', a.dataset.appView === view);
+        });
+    if(view === 'regulatory') initRegulatoryCharts();
+}
+
+document.querySelectorAll('.nav a[data-app-view]').forEach(a=> {
+        a.addEventListener('click', e=> {
+                e.preventDefault();
+                setAppView(a.dataset.appView);
+            });
+    });
+
+document.querySelectorAll('#regPrimarySelector button').forEach(btn=> {
+        btn.addEventListener('click', ()=> {
+                document.querySelectorAll('#regPrimarySelector button').forEach(b=>b.classList.remove('active'));
+                btn.classList.add('active');
+                drawRegPrimaryBarChart('regPrimaryChart', regPrimaryData[btn.dataset.regKey]);
+            });
+    });
+
+document.querySelectorAll('#regSecondarySelector button').forEach(btn=> {
+        btn.addEventListener('click', ()=> {
+                document.querySelectorAll('#regSecondarySelector button').forEach(b=>b.classList.remove('active'));
+                btn.classList.add('active');
+                drawLineChart('regSecondaryChart', regSecondaryData[btn.dataset.regSec]);
+            });
+    });
+
+const dualData= {
+    sellout: {
+        client: {
+            value: '$618M', meta:'', bar1:'78%', bar1w:78, bar2:'84%', bar2w:84, note:''
+        }
+
+        ,
+        audit: {
+            value: '$602M', meta:'Auditable sell-out consolidation · +7.1% vs PY', bar1:'74%', bar1w:74, bar2:'80%', bar2w:80, note:'Auditable perimeter adjusted for validated reporting.'
+        }
+    }
+
+    ,
+    share: {
+        with: {
+            value: '12.8%', meta:'', bar1:'12.8%', bar1w:64, bar2:'11.6%', bar2w:58, note:''
+        }
+
+        ,
+        without: {
+            value: '11.9%', meta:'Value share · +0.31 pts vs Y-1', bar1:'11.9%', bar1w:60, bar2:'11.0%', bar2w:55, note:'Amazon excluded for a cleaner pharmacy market comparison.'
+        }
+    }
+
+    ,
+    dohdual: {
+        client: {
+            value: '54', meta:'', bar1:'54 days', bar1w:54, bar2:'48 days', bar2w:48, note:''
+        }
+
+        ,
+        finance: {
+            value: '51', meta:'Days on hand · +2 days vs PY', bar1:'51 days', bar1w:51, bar2:'47 days', bar2w:47, note:'Finance-calculated inventory using standardized closing logic.'
+        }
+    }
+}
+
+;
+
+function updateDual(key, view) {
+    const d=dualData[key][view];
+
+    if(key==='sellout') {
+        selloutValue.textContent=d.value;
+        selloutMeta.textContent=d.meta;
+        selloutLbl1.textContent=d.bar1;
+        selloutLbl2.textContent=d.bar2;
+        selloutBar1.style.width=d.bar1w+'%';
+        selloutBar2.style.width=d.bar2w+'%';
+        selloutNote.textContent=d.note;
+    }
+
+    if(key==='share') {
+        shareValue.textContent=d.value;
+        shareMeta.textContent=d.meta;
+        shareLbl1.textContent=d.bar1;
+        shareLbl2.textContent=d.bar2;
+        shareBar1.style.width=d.bar1w+'%';
+        shareBar2.style.width=d.bar2w+'%';
+        shareNote.textContent=d.note;
+    }
+
+    if(key==='dohdual') {
+        dohValue.textContent=d.value;
+        dohMeta.textContent=d.meta;
+        dohLbl1.textContent=d.bar1;
+        dohLbl2.textContent=d.bar2;
+        dohBar1.style.width=d.bar1w+'%';
+        dohBar2.style.width=d.bar2w+'%';
+        dohNote.textContent=d.note;
+    }
+}
+
+document.querySelectorAll('.dual-toggles').forEach(group=> {
+        group.querySelectorAll('button').forEach(btn=> {
+                btn.addEventListener('click', ()=> {
+                        group.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+                        btn.classList.add('active');
+                        updateDual(group.dataset.dual, btn.dataset.view);
+                    });
+            });
+    });
+
+function closeAllFilterMenus() {
+    document.querySelectorAll('.filter--dropdown.is-open').forEach(wrap=> {
+            wrap.classList.remove('is-open');
+            const tr = wrap.querySelector('.filter-trigger');
+            if(tr) tr.setAttribute('aria-expanded', 'false');
+        });
+}
+
+document.querySelectorAll('.filter--dropdown').forEach(wrap=> {
+        const trigger = wrap.querySelector('.filter-trigger');
+        const current = wrap.querySelector('.filter-current');
+        const menu = wrap.querySelector('.filter-menu');
+        if(!trigger || !current) return;
+
+        trigger.addEventListener('click', e=> {
+                e.stopPropagation();
+                const opening = !wrap.classList.contains('is-open');
+                closeAllFilterMenus();
+                if(opening) {
+                    wrap.classList.add('is-open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+        wrap.querySelectorAll('.filter-option').forEach(opt=> {
+                opt.addEventListener('click', e=> {
+                        e.stopPropagation();
+                        wrap.querySelectorAll('.filter-option').forEach(o=>o.classList.remove('is-selected'));
+                        opt.classList.add('is-selected');
+                        current.textContent = opt.textContent;
+                        wrap.classList.remove('is-open');
+                        trigger.setAttribute('aria-expanded', 'false');
+                    });
+            });
+
+        if(menu) menu.addEventListener('click', e=> e.stopPropagation());
+    });
+
+document.addEventListener('click', ()=> closeAllFilterMenus());
+document.addEventListener('keydown', e=> {
+        if(e.key === 'Escape') closeAllFilterMenus();
+    });
+</script></body></html>

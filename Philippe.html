@@ -146,24 +146,6 @@ body {
     display: none !important
 }
 
-.reg-strip {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0 2px 14px;
-    padding: 8px 12px;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    background: linear-gradient(90deg, #f8faf7, #f4f7f3);
-    font-size: 11px;
-    color: var(--muted)
-}
-
-.reg-strip strong {
-    color: var(--ink);
-    font-weight: 650
-}
-
 .reg-obj-cards {
     grid-template-columns: repeat(5, 1fr)
 }
@@ -178,19 +160,13 @@ body {
     margin-bottom: 0
 }
 
-#regPrimarySelector,
-#regSecondarySelector,
-#regComplaintsChartSelectors,
-#regSecTrendSelectors {
+#regPrimarySelector {
     flex-wrap: wrap;
     overflow: visible;
     justify-content: flex-start
 }
 
-#regPrimarySelector button,
-#regSecondarySelector button,
-#regComplaintsChartSelectors button,
-#regSecTrendSelectors button {
+#regPrimarySelector button {
     flex: 0 1 auto;
     font-size: 10px;
     padding: 6px 8px
@@ -326,6 +302,411 @@ body {
     margin-right: 0
 }
 
+/* Regulatory — Complaint analytics: section filters + matrix / product row + bottom charts */
+.reg-complaints-analytics {
+    margin-top: 6px
+}
+
+.reg-matrix-filters.filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+    gap: 8px;
+    padding: 0 0 12px
+}
+
+.reg-matrix-filters .filter {
+    padding: 8px 10px
+}
+
+.reg-src-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px
+}
+
+.reg-expand {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1;
+    cursor: pointer
+}
+
+.reg-expand:hover {
+    border-color: var(--line-strong);
+    color: var(--ink)
+}
+
+.reg-matrix-detail-row td {
+    background: linear-gradient(180deg, #fafbf9, #f5f7f4);
+    padding: 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top
+}
+
+.reg-detail-inner {
+    padding: 10px 16px 12px 44px
+}
+
+.reg-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px 20px
+}
+
+.reg-detail-grid .k {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 3px
+}
+
+.reg-detail-grid .v {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35
+}
+
+.panel--reg-matrix,
+.panel--reg-product-side {
+    min-height: 0
+}
+
+.reg-ca-main-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 0
+}
+
+.reg-ca-row-top {
+    display: grid;
+    grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+    gap: 12px;
+    align-items: stretch
+}
+
+.reg-ca-left-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 0
+}
+
+.reg-ca-kpi-widgets {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.reg-ca-kpi-widget {
+    padding: 10px 12px 9px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: linear-gradient(180deg, #fff, #f8faf8)
+}
+
+.reg-ca-kpi-widget .reg-ca-kpi-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    line-height: 1.25;
+    margin-bottom: 4px
+}
+
+.reg-ca-kpi-widget .reg-ca-kpi-value {
+    font-size: 20px;
+    font-weight: 650;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    line-height: 1.1
+}
+
+.reg-ca-left-stack .panel--reg-product-side {
+    flex: 1;
+    min-height: 0
+}
+
+.reg-ca-row-top .panel--reg-matrix {
+    display: flex;
+    flex-direction: column
+}
+
+.reg-ca-row-top .panel--reg-matrix .table-wrap--matrix-scroll {
+    flex: 1;
+    min-height: 0
+}
+
+.panel--reg-product-side {
+    display: flex;
+    flex-direction: column
+}
+
+.panel--reg-product-side .panel-head {
+    flex-shrink: 0
+}
+
+.reg-ca-product-chart {
+    flex: 1;
+    min-height: 200px;
+    padding: 4px 12px 12px
+}
+
+.reg-ca-product-chart .ca-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 200px
+}
+
+.reg-ca-bottom-charts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    align-items: stretch
+}
+
+.reg-ca-bottom-charts .ca-chart-panel {
+    margin: 0;
+    padding: 8px 10px 6px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--panel-2);
+    min-height: 0
+}
+
+.reg-ca-bottom-charts .ca-chart-panel .panel-head {
+    margin-bottom: 4px
+}
+
+.reg-ca-bottom-charts .ca-chart-panel .panel-title {
+    font-size: 11px
+}
+
+.reg-ca-bottom-charts .ca-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 160px
+}
+
+.reg-ca-bottom-charts .reg-ca-treemap-wrap .ca-svg {
+    max-height: 120px
+}
+
+@media (max-width: 960px) {
+    .reg-ca-row-top {
+        grid-template-columns: 1fr
+    }
+
+    .reg-ca-bottom-charts {
+        grid-template-columns: 1fr
+    }
+}
+
+.table-wrap--matrix-scroll {
+    overflow: auto;
+    max-height: min(520px, 62vh);
+    margin: 0 0 8px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm)
+}
+
+.reg-matrix-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    font-size: 9px
+}
+
+.reg-matrix-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, #fbfcfa, #f4f7f4);
+    border-bottom: 1px solid var(--line-strong);
+    padding: 8px 7px;
+    text-align: left;
+    font-weight: 650;
+    color: var(--ink);
+    white-space: nowrap;
+    box-shadow: 0 1px 0 var(--line)
+}
+
+.reg-matrix-table tbody td {
+    padding: 6px 7px;
+    border-bottom: 1px solid #eef1ed;
+    vertical-align: top;
+    color: #2a332e
+}
+
+.reg-matrix-table .col-estado {
+    max-width: 140px;
+    white-space: normal;
+    line-height: 1.3;
+    font-size: 9px;
+    font-weight: 600;
+    color: #3d5245
+}
+
+.reg-matrix-table .col-priority {
+    font-weight: 700;
+    letter-spacing: .02em
+}
+
+.reg-matrix-table .col-priority.pri-1 {
+    color: #8b4543
+}
+
+.reg-matrix-table .col-priority.pri-2 {
+    color: #7a6238
+}
+
+.reg-matrix-table .col-priority.pri-3 {
+    color: #4d5a52
+}
+
+.reg-matrix-table .col-detection.na {
+    color: var(--muted);
+    font-style: italic
+}
+
+.reg-matrix-table tbody tr:hover td {
+    background: rgba(232, 239, 233, .35)
+}
+
+.reg-matrix-table .col-pieces {
+    font-weight: 700;
+    font-size: 10px;
+    background: var(--green-soft);
+    color: var(--ink);
+    text-align: right
+}
+
+.reg-matrix-table .col-sell {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    color: #3d4a42
+}
+
+.reg-matrix-table .priority-p1 {
+    box-shadow: inset 3px 0 0 var(--red)
+}
+
+.reg-matrix-table .priority-p2 {
+    box-shadow: inset 3px 0 0 var(--amber)
+}
+
+.reg-matrix-table .priority-p3 {
+    box-shadow: inset 3px 0 0 #8aab92
+}
+
+.reg-matrix-table .origin-fr {
+    color: #3d5a47;
+    font-weight: 600
+}
+
+.reg-matrix-table .origin-br {
+    color: #5a6b5f;
+    font-weight: 600
+}
+
+.reg-matrix-table .origin-na {
+    color: var(--muted);
+    font-style: italic
+}
+
+.promo-kpi-row--5 {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px
+}
+
+@media (max-width: 1200px) {
+    .promo-kpi-row--5 {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+}
+
+@media (max-width: 720px) {
+    .promo-kpi-row--5 {
+        grid-template-columns: 1fr
+    }
+}
+
+.promo-module .reg-matrix-filters.filters {
+    margin-bottom: 2px
+}
+
+.promo-stakeholder-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    margin-top: 0;
+    align-items: stretch
+}
+
+.promo-chart-panel {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--panel);
+    padding: 10px 12px 8px;
+    box-shadow: var(--shadow);
+    min-height: 0
+}
+
+.promo-chart-panel .panel-title {
+    font-size: 11px;
+    font-weight: 650;
+    margin: 0 0 8px;
+    color: var(--ink)
+}
+
+.promo-chart-panel .panel-sub {
+    font-size: 9px;
+    margin: 0 0 8px;
+    color: var(--muted);
+    line-height: 1.35
+}
+
+.promo-chart-panel .ca-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 200px
+}
+
+.promo-chart-panel--line .chart-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 220px
+}
+
+@media (max-width: 1100px) {
+    .promo-stakeholder-grid {
+        grid-template-columns: 1fr 1fr
+    }
+}
+
+@media (max-width: 720px) {
+    .promo-stakeholder-grid {
+        grid-template-columns: 1fr
+    }
+}
+
 .ca-section {
     margin-top: 22px
 }
@@ -431,17 +812,246 @@ body {
     max-width: 140px
 }
 
-.ma-two-charts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-top: 14px
+.promo-op-queue .table-wrap {
+    padding: 0 14px 14px
 }
 
-@media (max-width: 1480px) {
-    .ma-two-charts {
-        grid-template-columns: 1fr
-    }
+.promo-op-queue__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 10px 14px;
+    padding: 12px 16px 10px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, #fbfcfa 0%, #fafbf9 100%)
+}
+
+.promo-op-queue__search {
+    flex: 1 1 200px;
+    min-width: 160px;
+    padding: 8px 11px;
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--ink);
+    box-shadow: inset 0 1px 2px rgba(31, 42, 36, .04)
+}
+
+.promo-op-queue__search::placeholder {
+    color: #9aa69d
+}
+
+.promo-op-queue__search:focus {
+    outline: none;
+    border-color: #b8c9bb;
+    box-shadow: inset 0 1px 2px rgba(31, 42, 36, .04), 0 0 0 2px rgba(85, 122, 97, .12)
+}
+
+.promo-op-queue__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    align-items: flex-end
+}
+
+.promo-op-queue__filter {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 132px
+}
+
+.promo-op-queue__filter span {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted)
+}
+
+.promo-op-queue__select {
+    padding: 7px 28px 7px 10px;
+    border: 1px solid var(--line-strong);
+    border-radius: 9px;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%236f7a73' d='M2 3h6L5 7z'/%3E%3C/svg%3E") no-repeat right 9px center;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none
+}
+
+.promo-op-queue__select:focus {
+    outline: none;
+    border-color: #b8c9bb;
+    box-shadow: 0 0 0 2px rgba(85, 122, 97, .12)
+}
+
+.promo-op-queue-table {
+    table-layout: fixed
+}
+
+.promo-op-queue-table th:nth-child(2),
+.promo-op-queue-table td:nth-child(2),
+.promo-op-queue-table th:nth-child(3),
+.promo-op-queue-table td:nth-child(3),
+.promo-op-queue-table th:nth-child(4),
+.promo-op-queue-table td:nth-child(4),
+.promo-op-queue-table th:nth-child(8),
+.promo-op-queue-table td:nth-child(8) {
+    text-align: left
+}
+
+.promo-op-queue-table th,
+.promo-op-queue-table td {
+    padding: 7px 10px;
+    font-size: 11px;
+    border-bottom: 1px solid #ecefec;
+    vertical-align: middle
+}
+
+.promo-op-queue-table thead th {
+    background: #f8faf8;
+    font-weight: 650;
+    color: #5a635e
+}
+
+.promo-op-queue-table tbody tr {
+    background: transparent
+}
+
+.promo-op-queue-table tbody tr:hover {
+    background: #fafcfa
+}
+
+.promo-op-queue-table tbody tr:nth-child(even) {
+    background: transparent
+}
+
+.promo-op-queue-table .promo-op-queue-col--id {
+    width: 88px;
+    font-variant-numeric: tabular-nums;
+    color: #48534d
+}
+
+.promo-op-queue-table .promo-op-queue-col--product {
+    font-weight: 650;
+    color: #2a332e;
+    letter-spacing: .01em;
+    white-space: normal;
+    line-height: 1.35
+}
+
+.promo-op-queue-table .promo-op-queue-col--date {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: #48534d;
+    white-space: nowrap
+}
+
+.promo-op-queue-table .promo-op-queue-col--status {
+    text-align: right;
+    font-weight: 600
+}
+
+.promo-op-queue-table .promo-op-queue-col--attempts {
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    color: #48534d;
+    font-weight: 650;
+    width: 72px;
+    white-space: nowrap
+}
+
+.promo-op-queue-table thead th.promo-op-queue-col--reason {
+    font-size: 8px;
+    letter-spacing: .05em
+}
+
+.promo-op-queue-table .promo-op-queue-col--reason {
+    white-space: normal;
+    line-height: 1.35;
+    color: #3d4a42;
+    font-size: 10.5px
+}
+
+.promo-op-queue-table .promo-op-queue-col--reason-empty {
+    color: #b5bcb5;
+    font-weight: 500
+}
+
+.promo-op-queue-th-sort {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    font-size: 9px;
+    font-weight: 650;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-align: inherit
+}
+
+.promo-op-queue-th-sort:hover {
+    color: #48534d
+}
+
+.promo-op-queue-th-sort:focus-visible {
+    outline: 2px solid var(--green-2);
+    outline-offset: 2px;
+    border-radius: 3px
+}
+
+.promo-op-queue-th-sort .promo-op-queue-sort-ind {
+    font-size: 8px;
+    color: var(--green);
+    font-weight: 700;
+    opacity: .85
+}
+
+.promo-op-queue-th-sort.is-inactive .promo-op-queue-sort-ind {
+    opacity: .25;
+    color: var(--muted)
+}
+
+.promo-op-status--pending {
+    color: #8a7348
+}
+
+.promo-op-status--review {
+    color: #4d6670
+}
+
+.promo-op-status--clarification {
+    color: #8a6238
+}
+
+.promo-op-status--commented {
+    color: #4d6b58
+}
+
+.promo-op-status--approved {
+    color: var(--green)
+}
+
+.promo-op-status--rejected {
+    color: #9a5c5a
+}
+
+.promo-op-queue-empty {
+    padding: 18px 10px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted)
 }
 
 .promo-module {
@@ -531,54 +1141,6 @@ body {
 
 .audience-seg.hcp {
     background: linear-gradient(90deg, #b8c9bb, #6f9278)
-}
-
-.ma-section {
-    margin-top: 24px;
-    border-top: 1px solid var(--line);
-    padding-top: 18px
-}
-
-.ma-grid {
-    display: grid;
-    grid-template-columns: 1.15fr .85fr;
-    gap: 14px;
-    margin-top: 8px
-}
-
-.ma-scorecard .rowhead {
-    max-width: 200px
-}
-
-.ma-studies {
-    display: flex;
-    flex-direction: column;
-    gap: 10px
-}
-
-.ma-study-card {
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 12px 14px;
-    background: var(--panel);
-    box-shadow: var(--shadow)
-}
-
-.ma-study-card h4 {
-    margin: 0 0 6px;
-    font-size: 12px;
-    font-weight: 650
-}
-
-.ma-study-card p {
-    margin: 0;
-    font-size: 11px;
-    color: var(--muted);
-    line-height: 1.45
-}
-
-.ma-trend-row {
-    margin-top: 14px
 }
 
 .alert-panel {
@@ -1037,11 +1599,6 @@ body {
     margin-top: 12px;
 }
 
-#secSelector {
-    flex-wrap: wrap;
-    overflow: visible
-}
-
 .segmented button {
     border: 1px solid var(--line);
     background: #fff;
@@ -1442,45 +1999,56 @@ tbody tr:nth-child(even) {
 YTD,
 quarterly and monthly cuts,
 including explicit market share views by business unit.</p></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>Y-1</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Y-1</th><th>ene-25</th><th>ene-26</th><th>Y-1</th></tr></thead><tbody><tr><td class="rowhead">MS Value Gain DC</td><td class="positive">+0.58</td><td class="positive">+0.22</td><td class="positive">+0.42</td><td class="positive">+0.20</td><td>+0.18</td><td>+0.11</td><td>+0.16</td><td>+0.13</td><td>+0.07</td><td>+0.14</td><td class="positive">+0.19</td><td>+0.05</td></tr><tr><td class="rowhead">MS Value Gain DCPC</td><td class="positive">+0.44</td><td class="positive">+0.16</td><td class="positive">+0.31</td><td class="positive">+0.15</td><td>+0.09</td><td>+0.10</td><td>+0.12</td><td>+0.13</td><td>+0.05</td><td>+0.11</td><td class="positive">+0.15</td><td>+0.04</td></tr><tr><td class="rowhead">MS Value Gain MC incl. Dexeryl</td><td class="positive">+0.37</td><td class="positive">+0.12</td><td class="positive">+0.27</td><td class="positive">+0.15</td><td>+0.07</td><td>+0.08</td><td>+0.10</td><td>+0.12</td><td>+0.04</td><td>+0.08</td><td class="positive">+0.12</td><td>+0.04</td></tr><tr><td class="rowhead">GP %</td><td>69.4%</td><td>67.9%</td><td class="positive">68.6%</td><td class="positive">+0.7</td><td>68.2%</td><td>69.0%</td><td>69.6%</td><td>70.1%</td><td>+0.5</td><td>67.8%</td><td class="positive">68.4%</td><td>+0.6</td></tr><tr><td class="rowhead">Staff Cost % Revenue</td><td>14.3%</td><td>14.6%</td><td class="negative">14.8%</td><td class="negative">+0.2</td><td>14.2%</td><td>14.4%</td><td>14.3%</td><td>14.5%</td><td>+0.1</td><td>14.5%</td><td class="negative">14.8%</td><td>+0.3</td></tr><tr><td class="rowhead">Revenue MXN</td><td>$2.94B</td><td>$598M</td><td class="positive">$662M</td><td class="positive">+10.7%</td><td>$721M</td><td>$738M</td><td>$744M</td><td>$737M</td><td>+7.4%</td><td>$201M</td><td class="positive">$224M</td><td>+11.4%</td></tr></tbody></table></div></div><div class="panel"><div class="panel-head"><h3 class="panel-title">KPI Year vs Prior Year Trend</h3><p class="panel-sub">Monthly comparison view across the core objective KPIs,
-keeping a compact executive read with standardized current year versus prior year structure.</p><div class="segmented" id="objSelector"><button data-key="gp" class="active">GP %</button><button data-key="staff" class="">Staff Cost % Revenue</button><button data-key="dcpc" class="">MS Gain DCPC</button><button data-key="mc" class="">MS Gain MC incl. Dexeryl</button></div></div><div class="chart-area"><svg class="chart-svg" id="objChart" viewBox="0 0 560 250"><g class="grid"><line x1="40" y1="14" x2="544" y2="14"></line><line x1="40" y1="81.33333333333333" x2="544" y2="81.33333333333333"></line><line x1="40" y1="148.66666666666666" x2="544" y2="148.66666666666666"></line><line x1="40" y1="216" x2="544" y2="216"></line></g><g class="axis"><text x="40" y="238" text-anchor="middle">Jan</text><text x="85.81818181818181" y="238" text-anchor="middle">Feb</text><text x="131.63636363636363" y="238" text-anchor="middle">Mar</text><text x="177.45454545454547" y="238" text-anchor="middle">Apr</text><text x="223.27272727272728" y="238" text-anchor="middle">May</text><text x="269.0909090909091" y="238" text-anchor="middle">Jun</text><text x="314.90909090909093" y="238" text-anchor="middle">Jul</text><text x="360.72727272727275" y="238" text-anchor="middle">Aug</text><text x="406.54545454545456" y="238" text-anchor="middle">Sep</text><text x="452.3636363636364" y="238" text-anchor="middle">Oct</text><text x="498.1818181818182" y="238" text-anchor="middle">Nov</text><text x="544" y="238" text-anchor="middle">Dec</text></g><path class="series-b" d="M 40 192.6923076923077 L 85.81818181818181 188.25274725274727 L 131.63636363636363 174.93406593406593 L 177.45454545454547 166.05494505494508 L 223.27272727272728 152.73626373626377 L 269.0909090909091 148.2967032967033 L 314.90909090909093 134.978021978022 L 360.72727272727275 130.53846153846155 L 406.54545454545456 121.65934065934069 L 452.3636363636364 108.34065934065936 L 498.1818181818182 99.46153846153847 L 544 90.58241758241758"></path><path class="series-a" d="M 40 174.93406593406593 L 85.81818181818181 157.1758241758242 L 131.63636363636363 152.73626373626377 L 177.45454545454547 130.53846153846155 L 223.27272727272728 112.7802197802198 L 269.0909090909091 99.46153846153847 L 314.90909090909093 86.14285714285717 L 360.72727272727275 77.26373626373629 L 406.54545454545456 63.94505494505495 L 452.3636363636364 55.0659340659341 L 498.1818181818182 50.62637362637366 L 544 37.30769230769232"></path></svg></div><div class="legend"><div class="lg"><span></span>2026</div><div class="lg"><span class="dashed"></span>2025</div></div></div></section><section class="secondary-block"><div class="section-title">Secondary Metrics</div><div class="filters"><div class="filter filter--dropdown" data-filter="brand"><div class="label">Brand</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-brand"><span class="filter-current">Portfolio total</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-brand"><li><button type="button" class="filter-option is-selected" role="option">Portfolio total</button></li><li><button type="button" class="filter-option" role="option">Eau Thermale Avène</button></li><li><button type="button" class="filter-option" role="option">Ducray</button></li><li><button type="button" class="filter-option" role="option">Klorane</button></li><li><button type="button" class="filter-option" role="option">René Furterer</button></li><li><button type="button" class="filter-option" role="option">Dexeryl</button></li><li><button type="button" class="filter-option" role="option">Pierre Fabre Dermo (combined)</button></li><li><button type="button" class="filter-option" role="option">Rx-focused basket</button></li></ul></div><div class="filter filter--dropdown" data-filter="channel"><div class="label">Channel / Customer</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-channel"><span class="filter-current">All channels</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-channel"><li><button type="button" class="filter-option" role="option">Modern trade+pharmacy</button></li><li><button type="button" class="filter-option" role="option">Pharmacy only</button></li><li><button type="button" class="filter-option" role="option">Modern trade</button></li><li><button type="button" class="filter-option" role="option">Wholesale / CDC</button></li><li><button type="button" class="filter-option" role="option">E-commerce &amp; marketplace</button></li><li><button type="button" class="filter-option" role="option">Hospital / institutional</button></li><li><button type="button" class="filter-option is-selected" role="option">All channels</button></li></ul></div><div class="filter filter--dropdown" data-filter="category"><div class="label">Categoría</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-period"><span class="filter-current">Todas las categorías</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-period"><li><button type="button" class="filter-option is-selected" role="option">Todas las categorías</button></li><li><button type="button" class="filter-option" role="option">Acné e imperfecciones</button></li><li><button type="button" class="filter-option" role="option">Dermo aclarantes / anti-manchas</button></li><li><button type="button" class="filter-option" role="option">Rosácea y piel sensible</button></li><li><button type="button" class="filter-option" role="option">Piel atópica / dermatitis</button></li><li><button type="button" class="filter-option" role="option">Antiedad y reparación cutánea</button></li><li><button type="button" class="filter-option" role="option">Fotoprotección solar</button></li><li><button type="button" class="filter-option" role="option">Cuidado capilar</button></li><li><button type="button" class="filter-option" role="option">Higiene dermatológica</button></li><li><button type="button" class="filter-option" role="option">Oncología dermatológica</button></li><li><button type="button" class="filter-option" role="option">Pediatría / dermo pediátrica</button></li></ul></div></div><div class="sec-cards-wrap"><div class="cards-row sec-cards sec-cards-top"><div class="card"><div class="metric-label">Market Share Value Gain DC (MS Gain Value)</div><div class="metric-value">+0.42 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.05 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.20</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,40 18,38 36,36 54,33 72,30 90,27 108,24 126,21 144,18"></polyline></svg></div><div class="card"><div class="metric-label">GP %</div><div class="metric-value">68.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.4 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.7</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,31 18,30 36,31 54,29 72,27 90,25 108,25 126,23 144,21"></polyline></svg></div><div class="card"><div class="metric-label">Sell In</div><div class="metric-value">$662M</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+4.8%</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+10.7%</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,38 18,35 36,34 54,31 72,28 90,25 108,22 126,18 144,16"></polyline></svg></div><div class="card"><div class="metric-label">Sell Out</div><div class="metric-value">$618M</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+3.9%</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+8.6%</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,39 18,37 36,33 54,30 72,29 90,26 108,24 126,22 144,19"></polyline></svg></div><div class="card"><div class="metric-label">Budget vs Actual</div><div class="metric-value">101.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.9 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.2 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,30 18,29 36,30 54,28 72,25 90,24 108,22 126,20 144,18"></polyline></svg></div><div class="card"><div class="metric-label">Share of Business</div><div class="metric-value">34.7%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.6 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.1 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,36 18,34 36,34 54,31 72,29 90,27 108,24 126,21 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Days on Hand</div><div class="metric-value">54</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+2 days</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v negative">+4 days</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,18 18,19 36,21 54,22 72,24 90,25 108,27 126,28 144,31"></polyline></svg></div></div><div class="cards-row sec-cards sec-cards-bottom"><div class="card"><div class="metric-label">TIFI / OTIF</div><div class="metric-value">94.2%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.5 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.0 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,32 18,31 36,30 54,29 72,27 90,26 108,24 126,23 144,22"></polyline></svg></div><div class="card"><div class="metric-label">Fill Rate</div><div class="metric-value">96.1%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.4 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.8 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,33 18,32 36,31 54,30 72,28 90,27 108,25 126,24 144,23"></polyline></svg></div><div class="card"><div class="metric-label">PM / Credit Notes</div><div class="metric-value">2.4%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+0.2 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v negative">+0.1 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,20 18,20 36,21 54,22 72,23 90,25 108,25 126,26 144,28"></polyline></svg></div><div class="card"><div class="metric-label">SOI</div><div class="metric-value">14.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.8 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.4 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,36 18,35 36,33 54,31 72,29 90,27 108,24 126,21 144,18"></polyline></svg></div><div class="card"><div class="metric-label">SOE</div><div class="metric-value">12.1%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.5 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.9 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,34 18,34 36,32 54,31 72,28 90,26 108,25 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">CARS</div><div class="metric-value">89.4%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+1.3 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+2.2 pts</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,38 18,37 36,35 54,32 72,30 90,27 108,24 126,20 144,18"></polyline></svg></div></div></div><section class="analysis-row"><div class="panel"><div class="panel-head"><h3 class="panel-title">Secondary Metrics Matrix</h3><p class="panel-sub">Broader operating follow-up using the same standardized period schema,
-preserving a compact executive table-led reading style.</p></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>Y-1</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Y-1</th><th>ene-25</th><th>ene-26</th><th>Y-1</th></tr></thead><tbody><tr><td class="rowhead">Market Share Value Gain DC (MS Gain Value)</td><td class="positive">+0.58</td><td class="positive">+0.22</td><td class="positive">+0.42</td><td class="positive">+0.20</td><td>+0.18</td><td>+0.11</td><td>+0.16</td><td>+0.13</td><td>+0.07</td><td>+0.14</td><td class="positive">+0.19</td><td>+0.05</td></tr><tr><td class="rowhead">GP %</td><td>67.8%</td><td>68.0%</td><td class="positive">68.6%</td><td class="positive">+0.8</td><td>68.1%</td><td>68.3%</td><td>68.5%</td><td>68.4%</td><td>+0.5</td><td>68.2%</td><td class="positive">68.6%</td><td>+0.6</td></tr><tr><td class="rowhead">Sell In</td><td>$2.94B</td><td>$598M</td><td class="positive">$662M</td><td class="positive">+10.7%</td><td>$721M</td><td>$738M</td><td>$744M</td><td>$737M</td><td>+7.4%</td><td>$201M</td><td class="positive">$224M</td><td>+11.4%</td></tr><tr><td class="rowhead">Sell Out</td><td>$2.71B</td><td>$569M</td><td class="positive">$618M</td><td class="positive">+8.6%</td><td>$676M</td><td>$688M</td><td>$690M</td><td>$656M</td><td>+6.3%</td><td>$190M</td><td class="positive">$209M</td><td>+10.0%</td></tr><tr><td class="rowhead">Budget vs Actual</td><td>100.9%</td><td>100.6%</td><td class="positive">101.8%</td><td class="positive">+1.2</td><td>99.8%</td><td>100.5%</td><td>101.2%</td><td>102.1%</td><td>+0.9</td><td>100.2%</td><td class="positive">101.5%</td><td>+1.3</td></tr><tr><td class="rowhead">Share of Business</td><td>33.8%</td><td>33.6%</td><td class="positive">34.7%</td><td class="positive">+1.1</td><td>33.4%</td><td>33.7%</td><td>34.0%</td><td>34.1%</td><td>+0.8</td><td>33.5%</td><td class="positive">34.3%</td><td>+0.8</td></tr><tr><td class="rowhead">Days on Hand</td><td>50</td><td>50</td><td class="negative">54</td><td class="negative">+4</td><td>48</td><td>49</td><td>51</td><td>52</td><td>+3</td><td>49</td><td class="negative">54</td><td>+5</td></tr><tr><td class="rowhead">TIFI / OTIF</td><td>93.4%</td><td>93.2%</td><td class="positive">94.2%</td><td class="positive">+1.0</td><td>92.9%</td><td>93.4%</td><td>93.8%</td><td>93.6%</td><td>+0.8</td><td>93.1%</td><td class="positive">94.0%</td><td>+0.9</td></tr><tr><td class="rowhead">Fill Rate</td><td>95.3%</td><td>95.3%</td><td class="positive">96.1%</td><td class="positive">+0.8</td><td>95.0%</td><td>95.5%</td><td>95.7%</td><td>95.4%</td><td>+0.7</td><td>95.1%</td><td class="positive">95.9%</td><td>+0.8</td></tr><tr><td class="rowhead">PM / Credit Notes</td><td>2.1%</td><td>2.3%</td><td class="negative">2.4%</td><td class="negative">+0.1</td><td>2.0%</td><td>2.1%</td><td>2.2%</td><td>2.1%</td><td>+0.1</td><td>2.2%</td><td class="negative">2.4%</td><td>+0.2</td></tr><tr><td class="rowhead">SOI</td><td>13.0%</td><td>13.2%</td><td class="positive">14.6%</td><td class="positive">+1.4</td><td>12.7%</td><td>13.1%</td><td>13.4%</td><td>13.8%</td><td>+1.1</td><td>13.1%</td><td class="positive">14.2%</td><td>+1.1</td></tr><tr><td class="rowhead">SOE</td><td>11.2%</td><td>11.2%</td><td class="positive">12.1%</td><td class="positive">+0.9</td><td>10.9%</td><td>11.1%</td><td>11.4%</td><td>11.6%</td><td>+0.8</td><td>11.1%</td><td class="positive">11.9%</td><td>+0.8</td></tr><tr><td class="rowhead">CARS</td><td>87.2%</td><td>87.9%</td><td class="positive">89.4%</td><td class="positive">+1.5</td><td>86.8%</td><td>87.4%</td><td>88.1%</td><td>88.5%</td><td>+1.2</td><td>87.1%</td><td class="positive">89.0%</td><td>+1.9</td></tr></tbody></table></div></div><div class="panel"><div class="panel-head"><h3 class="panel-title">Secondary Metrics Year vs Prior Year</h3><p class="panel-sub">Switchable trend comparison for the broader monitoring KPIs,
-aligned to the same compact structure used above for consistency and fast scanning.</p><div class="segmented" id="secSelector"><button class="active" data-key="msgv">Market Share Value Gain DC (MS Gain Value)</button><button data-key="gpsec">GP %</button><button data-key="sellin">Sell In</button><button data-key="sellout">Sell Out</button><button data-key="budget">Budget vs Actual</button><button data-key="sob">Share of Business</button><button data-key="doh">Days on Hand</button><button data-key="otif">TIFI / OTIF</button><button data-key="fill">Fill Rate</button><button data-key="pm">PM / Credit Notes</button><button data-key="soi">SOI</button><button data-key="soe">SOE</button><button data-key="cars">CARS</button></div></div><div class="chart-area"><svg class="chart-svg" id="secChart" viewBox="0 0 560 250"><g class="grid"><line x1="40" y1="14" x2="544" y2="14"></line><line x1="40" y1="81.33333333333333" x2="544" y2="81.33333333333333"></line><line x1="40" y1="148.66666666666666" x2="544" y2="148.66666666666666"></line><line x1="40" y1="216" x2="544" y2="216"></line></g><g class="axis"><text x="40" y="238" text-anchor="middle">Jan</text><text x="85.81818181818181" y="238" text-anchor="middle">Feb</text><text x="131.63636363636363" y="238" text-anchor="middle">Mar</text><text x="177.45454545454547" y="238" text-anchor="middle">Apr</text><text x="223.27272727272728" y="238" text-anchor="middle">May</text><text x="269.0909090909091" y="238" text-anchor="middle">Jun</text><text x="314.90909090909093" y="238" text-anchor="middle">Jul</text><text x="360.72727272727275" y="238" text-anchor="middle">Aug</text><text x="406.54545454545456" y="238" text-anchor="middle">Sep</text><text x="452.3636363636364" y="238" text-anchor="middle">Oct</text><text x="498.1818181818182" y="238" text-anchor="middle">Nov</text><text x="544" y="238" text-anchor="middle">Dec</text></g><path class="series-b" d="M 40 192.69230769230768 L 85.81818181818181 170.29452529452527 L 131.63636363636363 153.4961884961885 L 177.45454545454547 135.29799029799028 L 223.27272727272728 121.29937629937628 L 269.0909090909091 112.90020790020789 L 314.90909090909093 103.10117810117808 L 360.72727272727275 93.30214830214828 L 406.54545454545456 87.70270270270268 L 452.3636363636364 82.10325710325708 L 498.1818181818182 70.90436590436587 L 544 62.50519750519746"></path><path class="series-a" d="M 40 171.69438669438668 L 85.81818181818181 153.4961884961885 L 131.63636363636363 121.29937629937628 L 177.45454545454547 104.50103950103949 L 223.27272727272728 87.70270270270268 L 269.0909090909091 83.50311850311849 L 314.90909090909093 72.30422730422728 L 360.72727272727275 66.70478170478168 L 406.54545454545456 61.10533610533608 L 452.3636363636364 55.50589050589048 L 498.1818181818182 44.30699930699927 L 544 37.307692307692264"></path></svg></div><div class="legend"><div class="lg"><span></span>2026</div><div class="lg"><span class="dashed"></span>2025</div></div></div></section></section><section class="secondary-block"><div class="section-title">Dual Metrics</div> <div class="filters"><div class="filter filter--dropdown" data-filter="brand"><div class="label">Brand</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-brand-dual"><span class="filter-current">Portfolio total</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-brand-dual"><li><button type="button" class="filter-option is-selected" role="option">Portfolio total</button></li><li><button type="button" class="filter-option" role="option">Eau Thermale Avène</button></li><li><button type="button" class="filter-option" role="option">Ducray</button></li><li><button type="button" class="filter-option" role="option">Klorane</button></li><li><button type="button" class="filter-option" role="option">René Furterer</button></li><li><button type="button" class="filter-option" role="option">Dexeryl</button></li><li><button type="button" class="filter-option" role="option">Pierre Fabre Dermo (combined)</button></li><li><button type="button" class="filter-option" role="option">Rx-focused basket</button></li></ul></div><div class="filter filter--dropdown" data-filter="category"><div class="label">Categoría</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-period-dual"><span class="filter-current">Todas las categorías</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-period-dual"><li><button type="button" class="filter-option is-selected" role="option">Todas las categorías</button></li><li><button type="button" class="filter-option" role="option">Acné e imperfecciones</button></li><li><button type="button" class="filter-option" role="option">Dermo aclarantes / anti-manchas</button></li><li><button type="button" class="filter-option" role="option">Rosácea y piel sensible</button></li><li><button type="button" class="filter-option" role="option">Piel atópica / dermatitis</button></li><li><button type="button" class="filter-option" role="option">Antiedad y reparación cutánea</button></li><li><button type="button" class="filter-option" role="option">Fotoprotección solar</button></li><li><button type="button" class="filter-option" role="option">Cuidado capilar</button></li><li><button type="button" class="filter-option" role="option">Higiene dermatológica</button></li><li><button type="button" class="filter-option" role="option">Oncología dermatológica</button></li><li><button type="button" class="filter-option" role="option">Pediatría / dermo pediátrica</button></li></ul></div></div>
+keeping a compact executive read with standardized current year versus prior year structure.</p><div class="segmented" id="objSelector"><button data-key="gp" class="active">GP %</button><button data-key="staff" class="">Staff Cost % Revenue</button><button data-key="dcpc" class="">MS Gain DCPC</button><button data-key="mc" class="">MS Gain MC incl. Dexeryl</button></div></div><div class="chart-area"><svg class="chart-svg" id="objChart" viewBox="0 0 560 250"><g class="grid"><line x1="40" y1="14" x2="544" y2="14"></line><line x1="40" y1="81.33333333333333" x2="544" y2="81.33333333333333"></line><line x1="40" y1="148.66666666666666" x2="544" y2="148.66666666666666"></line><line x1="40" y1="216" x2="544" y2="216"></line></g><g class="axis"><text x="40" y="238" text-anchor="middle">Jan</text><text x="85.81818181818181" y="238" text-anchor="middle">Feb</text><text x="131.63636363636363" y="238" text-anchor="middle">Mar</text><text x="177.45454545454547" y="238" text-anchor="middle">Apr</text><text x="223.27272727272728" y="238" text-anchor="middle">May</text><text x="269.0909090909091" y="238" text-anchor="middle">Jun</text><text x="314.90909090909093" y="238" text-anchor="middle">Jul</text><text x="360.72727272727275" y="238" text-anchor="middle">Aug</text><text x="406.54545454545456" y="238" text-anchor="middle">Sep</text><text x="452.3636363636364" y="238" text-anchor="middle">Oct</text><text x="498.1818181818182" y="238" text-anchor="middle">Nov</text><text x="544" y="238" text-anchor="middle">Dec</text></g><path class="series-b" d="M 40 192.6923076923077 L 85.81818181818181 188.25274725274727 L 131.63636363636363 174.93406593406593 L 177.45454545454547 166.05494505494508 L 223.27272727272728 152.73626373626377 L 269.0909090909091 148.2967032967033 L 314.90909090909093 134.978021978022 L 360.72727272727275 130.53846153846155 L 406.54545454545456 121.65934065934069 L 452.3636363636364 108.34065934065936 L 498.1818181818182 99.46153846153847 L 544 90.58241758241758"></path><path class="series-a" d="M 40 174.93406593406593 L 85.81818181818181 157.1758241758242 L 131.63636363636363 152.73626373626377 L 177.45454545454547 130.53846153846155 L 223.27272727272728 112.7802197802198 L 269.0909090909091 99.46153846153847 L 314.90909090909093 86.14285714285717 L 360.72727272727275 77.26373626373629 L 406.54545454545456 63.94505494505495 L 452.3636363636364 55.0659340659341 L 498.1818181818182 50.62637362637366 L 544 37.30769230769232"></path></svg></div><div class="legend"><div class="lg"><span></span>2026</div><div class="lg"><span class="dashed"></span>2025</div></div></div></section><section class="secondary-block"><div class="section-title">Dual Metrics</div> <div class="filters"><div class="filter filter--dropdown" data-filter="brand"><div class="label">Brand</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-brand-dual"><span class="filter-current">Portfolio total</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-brand-dual"><li><button type="button" class="filter-option is-selected" role="option">Portfolio total</button></li><li><button type="button" class="filter-option" role="option">Eau Thermale Avène</button></li><li><button type="button" class="filter-option" role="option">Ducray</button></li><li><button type="button" class="filter-option" role="option">Klorane</button></li><li><button type="button" class="filter-option" role="option">René Furterer</button></li><li><button type="button" class="filter-option" role="option">Dexeryl</button></li><li><button type="button" class="filter-option" role="option">Pierre Fabre Dermo (combined)</button></li><li><button type="button" class="filter-option" role="option">Rx-focused basket</button></li></ul></div><div class="filter filter--dropdown" data-filter="category"><div class="label">Categoría</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-period-dual"><span class="filter-current">Todas las categorías</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-period-dual"><li><button type="button" class="filter-option is-selected" role="option">Todas las categorías</button></li><li><button type="button" class="filter-option" role="option">Acné e imperfecciones</button></li><li><button type="button" class="filter-option" role="option">Dermo aclarantes / anti-manchas</button></li><li><button type="button" class="filter-option" role="option">Rosácea y piel sensible</button></li><li><button type="button" class="filter-option" role="option">Piel atópica / dermatitis</button></li><li><button type="button" class="filter-option" role="option">Antiedad y reparación cutánea</button></li><li><button type="button" class="filter-option" role="option">Fotoprotección solar</button></li><li><button type="button" class="filter-option" role="option">Cuidado capilar</button></li><li><button type="button" class="filter-option" role="option">Higiene dermatológica</button></li><li><button type="button" class="filter-option" role="option">Oncología dermatológica</button></li><li><button type="button" class="filter-option" role="option">Pediatría / dermo pediátrica</button></li></ul></div></div>
 
 <div class="dual-grid"><div class="dual-panel"><div class="panel-head"><h3 class="panel-title">Sell Out: Client View vs Auditable View</h3><p class="panel-sub">Weekly follow-up lens for commercial tracking versus auditable consolidation.</p></div><div class="dual-body"><div class="dual-toggles" data-dual="sellout"><button class="active" data-view="client">Client View</button><button data-view="audit">Auditable View</button></div><div class="dual-main"><div><div class="dual-big" id="selloutValue">$618M</div><div class="dual-mini" id="selloutMeta"></div></div><div class="bars"><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="selloutBar1" style="width:78%"></div></div><div id="selloutLbl1">78%</div></div><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="selloutBar2" style="width:84%"></div></div><div id="selloutLbl2">84%</div></div><div class="note" id="selloutNote"></div></div></div></div></div><div class="dual-panel"><div class="panel-head"><h3 class="panel-title">Market Share: With Amazon vs Without Amazon</h3><p class="panel-sub">Monthly market share view showing the effect of marketplace inclusion on the executive read.</p></div><div class="dual-body"><div class="dual-toggles" data-dual="share"><button class="active" data-view="with">With Amazon</button><button data-view="without">Without Amazon</button></div><div class="dual-main"><div><div class="dual-big" id="shareValue">12.8%</div><div class="dual-mini" id="shareMeta"></div></div><div class="bars"><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="shareBar1" style="width:64%"></div></div><div id="shareLbl1">12.8%</div></div><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="shareBar2" style="width:58%"></div></div><div id="shareLbl2">11.6%</div></div><div class="note" id="shareNote"></div></div></div></div></div><div class="dual-panel"><div class="panel-head"><h3 class="panel-title">Days on Hand: Client Reported vs Finance Calculated</h3><p class="panel-sub">Inventory lens to surface operational reading differences while preserving a single executive visual frame.</p></div><div class="dual-body"><div class="dual-toggles" data-dual="dohdual"><button class="active" data-view="client">Client Reported</button><button data-view="finance">Finance Calculated</button></div><div class="dual-main"><div><div class="dual-big" id="dohValue">54</div><div class="dual-mini" id="dohMeta"></div></div><div class="bars"><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="dohBar1" style="width:54%"></div></div><div id="dohLbl1">54 days</div></div><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="dohBar2" style="width:48%"></div></div><div id="dohLbl2">48 days</div></div><div class="note" id="dohNote"></div></div></div></div></div></div></section><section class="bottom-row"><div class="panel"><div class="panel-head"><h3 class="panel-title">Share of Business</h3><p class="panel-sub">Ranked customer distribution with contribution,
 value and in-line trend,
-preserving a table-led read for executive monitoring.</p></div><div class="table-wrap"><table class="sob-table"><thead><tr><th>Customer / Account</th><th>Contribution</th><th>Value</th><th>Trend</th></tr></thead><tbody><tr><td class="rowhead">Farmacias Guadalajara</td><td class="positive">17.8%</td><td>$118.2M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,17 15,15 30,16 45,13 60,12 75,10 90,8 105,6"></polyline></svg></td></tr><tr><td class="rowhead">Farmacias del Ahorro</td><td class="positive">15.3%</td><td>$101.4M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,18 15,17 30,15 45,14 60,13 75,12 90,10 105,9"></polyline></svg></td></tr><tr><td class="rowhead">Farmacias Benavides</td><td>12.6%</td><td>$83.5M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,19 15,19 30,17 45,15 60,15 75,13 90,12 105,10"></polyline></svg></td></tr><tr><td class="rowhead">Walmart México</td><td>10.9%</td><td>$72.1M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,20 15,18 30,19 45,16 60,14 75,13 90,13 105,11"></polyline></svg></td></tr><tr><td class="rowhead">San Pablo Farmacia</td><td>9.4%</td><td>$62.3M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,18 15,18 30,16 45,15 60,14 75,12 90,11 105,11"></polyline></svg></td></tr><tr><td class="rowhead">Liverpool</td><td>7.7%</td><td>$50.9M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,20 15,19 30,18 45,17 60,16 75,15 90,13 105,12"></polyline></svg></td></tr><tr><td class="rowhead">Chedraui</td><td>6.8%</td><td>$45.1M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,21 15,20 30,18 45,18 60,17 75,15 90,14 105,13"></polyline></svg></td></tr><tr><td class="rowhead">Amazon México</td><td>5.6%</td><td>$37.2M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,22 15,20 30,19 45,16 60,15 75,12 90,10 105,8"></polyline></svg></td></tr></tbody></table></div></div><div class="panel"><div class="panel-head"><h3 class="panel-title">Launches</h3><p class="panel-sub">Executive launch summary for the steering discussion: incremental pull-through versus base, supply cover, and medical activation in one scan.</p></div><div class="launch-summary"><div class="launch-hero"><div class="launch-kicker">Lead indicator</div><div class="launch-hero-title">Incremental contribution vs base sales</div><div class="launch-hero-stat"><span class="launch-hero-pct">31%</span><span class="launch-hero-pct-label"> incremental share</span></div><div class="launch-hero-split"><strong>$13.3M</strong> incremental<span class="launch-split-sep">·</span><strong>$29.3M</strong> base-attributed</div><div class="launch-hero-foot">Launch perimeter · YTD 2026 · indexed to pre-launch run-rate</div></div><div class="launch-split-rule"></div><div class="launch-stack"><div class="launch-line"><div class="launch-line-main"><div><div class="launch-line-name">Launch inventory</div><div class="launch-line-hint">Weeks of cover vs distribution plan</div></div></div><div class="launch-line-fig"><div class="launch-line-val">6.2<span class="launch-line-unit"> wks</span></div></div></div><div class="launch-line"><div class="launch-line-main"><div><div class="launch-line-name">Prescription / close-up</div><div class="launch-line-hint">Detailing and pharmacy pull-through</div></div></div><div class="launch-line-fig"><div class="launch-line-val">82.1%</div><div class="launch-line-note">+4.8 pts vs prior month</div></div></div></div></div></div></section></div><div id="view-regulatory" class="dashboard-view" hidden><div class="reg-strip"><strong>Regulatory</strong> · Pierre Fabre Mexico · Mock data — bind to Complaints 2026 / approvals platform / Speaker-Events AMERICAS</div>
-<div class="section-title">Objectives</div>
+preserving a table-led read for executive monitoring.</p></div><div class="table-wrap"><table class="sob-table"><thead><tr><th>Customer / Account</th><th>Contribution</th><th>Value</th><th>Trend</th></tr></thead><tbody><tr><td class="rowhead">Farmacias Guadalajara</td><td class="positive">17.8%</td><td>$118.2M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,17 15,15 30,16 45,13 60,12 75,10 90,8 105,6"></polyline></svg></td></tr><tr><td class="rowhead">Farmacias del Ahorro</td><td class="positive">15.3%</td><td>$101.4M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,18 15,17 30,15 45,14 60,13 75,12 90,10 105,9"></polyline></svg></td></tr><tr><td class="rowhead">Farmacias Benavides</td><td>12.6%</td><td>$83.5M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,19 15,19 30,17 45,15 60,15 75,13 90,12 105,10"></polyline></svg></td></tr><tr><td class="rowhead">Walmart México</td><td>10.9%</td><td>$72.1M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,20 15,18 30,19 45,16 60,14 75,13 90,13 105,11"></polyline></svg></td></tr><tr><td class="rowhead">San Pablo Farmacia</td><td>9.4%</td><td>$62.3M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,18 15,18 30,16 45,15 60,14 75,12 90,11 105,11"></polyline></svg></td></tr><tr><td class="rowhead">Liverpool</td><td>7.7%</td><td>$50.9M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,20 15,19 30,18 45,17 60,16 75,15 90,13 105,12"></polyline></svg></td></tr><tr><td class="rowhead">Chedraui</td><td>6.8%</td><td>$45.1M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,21 15,20 30,18 45,18 60,17 75,15 90,14 105,13"></polyline></svg></td></tr><tr><td class="rowhead">Amazon México</td><td>5.6%</td><td>$37.2M</td><td class="spark-cell"><svg viewBox="0 0 110 24"><polyline fill="none" stroke="#557a61" stroke-width="2" points="0,22 15,20 30,19 45,16 60,15 75,12 90,10 105,8"></polyline></svg></td></tr></tbody></table></div></div><div class="panel"><div class="panel-head"><h3 class="panel-title">Launches</h3><p class="panel-sub">Executive launch summary for the steering discussion: incremental pull-through versus base, supply cover, and medical activation in one scan.</p></div><div class="launch-summary"><div class="launch-hero"><div class="launch-kicker">Lead indicator</div><div class="launch-hero-title">Incremental contribution vs base sales</div><div class="launch-hero-stat"><span class="launch-hero-pct">31%</span><span class="launch-hero-pct-label"> incremental share</span></div><div class="launch-hero-split"><strong>$13.3M</strong> incremental<span class="launch-split-sep">·</span><strong>$29.3M</strong> base-attributed</div><div class="launch-hero-foot">Launch perimeter · YTD 2026 · indexed to pre-launch run-rate</div></div><div class="launch-split-rule"></div><div class="launch-stack"><div class="launch-line"><div class="launch-line-main"><div><div class="launch-line-name">Launch inventory</div><div class="launch-line-hint">Weeks of cover vs distribution plan</div></div></div><div class="launch-line-fig"><div class="launch-line-val">6.2<span class="launch-line-unit"> wks</span></div></div></div><div class="launch-line"><div class="launch-line-main"><div><div class="launch-line-name">Prescription / close-up</div><div class="launch-line-hint">Detailing and pharmacy pull-through</div></div></div><div class="launch-line-fig"><div class="launch-line-val">82.1%</div><div class="launch-line-note">+4.8 pts vs prior month</div></div></div></div></div></div></section></div><div id="view-regulatory" class="dashboard-view" hidden><div class="section-title">Objectives</div>
 <div class="reg-obj-wrap"><div class="reg-obj-row7 obj-cards"><div class="card"><div class="metric-label">NPS – Internal Scientific Training</div><div class="metric-value">8.2</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">8.2</div></div><div class="meta-box"><div class="k">Target</div><div class="v">≥ 8</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">103%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,28 18,26 36,27 54,25 72,24 90,22 108,21 126,20 144,18"></polyline></svg></div><div class="card"><div class="metric-label">NPS – Scientific Events</div><div class="metric-value">8.0</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">8.0</div></div><div class="meta-box"><div class="k">Target</div><div class="v">≥ 8</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">100%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,26 18,28 36,27 54,26 72,25 90,24 108,23 126,22 144,21"></polyline></svg></div><div class="card"><div class="metric-label">Practice Impact Score</div><div class="metric-value">3.4</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">3.4</div></div><div class="meta-box"><div class="k">Target</div><div class="v">≥ 3</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">113%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,32 18,30 36,29 54,28 72,27 90,26 108,25 126,24 144,22"></polyline></svg></div><div class="card"><div class="metric-label">Renewal of the KOL Ecosystem</div><div class="metric-value">12%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">12%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">≥ 10%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">120%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,30 18,29 36,28 54,27 72,26 90,25 108,24 126,23 144,21"></polyline></svg></div><div class="card"><div class="metric-label">Investigator Study &amp; RWE Projects Aligned</div><div class="metric-value">96%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">96%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">100%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">96%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,27 18,26 36,25 54,24 72,24 90,23 108,22 126,21 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Omnichannel Journey for Congresses with Medical Event</div><div class="metric-value">88%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">88%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">100%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">88%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,29 18,28 36,27 54,26 72,25 90,24 108,23 126,22 144,21"></polyline></svg></div><div class="card"><div class="metric-label">Medical Reach – All Channels</div><div class="metric-value">+14%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+14%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+20%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">70%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L150 22 L150 48 L0 48 Z"></path><polyline points="0,35 18,33 36,32 54,31 72,30 90,28 108,27 126,26 144,25"></polyline></svg></div></div></div>
 <section class="analysis-row analysis-row--reg-band reg-band analysis-row--reg-grid7">
-<div class="panel"><div class="panel-head"><h3 class="panel-title">Objective matrix</h3><p class="panel-sub">NPS en escala 1–10 y Practice impact score por evento (mock).</p></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>Evento 1</th><th>Evento 2</th><th>Evento 3</th><th>Evento 4</th><th>Evento 5</th></tr></thead><tbody><tr><td class="rowhead">NPS – Internal Scientific Training</td><td>6.8</td><td>7.2</td><td>7.0</td><td>7.6</td><td class="positive">8.2</td></tr><tr><td class="rowhead">NPS – Scientific Events</td><td>6.5</td><td>6.9</td><td>7.1</td><td>6.8</td><td class="positive">8.0</td></tr><tr><td class="rowhead">Practice Impact Score</td><td>2.9</td><td>3.05</td><td>2.98</td><td>3.25</td><td class="positive">3.4</td></tr></tbody></table></div></div>
-<div class="panel"><div class="panel-head"><h3 class="panel-title">Objetivos por evento</h3><p class="panel-sub panel-sub--full">Barras por evento para la métrica seleccionada (sin comparativo vs año anterior).</p><div class="segmented" id="regPrimarySelector"><button type="button" class="active" data-reg-key="npsInternalTraining">NPS – Int. training</button><button type="button" class="" data-reg-key="npsScientificEvents">NPS – Sci. events</button><button type="button" class="" data-reg-key="practiceImpact">Practice impact</button></div></div><div class="chart-area"><svg class="chart-svg chart-svg--compact" id="regPrimaryChart" viewBox="0 0 560 250"></svg></div></div>
+<div class="panel"><div class="panel-head"><h3 class="panel-title">Objective matrix</h3></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>Evento 1</th><th>Evento 2</th><th>Evento 3</th><th>Evento 4</th><th>Evento 5</th></tr></thead><tbody><tr><td class="rowhead">NPS – Internal Scientific Training</td><td>6.8</td><td>7.2</td><td>7.0</td><td>7.6</td><td class="positive">8.2</td></tr><tr><td class="rowhead">NPS – Scientific Events</td><td>6.5</td><td>6.9</td><td>7.1</td><td>6.8</td><td class="positive">8.0</td></tr><tr><td class="rowhead">Practice Impact Score</td><td>2.9</td><td>3.05</td><td>2.98</td><td>3.25</td><td class="positive">3.4</td></tr></tbody></table></div></div>
+<div class="panel"><div class="panel-head"><h3 class="panel-title">Objetivos por evento</h3><div class="segmented" id="regPrimarySelector"><button type="button" class="active" data-reg-key="npsInternalTraining">NPS – Int. training</button><button type="button" class="" data-reg-key="npsScientificEvents">NPS – Sci. events</button><button type="button" class="" data-reg-key="practiceImpact">Practice impact</button></div></div><div class="chart-area"><svg class="chart-svg chart-svg--compact" id="regPrimaryChart" viewBox="0 0 560 250"></svg></div></div>
 </section>
-<section class="secondary-block"><div class="section-title">Secondary Metrics</div>
-<div class="sec-cards-wrap"><div class="cards-row sec-cards" style="grid-template-columns:repeat(5,1fr)"><div class="card"><div class="metric-label">Total Complaints</div><div class="metric-value">64</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+3</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v negative">+6</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,22 18,24 36,23 54,26 72,25 90,27 108,24 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">% Before Use</div><div class="metric-value">37.5%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">−0.4 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v neutral">stable</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,28 18,28 36,27 54,28 72,27 90,26 108,27 126,26 144,25"></polyline></svg></div><div class="card"><div class="metric-label">% In Use</div><div class="metric-value">62.5%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+0.4 pts</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v neutral">+0.6</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,30 18,29 36,30 54,28 72,29 90,28 108,27 126,26 144,25"></polyline></svg></div><div class="card"><div class="metric-label">Products Affected</div><div class="metric-value">37</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+2</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v negative">+3</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,26 18,25 36,26 54,24 72,25 90,23 108,22 126,21 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Brands Affected</div><div class="metric-value">5</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v neutral">0</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v neutral">0</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,32 18,32 36,31 54,31 72,30 90,30 108,29 126,29 144,28"></polyline></svg></div></div><div class="cards-row sec-cards" style="grid-template-columns:repeat(5,1fr);margin-top:12px"><div class="card"><div class="metric-label">Materials Approved</div><div class="metric-value">142</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+8</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+12</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,30 18,29 36,28 54,27 72,26 90,25 108,24 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Materials Rejected</div><div class="metric-value">15</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v negative">+1</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v neutral">+1</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,22 18,23 36,24 54,23 72,24 90,23 108,24 126,23 144,24"></polyline></svg></div><div class="card"><div class="metric-label">Medical Events</div><div class="metric-value">21</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+1</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+3</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,28 18,27 36,26 54,25 72,24 90,23 108,22 126,21 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Academic Trainings</div><div class="metric-value">34</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+2</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+8</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,32 18,31 36,30 54,29 72,28 90,27 108,26 126,24 144,22"></polyline></svg></div><div class="card"><div class="metric-label">Medical NPS YTD</div><div class="metric-value">8.2</div><div class="metric-meta"><div class="meta-box"><div class="k">vs prev.</div><div class="v positive">+0.1</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.3</div></div></div><svg class="spark" viewBox="0 0 150 48"><polyline points="0,26 18,25 36,24 54,23 72,22 90,21 108,20 126,19 144,18"></polyline></svg></div></div></div>
-<section class="analysis-row analysis-row--reg-band analysis-row--reg-grid5"><div class="panel"><div class="panel-head"><h3 class="panel-title">Secondary Metrics Matrix</h3><p class="panel-sub">Operational follow-up — no commercial linkage.</p></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>Y-1</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Y-1</th><th>ene-25</th><th>ene-26</th><th>Y-1</th></tr></thead><tbody><tr><td class="rowhead">Total Complaints</td><td>312</td><td>58</td><td>64</td><td class="negative">+6</td><td>72</td><td>78</td><td>81</td><td>81</td><td>+9</td><td>19</td><td>21</td><td class="negative">+2</td></tr><tr><td class="rowhead">% Before Use</td><td>37.8%</td><td>37.9%</td><td>37.5%</td><td class="positive">−0.4</td><td>38.9%</td><td>38.5%</td><td>35.8%</td><td>38.3%</td><td>−0.6</td><td>36.8%</td><td>38.1%</td><td>+1.3</td></tr><tr><td class="rowhead">% In Use</td><td>62.2%</td><td>62.1%</td><td>62.5%</td><td>+0.4</td><td>61.1%</td><td>61.5%</td><td>64.2%</td><td>61.7%</td><td>+0.6</td><td>63.2%</td><td>61.9%</td><td>−1.3</td></tr><tr><td class="rowhead">Products Affected</td><td>34</td><td>35</td><td>37</td><td>+2</td><td>36</td><td>37</td><td>38</td><td>39</td><td>+3</td><td>11</td><td>12</td><td>+1</td></tr><tr><td class="rowhead">Brands Affected</td><td>5</td><td>5</td><td>5</td><td>0</td><td>5</td><td>5</td><td>5</td><td>5</td><td>0</td><td>5</td><td>5</td><td>0</td></tr><tr><td class="rowhead">Materials Approved</td><td>418</td><td>86</td><td>94</td><td class="positive">+8</td><td>98</td><td>102</td><td>110</td><td>108</td><td>+12</td><td>28</td><td>31</td><td>+3</td></tr><tr><td class="rowhead">Materials Rejected</td><td>38</td><td>8</td><td>9</td><td>+1</td><td>9</td><td>10</td><td>11</td><td>8</td><td>−1</td><td>2</td><td>3</td><td>+1</td></tr><tr><td class="rowhead">Medical Events</td><td>86</td><td>18</td><td>21</td><td>+3</td><td>20</td><td>22</td><td>24</td><td>20</td><td>+4</td><td>5</td><td>6</td><td>+1</td></tr><tr><td class="rowhead">Academic Trainings</td><td>124</td><td>26</td><td>34</td><td>+8</td><td>28</td><td>30</td><td>32</td><td>34</td><td>+6</td><td>8</td><td>10</td><td>+2</td></tr><tr><td class="rowhead">Medical NPS YTD</td><td>7.8</td><td>7.9</td><td>8.2</td><td class="positive">+0.3</td><td>7.6</td><td>7.7</td><td>7.9</td><td>8.0</td><td>+0.2</td><td>7.9</td><td>8.2</td><td class="positive">+0.3</td></tr></tbody></table></div></div>
-<div class="panel"><div class="panel-head"><h3 class="panel-title">Secondary Metrics Trend</h3><p class="panel-sub panel-sub--full">Comparison of selected secondary metric across time.</p><div class="segmented" id="regSecondarySelector"><button type="button" class="active" data-reg-sec="totalComplaints">Total Complaints</button><button type="button" class="" data-reg-sec="pctBeforeUse">% Before Use</button><button type="button" class="" data-reg-sec="pctInUse">% In Use</button><button type="button" class="" data-reg-sec="productsAffected">Products Affected</button><button type="button" class="" data-reg-sec="brandsAffected">Brands Affected</button><button type="button" class="" data-reg-sec="materialsApproved">Materials Approved</button><button type="button" class="" data-reg-sec="materialsRejected">Materials Rejected</button><button type="button" class="" data-reg-sec="medicalEvents">Medical Events</button><button type="button" class="" data-reg-sec="academicTrainings">Academic Trainings</button><button type="button" class="" data-reg-sec="medicalNpsYtd">Medical NPS YTD</button></div></div><div class="chart-area"><svg class="chart-svg chart-svg--compact" id="regSecondaryChart" viewBox="0 0 560 250"></svg></div><div class="legend"><div class="lg"><span></span>2026</div><div class="lg"><span class="dashed"></span>2025</div></div></div></section></section>
-<section class="ca-section secondary-block"><div class="section-title">Complaints Analytics</div>
-<div class="ca-filters filters"><div class="filter filter--dropdown" data-filter="ca-month"><div class="label">Month</div><button type="button" class="filter-trigger" aria-expanded="false" id="ft-ca-m"><span class="filter-current">All</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All</button></li><li><button type="button" class="filter-option" role="option">Jan</button></li><li><button type="button" class="filter-option" role="option">Feb</button></li></ul></div><div class="filter filter--dropdown" data-filter="ca-year"><div class="label">Year</div><button type="button" class="filter-trigger" id="ft-ca-y"><span class="filter-current">2026</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">2026</button></li><li><button type="button" class="filter-option" role="option">2025</button></li></ul></div><div class="filter filter--dropdown" data-filter="ca-brand"><div class="label">Brand</div><button type="button" class="filter-trigger" id="ft-ca-b"><span class="filter-current">All brands</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All brands</button></li><li><button type="button" class="filter-option" role="option">Avène</button></li><li><button type="button" class="filter-option" role="option">Ducray</button></li></ul></div><div class="filter filter--dropdown" data-filter="ca-type"><div class="label">Complaint Type</div><button type="button" class="filter-trigger" id="ft-ca-t"><span class="filter-current">All types</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All types</button></li><li><button type="button" class="filter-option" role="option">Quality</button></li><li><button type="button" class="filter-option" role="option">Packaging</button></li></ul></div></div>
-<div class="ca-kpi-hero"><div class="lbl">Total PF Complaints</div><div class="num">64</div></div>
-<div class="ca-grid"><div class="ca-chart-panel ca-span-6"><div class="panel-head"><h3 class="panel-title">By Product</h3><p class="panel-sub">Horizontal bars — count by SKU (mock).</p></div><svg class="ca-svg" id="caSvgProduct" viewBox="0 0 400 220"></svg></div><div class="ca-chart-panel ca-span-6"><div class="panel-head"><h3 class="panel-title">By Month</h3><p class="panel-sub">Before Use vs In Use — clustered columns.</p></div><svg class="ca-svg" id="caSvgMonth" viewBox="0 0 400 220"></svg><div class="ca-legend-mini"><span><span class="i" style="background:#557a61"></span>Before Use</span><span><span class="i" style="background:#9aa69d"></span>In Use</span></div></div>
-<div class="ca-chart-panel ca-span-4"><div class="panel-head"><h3 class="panel-title">By Complaint Type</h3><p class="panel-sub">Quality vs Quality with AE.</p></div><svg class="ca-svg" id="caSvgTypeAe" viewBox="0 0 280 200"></svg></div><div class="ca-chart-panel ca-span-4"><div class="panel-head"><h3 class="panel-title">By Brand</h3><p class="panel-sub">Share of complaints.</p></div><svg class="ca-svg" id="caSvgBrand" viewBox="0 0 280 200"></svg></div><div class="ca-chart-panel ca-span-4"><div class="panel-head"><h3 class="panel-title">By Type</h3><p class="panel-sub">Formula · Packaging · Functioning · Other.</p></div><svg class="ca-svg" id="caSvgTypePack" viewBox="0 0 280 200"></svg></div>
-<div class="ca-chart-panel ca-span-12"><div class="panel-head"><h3 class="panel-title">Reasons Distribution</h3><p class="panel-sub">Treemap by count (mock categories).</p></div><svg class="ca-svg" id="caSvgTreemap" viewBox="0 0 900 200" style="height:200px"></svg></div></div></section>
-<section class="promo-module secondary-block"><div class="section-title">Promotional Materials</div>
-<div class="promo-kpi-row" style="grid-template-columns:repeat(4,1fr)"><div class="card"><div class="metric-label">Total Materials Submitted</div><div class="metric-value">186</div></div><div class="card"><div class="metric-label">Approved</div><div class="metric-value">142</div></div><div class="card"><div class="metric-label">Rejected</div><div class="metric-value">15</div></div><div class="card"><div class="metric-label">Without Comments</div><div class="metric-value">118</div></div></div>
-<div class="promo-layout"><div class="ca-chart-panel"><div class="panel-head"><h3 class="panel-title">Audience split</h3><p class="panel-sub">Público en general vs Profesional de la salud.</p></div><svg class="ca-svg" id="promoSvgAudience" viewBox="0 0 280 220"></svg></div><div class="panel"><div class="panel-head"><h3 class="panel-title">Publicity by Product</h3><p class="panel-sub">Dermo vs Farma tint in bars (mock).</p></div><svg class="ca-svg" id="promoSvgProduct" viewBox="0 0 400 240"></svg></div><div class="panel"><div class="panel-head"><h3 class="panel-title">Diffusion Medium</h3><p class="panel-sub">Digital · Tarjeton · Triptico · Otros · Poster.</p></div><svg class="ca-svg" id="promoSvgMedium" viewBox="0 0 360 220"></svg></div></div>
-<div class="panel promo-queue-row" style="margin-top:14px"><div class="panel-head"><h3 class="panel-title">Pending requests (COFEPRIS-style queue)</h3><p class="panel-sub">Operational queue — bind to platform.</p></div><div class="table-wrap"><table><thead><tr><th>ID</th><th>Product</th><th>Requester</th><th>Directed To</th><th>Request Date</th><th>Status</th></tr></thead><tbody><tr><td>REQ-2401</td><td class="rowhead">Cleanance Gel</td><td>M. López</td><td>COFEPRIS</td><td>12-Feb-26</td><td class="negative">Pending</td></tr><tr><td>REQ-2394</td><td class="rowhead">Cicalfate+</td><td>R. Vega</td><td>Medical</td><td>08-Feb-26</td><td>Review</td></tr><tr><td>REQ-2388</td><td class="rowhead">Keracnyl</td><td>A. Ruiz</td><td>Regulatory</td><td>02-Feb-26</td><td class="negative">Clarification</td></tr></tbody></table></div></div>
-<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;padding:4px 2px"><span style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);align-self:center;margin-right:6px">Request channels</span><div class="dual-toggles" style="margin:0"><button type="button" class="active">Solicitudes Medical</button><button type="button">Solicitudes Regulatorios</button><button type="button">Solicitudes COFEPRIS</button></div></div></section>
-<section class="ma-section secondary-block"><div class="section-title">Medical Affairs</div>
-<p style="margin:4px 2px 0;font-size:12px;color:var(--muted);max-width:920px">Activity and quality metrics only — no sales, Rx, market share or launches.</p>
-<div class="ma-grid"><div class="panel"><div class="panel-head"><h3 class="panel-title">KPI scorecard</h3><p class="panel-sub">Targets vs YTD.</p></div><div class="table-wrap"><table><thead><tr><th>KPI</th><th>Target</th><th>YTD</th></tr></thead><tbody>
-<tr><td class="rowhead">NPS – Academic activities</td><td>≥ 8</td><td class="positive">8.2</td></tr>
-<tr><td class="rowhead">NPS – Academic trainings</td><td>≥ 8</td><td class="positive">8.4</td></tr>
-<tr><td class="rowhead">Practice impact score</td><td>≥ 3</td><td class="positive">3.4</td></tr>
-<tr><td class="rowhead">Renewal of the KOL ecosystem</td><td>≥ 10%</td><td class="positive">12%</td></tr>
+<section class="reg-complaints-analytics secondary-block"><div class="section-title">Complaint analytics</div>
+<div class="reg-matrix-filters filters"><div class="filter filter--dropdown" data-filter="cqa-month"><div class="label">Month</div><button type="button" class="filter-trigger" aria-expanded="false" id="ft-cqa-m"><span class="filter-current">All</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All</button></li><li><button type="button" class="filter-option" role="option">Jan</button></li><li><button type="button" class="filter-option" role="option">Feb</button></li></ul></div><div class="filter filter--dropdown" data-filter="cqa-year"><div class="label">Year</div><button type="button" class="filter-trigger" id="ft-cqa-y"><span class="filter-current">2026</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">2026</button></li><li><button type="button" class="filter-option" role="option">2025</button></li></ul></div><div class="filter filter--dropdown" data-filter="cqa-source"><div class="label">Complaint source</div><button type="button" class="filter-trigger" id="ft-cqa-src"><span class="filter-current">All</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All</button></li><li><button type="button" class="filter-option" role="option">Client</button></li><li><button type="button" class="filter-option" role="option">User</button></li><li><button type="button" class="filter-option" role="option">Process</button></li></ul></div><div class="filter filter--dropdown" data-filter="cqa-brand"><div class="label">Brand</div><button type="button" class="filter-trigger" id="ft-cqa-br"><span class="filter-current">All</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All</button></li><li><button type="button" class="filter-option" role="option">Avène</button></li><li><button type="button" class="filter-option" role="option">Ducray</button></li><li><button type="button" class="filter-option" role="option">Dexeryl</button></li><li><button type="button" class="filter-option" role="option">Klorane</button></li></ul></div><div class="filter filter--dropdown" data-filter="cqa-priority"><div class="label">Prioridad</div><button type="button" class="filter-trigger" aria-expanded="false" id="ft-cqa-pri"><span class="filter-current">All</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All</button></li><li><button type="button" class="filter-option" role="option">P1</button></li><li><button type="button" class="filter-option" role="option">P2</button></li><li><button type="button" class="filter-option" role="option">P3</button></li></ul></div></div>
+<div class="reg-ca-main-grid">
+<div class="reg-ca-row-top">
+<div class="reg-ca-left-stack">
+<div class="reg-ca-kpi-widgets">
+<div class="reg-ca-kpi-widget"><div class="reg-ca-kpi-label">Total de casos abiertos</div><div class="reg-ca-kpi-value">23</div></div>
+<div class="reg-ca-kpi-widget"><div class="reg-ca-kpi-label">Piezas impactadas</div><div class="reg-ca-kpi-value">10.1k</div></div>
+</div>
+<div class="panel panel--reg-product-side"><div class="panel-head"><h3 class="panel-title">By Product</h3><p class="panel-sub">Conteo por producto (mock · alinear a filtros de sección).</p></div><div class="reg-ca-product-chart"><svg class="ca-svg" id="caSvgProduct" viewBox="0 0 320 220"></svg></div></div>
+</div>
+<div class="panel panel--reg-matrix"><div class="panel-head"><h3 class="panel-title">Process / Quality Complaints Detail</h3></div>
+<div class="table-wrap table-wrap--matrix-scroll"><table class="reg-matrix-table"><thead><tr><th>Complaint source</th><th>Brand</th><th>Product</th><th>Lot</th><th>Detection moment</th><th>Defect category</th><th>Pieces impacted</th><th>Origin</th><th>Sell in</th><th>Sell out</th><th>Priority</th><th>Estado</th></tr></thead><tbody>
+<tr class="priority-p1"><td>Process</td><td>Avène</td><td class="rowhead">Cicalfate+ Crème</td><td>MX-AVE-24-118C</td><td>Before Use</td><td>Primary Packaging</td><td class="col-pieces">4&nbsp;200</td><td class="origin-fr">France</td><td class="col-sell">$186k</td><td class="col-sell">$172k</td><td class="col-priority pri-1">P1</td><td class="col-estado">QA hold</td></tr>
+<tr class="priority-p1"><td>Client</td><td>Ducray</td><td class="rowhead">Keracnyl Gel</td><td>BR-DCR-25-092</td><td>Before Use</td><td>Formula</td><td class="col-pieces">2&nbsp;850</td><td class="origin-br">Brazil</td><td class="col-sell">$94k</td><td class="col-sell">$88k</td><td class="col-priority pri-1">P1</td><td class="col-estado">En revisión · lab</td></tr>
+<tr class="priority-p2"><td>Process</td><td>Dexeryl</td><td class="rowhead">Dexeryl Emollient</td><td>FR-DXR-24-055</td><td>Before Use</td><td>Secondary Packaging</td><td class="col-pieces">1&nbsp;100</td><td class="origin-fr">France</td><td class="col-sell">$52k</td><td class="col-sell">$49k</td><td class="col-priority pri-2">P2</td><td class="col-estado">Liberación parcial</td></tr>
+<tr class="priority-p2"><td>User</td><td>Avène</td><td class="rowhead">Cleanance Gel</td><td>MX-AVE-25-204A</td><td>In Use</td><td>Functioning</td><td class="col-pieces">620</td><td class="origin-fr">France</td><td class="col-sell">$41k</td><td class="col-sell">$38k</td><td class="col-priority pri-2">P2</td><td class="col-estado">Seguimiento campo</td></tr>
+<tr class="priority-p3"><td>Process</td><td>Avène</td><td class="rowhead">TriXéra Balm</td><td>MX-AVE-25-188B</td><td>Before Use</td><td>Other</td><td class="col-pieces">950</td><td class="origin-br">Brazil</td><td class="col-sell">$67k</td><td class="col-sell">$61k</td><td class="col-priority pri-3">P3</td><td class="col-estado">En revisión técnica</td></tr>
+<tr class="priority-p3"><td>User</td><td>Klorane</td><td class="rowhead">Shampoo Peony</td><td>MX-KLO-25-011</td><td>In Use</td><td>Primary Packaging</td><td class="col-pieces">180</td><td class="origin-na">—</td><td class="col-sell">$12k</td><td class="col-sell">$11k</td><td class="col-priority pri-3">P3</td><td class="col-estado">Cerrado</td></tr>
+<tr class="priority-p3"><td>Process</td><td>Avène</td><td class="rowhead">XeraCalm Lipid-Replenishing</td><td>MX-AVE-25-201</td><td class="col-detection na">N/A</td><td>Formula</td><td class="col-pieces">240</td><td class="origin-fr">France</td><td class="col-sell">$28k</td><td class="col-sell">$26k</td><td class="col-priority pri-3">P3</td><td class="col-estado">Documentado</td></tr>
 </tbody></table></div></div>
-<div class="panel"><div class="panel-head"><h3 class="panel-title">Ongoing Studies</h3><p class="panel-sub">Speaker-Events-Studies AMERICAS — illustrative.</p></div><div class="ma-studies"><div class="ma-study-card"><h4>RWE tolerability — Avène topical cohort</h4><p>n=420 enrolled · budget on track · DSMB Q1 cleared.</p></div><div class="ma-study-card"><h4>Academic partnership — photoprotection symposium</h4><p>Joint IIT · manuscript pipeline · no commercial endpoints.</p></div><div class="ma-study-card"><h4>Patient advisory board — access &amp; skin health</h4><p>Next cycle Apr 2026 · PAG +1 dermatologist KOL.</p></div></div></div></div>
-<div class="ma-two-charts"><div class="panel"><div class="panel-head"><h3 class="panel-title">Medical Events / Trainings Trend</h3><p class="panel-sub panel-sub--full">Monthly counts — academic activities vs trainings.</p></div><div class="chart-area"><svg class="chart-svg chart-svg--compact" id="regMaActivityChart" viewBox="0 0 560 250"></svg></div><div class="legend"><div class="lg"><span></span>Events</div><div class="lg"><span class="dashed"></span>Trainings</div></div></div>
-<div class="panel"><div class="panel-head"><h3 class="panel-title">NPS Trend</h3><p class="panel-sub panel-sub--full">Academic activities NPS vs academic trainings NPS.</p></div><div class="chart-area"><svg class="chart-svg chart-svg--compact" id="regMaNpsChart" viewBox="0 0 560 250"></svg></div><div class="legend"><div class="lg"><span></span>Activities NPS</div><div class="lg"><span class="dashed"></span>Trainings NPS</div></div></div></div></section></div></div><script>const monthLabels=['Jan',
+</div>
+<div class="reg-ca-bottom-charts">
+<div class="ca-chart-panel"><div class="panel-head"><h3 class="panel-title">By Brand</h3></div><svg class="ca-svg" id="caSvgBrand" viewBox="0 0 200 130"></svg></div>
+<div class="ca-chart-panel"><div class="panel-head"><h3 class="panel-title">By Type (damage)</h3></div><svg class="ca-svg" id="caSvgTypePack" viewBox="0 0 200 130"></svg></div>
+<div class="ca-chart-panel reg-ca-treemap-wrap"><div class="panel-head"><h3 class="panel-title">Reasons: Reasons distribution</h3></div><svg class="ca-svg" id="caSvgTreemap" viewBox="0 0 420 108"></svg></div>
+</div>
+</div>
+</section>
+<section class="promo-module secondary-block"><div class="section-title">Promotional Materials Review</div>
+<div class="reg-matrix-filters filters"><div class="filter filter--dropdown" data-filter="promo-month"><div class="label">Month</div><button type="button" class="filter-trigger" aria-expanded="false" id="ft-promo-m"><span class="filter-current">All</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All</button></li><li><button type="button" class="filter-option" role="option">Jan</button></li><li><button type="button" class="filter-option" role="option">Feb</button></li><li><button type="button" class="filter-option" role="option">Mar</button></li></ul></div><div class="filter filter--dropdown" data-filter="promo-year"><div class="label">Year</div><button type="button" class="filter-trigger" id="ft-promo-y" aria-expanded="false"><span class="filter-current">2026</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">2026</button></li><li><button type="button" class="filter-option" role="option">2025</button></li><li><button type="button" class="filter-option" role="option">2024</button></li></ul></div></div>
+<div class="promo-kpi-row promo-kpi-row--5"><div class="card"><div class="metric-label">Total requests</div><div class="metric-value">186</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PM</div><div class="v positive">+12</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+9%</div></div></div></div><div class="card"><div class="metric-label">Approved</div><div class="metric-value">142</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PM</div><div class="v positive">+8</div></div><div class="meta-box"><div class="k">Share</div><div class="v">76%</div></div></div></div><div class="card"><div class="metric-label">Rejected</div><div class="metric-value">15</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PM</div><div class="v negative">+1</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v neutral">stable</div></div></div></div><div class="card"><div class="metric-label">With comments</div><div class="metric-value">46</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PM</div><div class="v positive">+4</div></div><div class="meta-box"><div class="k">Observations</div><div class="v">25%</div></div></div></div><div class="card"><div class="metric-label">Pending / In review</div><div class="metric-value">29</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PM</div><div class="v negative">+3</div></div><div class="meta-box"><div class="k">SLA risk</div><div class="v">6</div></div></div></div></div>
+<div class="promo-stakeholder-grid">
+<div class="promo-chart-panel promo-chart-panel--line"><h3 class="panel-title">Monthly volume</h3><svg class="chart-svg" id="promoSvgVolumeMonth" viewBox="0 0 380 200"></svg></div>
+<div class="promo-chart-panel"><h3 class="panel-title">By brand</h3><svg class="ca-svg" id="promoSvgBrandPromo" viewBox="0 0 300 200"></svg></div>
+</div>
+<div class="panel promo-queue-row promo-op-queue" id="promoOpQueuePanel" style="margin-top:14px"><div class="panel-head"><h3 class="panel-title">Operational queue</h3></div><div class="promo-op-queue__toolbar"><input type="search" class="promo-op-queue__search" id="promoOpQueueSearch" placeholder="Search ID, product, requester…" autocomplete="off" aria-label="Search queue" /><div class="promo-op-queue__filters"><label class="promo-op-queue__filter"><span>Directed to</span><select class="promo-op-queue__select" id="promoOpQueueFilterDir" aria-label="Filter by directed to"></select></label><label class="promo-op-queue__filter"><span>Status</span><select class="promo-op-queue__select" id="promoOpQueueFilterStatus" aria-label="Filter by status"></select></label></div></div><div class="table-wrap"><table class="promo-op-queue-table"><thead><tr><th class="promo-op-queue-col--id">ID</th><th>Product</th><th>Requester</th><th><button type="button" class="promo-op-queue-th-sort" data-promo-sort="directed" aria-label="Sort by directed to">Directed to <span class="promo-op-queue-sort-ind" aria-hidden="true"></span></button></th><th class="promo-op-queue-col--date"><button type="button" class="promo-op-queue-th-sort" data-promo-sort="date" aria-label="Sort by request date">Request date <span class="promo-op-queue-sort-ind" aria-hidden="true">↓</span></button></th><th class="promo-op-queue-col--status"><button type="button" class="promo-op-queue-th-sort" data-promo-sort="status" aria-label="Sort by status">Status <span class="promo-op-queue-sort-ind" aria-hidden="true"></span></button></th><th class="promo-op-queue-col--attempts"><button type="button" class="promo-op-queue-th-sort" data-promo-sort="attempts" aria-label="Sort by submission attempts">Attempts <span class="promo-op-queue-sort-ind" aria-hidden="true"></span></button></th><th class="promo-op-queue-col--reason">Rejection reason</th></tr></thead><tbody id="promoOpQueueBody"></tbody></table></div></div>
+</section>
+</div></div>
+<script>const monthLabels=['Jan',
 'Feb',
 'Mar',
 'Apr',
@@ -1521,74 +2089,6 @@ const objData= {
 
 ;
 
-const secData= {
-    msgv: {
-        current: [0.14, 0.18, 0.19, 0.24, 0.28, 0.31, 0.34, 0.36, 0.39, 0.41, 0.42, 0.45], prior:[0.10, 0.11, 0.14, 0.16, 0.19, 0.20, 0.23, 0.24, 0.26, 0.29, 0.31, 0.33]
-    }
-
-    ,
-    gpsec: {
-        current: [67.8, 68.0, 68.4, 68.1, 68.5, 68.7, 68.8, 69.0, 68.9, 68.7, 68.6, 68.8], prior:[67.0, 67.3, 67.8, 67.6, 67.9, 68.0, 68.1, 68.2, 68.1, 68.0, 67.9, 68.1]
-    }
-
-    ,
-    sellin: {
-        current: [188, 201, 224, 236, 248, 251, 259, 263, 267, 271, 279, 284], prior:[173, 189, 201, 214, 224, 230, 237, 244, 248, 252, 260, 266]
-    }
-
-    ,
-    sellout: {
-        current: [180, 190, 209, 221, 228, 233, 239, 244, 248, 253, 259, 264], prior:[170, 181, 190, 202, 211, 217, 223, 228, 232, 236, 241, 247]
-    }
-
-    ,
-    budget: {
-        current: [99.8, 100.2, 101.5, 101.1, 101.7, 102.0, 101.8, 102.2, 101.9, 102.1, 101.8, 102.3], prior:[99.1, 99.5, 100.2, 100.0, 100.4, 100.8, 100.7, 101.0, 100.9, 101.1, 100.6, 101.2]
-    }
-
-    ,
-    sob: {
-        current: [33.5, 33.7, 34.3, 34.0, 34.2, 34.4, 34.6, 34.8, 34.9, 34.8, 34.7, 35.0], prior:[32.8, 33.0, 33.5, 33.2, 33.4, 33.5, 33.7, 33.8, 33.9, 34.0, 33.9, 34.1]
-    }
-
-    ,
-    doh: {
-        current: [49, 50, 54, 53, 55, 56, 54, 53, 52, 53, 54, 52], prior:[46, 47, 49, 48, 50, 51, 50, 49, 48, 49, 50, 49]
-    }
-
-    ,
-    otif: {
-        current: [93.1, 93.4, 94.0, 94.2, 94.1, 94.4, 94.6, 94.3, 94.1, 94.0, 94.2, 94.4], prior:[92.4, 92.7, 93.1, 93.3, 93.2, 93.4, 93.7, 93.5, 93.3, 93.2, 93.4, 93.5]
-    }
-
-    ,
-    fill: {
-        current: [95.1, 95.4, 95.9, 96.0, 96.1, 96.3, 96.2, 96.1, 95.9, 96.0, 96.1, 96.2], prior:[94.6, 94.9, 95.1, 95.2, 95.4, 95.6, 95.5, 95.4, 95.3, 95.2, 95.4, 95.5]
-    }
-
-    ,
-    pm: {
-        current: [2.1, 2.2, 2.4, 2.5, 2.4, 2.3, 2.2, 2.3, 2.4, 2.4, 2.5, 2.3], prior:[1.9, 2.0, 2.2, 2.2, 2.1, 2.1, 2.0, 2.1, 2.2, 2.1, 2.2, 2.1]
-    }
-
-    ,
-    soi: {
-        current: [13.1, 13.4, 14.2, 14.0, 14.3, 14.4, 14.7, 14.8, 14.6, 14.5, 14.6, 14.9], prior:[12.3, 12.5, 13.1, 13.0, 13.1, 13.2, 13.4, 13.5, 13.3, 13.4, 13.2, 13.5]
-    }
-
-    ,
-    soe: {
-        current: [11.1, 11.3, 11.9, 11.7, 11.8, 12.0, 12.1, 12.3, 12.2, 12.1, 12.1, 12.4], prior:[10.5, 10.7, 11.1, 11.0, 11.1, 11.2, 11.3, 11.4, 11.3, 11.2, 11.2, 11.4]
-    }
-
-    ,
-    cars: {
-        current: [87.1, 87.8, 89.0, 88.9, 89.2, 89.5, 89.8, 90.1, 89.7, 89.4, 89.4, 90.0], prior:[85.9, 86.4, 87.1, 87.4, 87.8, 88.0, 88.2, 88.5, 88.1, 88.0, 87.9, 88.3]
-    }
-}
-
-;
-
 const regPrimaryData= {
     npsInternalTraining: {
         current: [6.8, 7.2, 7.0, 7.6, 8.2], scaleMin: 0, scaleMax: 10
@@ -1603,71 +2103,6 @@ const regPrimaryData= {
     practiceImpact: {
         current: [2.9, 3.05, 2.98, 3.25, 3.4]
     }
-}
-
-;
-
-const regSecondaryData= {
-    totalComplaints: {
-        current: [22, 21, 24, 23, 25, 26, 24, 25, 27, 26, 28, 30], prior:[20, 19, 22, 21, 23, 24, 22, 23, 24, 23, 25, 24]
-    }
-
-    ,
-    pctBeforeUse: {
-        current: [36.4, 42.9, 37.5, 34.8, 40.0, 38.5, 37.5, 36.0, 37.0, 34.6, 35.7, 33.3], prior:[35.0, 42.1, 36.4, 33.3, 39.1, 37.5, 36.4, 34.8, 37.5, 34.8, 36.0, 33.3]
-    }
-
-    ,
-    pctInUse: {
-        current: [63.6, 57.1, 62.5, 65.2, 60.0, 61.5, 62.5, 64.0, 63.0, 65.4, 64.3, 66.7], prior:[65.0, 57.9, 63.6, 66.7, 60.9, 62.5, 63.6, 65.2, 62.5, 65.2, 64.0, 66.7]
-    }
-
-    ,
-    productsAffected: {
-        current: [28, 29, 30, 31, 32, 33, 32, 33, 34, 35, 36, 37], prior:[26, 27, 28, 29, 30, 31, 30, 31, 32, 33, 34, 35]
-    }
-
-    ,
-    brandsAffected: {
-        current: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], prior:[5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
-    }
-
-    ,
-    materialsApproved: {
-        current: [11, 12, 12, 13, 13, 14, 14, 14, 15, 15, 15, 16], prior:[10, 10, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14]
-    }
-
-    ,
-    materialsRejected: {
-        current: [1, 1, 2, 1, 1, 2, 1, 1, 1, 2, 1, 1], prior:[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    }
-
-    ,
-    medicalEvents: {
-        current: [14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 21], prior:[12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17, 18]
-    }
-
-    ,
-    academicTrainings: {
-        current: [28, 29, 30, 30, 31, 31, 32, 32, 33, 33, 34, 34], prior:[24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 29]
-    }
-
-    ,
-    medicalNpsYtd: {
-        current: [7.6, 7.65, 7.7, 7.75, 7.8, 7.82, 7.85, 7.88, 7.9, 7.95, 8.0, 8.15], prior:[7.2, 7.25, 7.3, 7.32, 7.35, 7.4, 7.42, 7.45, 7.5, 7.55, 7.6, 7.65]
-    }
-}
-
-;
-
-const regMaActivity= {
-    current: [14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 21], prior:[24, 25, 26, 26, 27, 28, 28, 29, 30, 31, 32, 34]
-}
-
-;
-
-const regMaNpsTrend= {
-    current: [7.5, 7.55, 7.6, 7.65, 7.7, 7.75, 7.78, 7.82, 7.85, 7.9, 7.95, 8.0], prior:[7.8, 7.82, 7.85, 7.88, 7.9, 7.92, 7.95, 7.98, 8.0, 8.05, 8.08, 8.1]
 }
 
 ;
@@ -1801,20 +2236,238 @@ function drawRegVerticalBars(svgId, items, W, H) {
     svg.innerHTML=g;
 }
 
+function drawRegGroupedOutcomeMonth(svgId, labels, approved, rejected, withComments, W, H) {
+    const svg=document.getElementById(svgId);
+    if(!svg || !labels.length) return;
+    const m= {
+        l:40, r:12, t:14, b:32
+    }
+
+    ,
+    n=labels.length,
+    iw=W-m.l-m.r,
+    ih=H-m.t-m.b;
+    const max=Math.max(...approved, ...rejected, ...withComments, 1);
+    const grpW=iw/n,
+    bw=grpW*0.22,
+    gap=bw*0.12;
+    const cols=['#557a61', '#b86462', '#9aa69d'];
+    let g='';
+    labels.forEach((lab, i)=> {
+            const x0=m.l+i*grpW+grpW/2-(bw*3+gap*2)/2;
+            const stacks=[approved[i], rejected[i], withComments[i]];
+            stacks.forEach((v, j)=> {
+                    const h=ih*(v/max);
+                    const x=x0+j*(bw+gap);
+                    g += `<rect x="${x}" y="${m.t+ih-h}" width="${bw}" height="${h}" fill="${cols[j]}" rx="2" opacity=".9"></rect>`;
+                });
+            g += `<text x="${m.l+i*grpW+grpW/2}" y="${H-8}" text-anchor="middle" font-size="8" fill="#6f7a73">${lab}</text>`;
+        });
+    g += `<text x="${W-8}" y="12" text-anchor="end" font-size="7" fill="#6f7a73">■ Apr. ■ Rej. ■ Com.</text>`;
+    svg.innerHTML=g;
+}
+
+const promoMonthlyVol2025=[18, 19, 20, 21, 22, 21, 23, 22, 24, 23, 25, 26];
+const promoMonthlyVol2026=[22, 24, 23, 26, 25, 28, 27, 29, 28, 30, 29, 32];
+
+const PROMO_OP_STATUS_ORDER=['Pending', 'Review', 'Clarification', 'Commented', 'Approved', 'Rejected'];
+
+const PROMO_OP_QUEUE_SEED=[{id:'REQ-2412', product:'Dexeryl Emollient Cream', requester:'Sofía Herrera', directed:'COFEPRIS', date:'2026-03-26', status:'Pending', attempts:2}, {id:'REQ-2410', product:'Cleanance Gel', requester:'M. López', directed:'Medical', date:'2026-03-22', status:'Review', attempts:1}, {id:'REQ-2408', product:'Cicalfate+ Restorative Cream', requester:'R. Vega', directed:'Regulatory', date:'2026-03-18', status:'Clarification', attempts:3}, {id:'REQ-2405', product:'Keracnyl Foaming Gel', requester:'A. Ruiz', directed:'COFEPRIS', date:'2026-03-14', status:'Commented', attempts:1}, {id:'REQ-2401', product:'Cleanance Gel', requester:'L. Neri', directed:'COFEPRIS', date:'2026-02-12', status:'Pending', attempts:4}, {id:'REQ-2394', product:'Cicalfate+', requester:'P. Díaz', directed:'Medical', date:'2026-02-08', status:'Review', attempts:2}, {id:'REQ-2388', product:'Keracnyl', requester:'M. Ortiz', directed:'Regulatory', date:'2026-02-02', status:'Clarification', attempts:2}, {id:'REQ-2382', product:'TriXéra Balm', requester:'R. Vega', directed:'Medical', date:'2026-01-29', status:'Approved', attempts:1}, {id:'REQ-2379', product:'TriXéra Balm', requester:'L. Neri', directed:'COFEPRIS', date:'2026-01-28', status:'Commented', attempts:3}, {id:'REQ-2375', product:'Dexeryl', requester:'A. Ruiz', directed:'Regulatory', date:'2026-01-20', status:'Rejected', attempts:3, reason:'Medical claims not aligned with approved SmPC'}, {id:'REQ-2366', product:'Cleanance Gel', requester:'C. Mendoza', directed:'COFEPRIS', date:'2026-01-08', status:'Rejected', attempts:4, reason:'COFEPRIS wording — indications beyond registered scope'}];
+
+function promoOpQueueFormatDate(iso) {
+    const d=new Date(iso+'T12:00:00');
+    const mo=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return `${d.getDate()}-${mo[d.getMonth()]}-${String(d.getFullYear()).slice(-2)}`;
+}
+
+function promoOpQueueStatusClass(st) {
+    const k={Pending:'pending', Review:'review', Clarification:'clarification', Commented:'commented', Approved:'approved', Rejected:'rejected'}[st];
+    return k ? `promo-op-status--${k}` : '';
+}
+
+function initPromoOperationalQueue() {
+    const panel=document.getElementById('promoOpQueuePanel');
+    const tbody=document.getElementById('promoOpQueueBody');
+    const searchEl=document.getElementById('promoOpQueueSearch');
+    const selDir=document.getElementById('promoOpQueueFilterDir');
+    const selSt=document.getElementById('promoOpQueueFilterStatus');
+    if(!panel || !tbody || !searchEl || !selDir || !selSt) return;
+    const state= {
+        sortKey:'date', sortDir:'desc', search:'', filterDir:'', filterStatus:''
+    }
+
+    ;
+    const dirs=[...new Set(PROMO_OP_QUEUE_SEED.map(r=>r.directed))].sort();
+    const fillSelect=(sel, allLabel, values)=> {
+            sel.innerHTML='';
+            const o0=document.createElement('option');
+            o0.value='';
+            o0.textContent=allLabel;
+            sel.appendChild(o0);
+            values.forEach(v=> {
+                    const o=document.createElement('option');
+                    o.value=v;
+                    o.textContent=v;
+                    sel.appendChild(o);
+                });
+        }
+
+    ;
+    fillSelect(selDir, 'All', dirs);
+    fillSelect(selSt, 'All', [...PROMO_OP_STATUS_ORDER]);
+
+    function cmp(a, b) {
+        let va,
+        vb;
+        if(state.sortKey==='date') {
+            va=a.date;
+            vb=b.date;
+            return va<vb ? -1 : va>vb ? 1 : 0;
+        }
+
+        if(state.sortKey==='status') {
+            va=PROMO_OP_STATUS_ORDER.indexOf(a.status);
+            vb=PROMO_OP_STATUS_ORDER.indexOf(b.status);
+            if(va<0) va=99;
+            if(vb<0) vb=99;
+            return va-vb;
+        }
+
+        if(state.sortKey==='attempts') {
+            va=a.attempts != null ? a.attempts : 0;
+            vb=b.attempts != null ? b.attempts : 0;
+            return va-vb;
+        }
+
+        va=a.directed.toLowerCase();
+        vb=b.directed.toLowerCase();
+        return va<vb ? -1 : va>vb ? 1 : 0;
+    }
+
+    function render() {
+        const q=state.search.trim().toLowerCase();
+        let rows=PROMO_OP_QUEUE_SEED.filter(r=> {
+                if(state.filterDir && r.directed !== state.filterDir) return false;
+                if(state.filterStatus && r.status !== state.filterStatus) return false;
+                if(!q) return true;
+                const hay=[r.id, r.product, r.requester, r.directed, r.status, r.reason || '', String(r.attempts ?? '')].join(' ').toLowerCase();
+                return hay.includes(q);
+            });
+        rows.sort((a, b)=> {
+                const c=cmp(a, b);
+                return state.sortDir==='desc' ? -c : c;
+            });
+        if(!rows.length) {
+            tbody.innerHTML='<tr><td colspan="8" class="promo-op-queue-empty">No requests match the current filters.</td></tr>';
+            return;
+        }
+
+        tbody.innerHTML=rows.map(r=> {
+                const att=r.attempts != null ? r.attempts : '—';
+                const reasonHtml=r.status==='Rejected' && r.reason ? `<td class="promo-op-queue-col--reason">${r.reason}</td>` : `<td class="promo-op-queue-col--reason promo-op-queue-col--reason-empty">—</td>`;
+                return `<tr><td class="promo-op-queue-col--id">${r.id}</td><td class="promo-op-queue-col--product">${r.product}</td><td>${r.requester}</td><td>${r.directed}</td><td class="promo-op-queue-col--date">${promoOpQueueFormatDate(r.date)}</td><td class="promo-op-queue-col--status ${promoOpQueueStatusClass(r.status)}">${r.status}</td><td class="promo-op-queue-col--attempts">${att}</td>${reasonHtml}</tr>`;
+            }).join('');
+    }
+
+    function updateSortButtons() {
+        panel.querySelectorAll('[data-promo-sort]').forEach(btn=> {
+                const key=btn.getAttribute('data-promo-sort');
+                const ind=btn.querySelector('.promo-op-queue-sort-ind');
+                const active=key===state.sortKey;
+                btn.classList.toggle('is-inactive', !active);
+                if(!ind) return;
+                if(!active) ind.textContent='';
+                else ind.textContent=state.sortDir==='desc' ? '↓' : '↑';
+            });
+    }
+
+    searchEl.addEventListener('input', ()=> {
+            state.search=searchEl.value;
+            render();
+        });
+    selDir.addEventListener('change', ()=> {
+            state.filterDir=selDir.value;
+            render();
+        });
+    selSt.addEventListener('change', ()=> {
+            state.filterStatus=selSt.value;
+            render();
+        });
+    panel.querySelectorAll('[data-promo-sort]').forEach(btn=> {
+            btn.addEventListener('click', ()=> {
+                    const key=btn.getAttribute('data-promo-sort');
+                    if(state.sortKey===key) state.sortDir=state.sortDir==='desc' ? 'asc' : 'desc';
+                    else {
+                        state.sortKey=key;
+                        state.sortDir=key==='date' ? 'desc' : 'asc';
+                    }
+
+                    updateSortButtons();
+                    render();
+                });
+        });
+    updateSortButtons();
+    render();
+}
+
+initPromoOperationalQueue();
+
+function drawPromoMonthlyVolumeLines(svgId, data2025, data2026, chartW, chartH) {
+    const svg=document.getElementById(svgId);
+    if(!svg || !data2025 || !data2026 || data2025.length !== 12 || data2026.length !== 12) return;
+    const W=chartW != null ? chartW : 520,
+    H=chartH != null ? chartH : 200;
+    const m= {
+        t: 12, r: 10, b: 26, l: 34
+    }
+
+    ;
+    const iw=W-m.l-m.r,
+    ih=H-m.t-m.b;
+    const max=Math.max(...data2025, ...data2026, 1);
+    const min=Math.min(...data2025, ...data2026);
+    const pad=(max-min)*0.15 || 2;
+    const yMin=Math.max(0, min-pad),
+    yMax=max+pad;
+    const x=i=>m.l+(iw/11)*i;
+    const y=v=>m.t+ih - ((v-yMin)/(yMax-yMin || 1))*ih;
+    const linePath=arr=>arr.map((v, i)=> `${i===0?'M':'L'} ${x(i)} ${y(v)}`).join(' ');
+    let grid='';
+
+    for(let i=0; i<4; i++) {
+        const yy=m.t+(ih/3)*i;
+        grid += `<line x1="${m.l}" y1="${yy}" x2="${W-m.r}" y2="${yy}"></line>`;
+    }
+
+    let labels='';
+
+    monthLabels.forEach((mo, i)=> {
+            labels += `<text x="${x(i)}" y="${H-7}" text-anchor="middle" font-size="7" fill="#6f7a73">${mo.slice(0, 3)}</text>`;
+        });
+    let yticks='';
+
+    for(let g=0; g<4; g++) {
+        const v=yMin+(yMax-yMin)*(3-g)/3;
+        const yy=m.t+(ih/3)*g;
+        yticks += `<text x="${m.l-6}" y="${yy+3}" text-anchor="end" font-size="8" fill="#6f7a73">${Math.round(v)}</text>`;
+    }
+
+    const legX=Math.max(m.l+48, W-84);
+    const leg=`<g transform="translate(${legX},${m.t})"><line x1="0" y1="5" x2="14" y2="5" stroke="#9aa69d" stroke-width="2.2" stroke-dasharray="5 4"></line><text x="18" y="8" font-size="7" fill="#5a635e">2025</text><line x1="0" y1="16" x2="14" y2="16" stroke="#557a61" stroke-width="2.6"></line><text x="18" y="19" font-size="7" fill="#5a635e">2026</text></g>`;
+    svg.innerHTML=`<g class="grid">${grid}</g><g class="axis">${yticks}${labels}</g><path class="series-b" d="${linePath(data2025)}"></path><path class="series-a" d="${linePath(data2026)}"></path>${leg}`;
+}
+
 function drawRegulatoryAnalyticsCharts() {
-    drawRegHBar('caSvgProduct', [{label:'Cleanance', v:18, dermo:1}, {label:'Cicalfate+', v:14, dermo:1}, {label:'Keracnyl', v:11, dermo:1}, {label:'Dexeryl', v:8, dermo:0}, {label:'TriXéra', v:6, dermo:1}], 400, 220, {
-        left:100, top:16, gap:8, barH:16
+    drawRegHBar('caSvgProduct', [{label:'Cleanance', v:18, dermo:1}, {label:'Cicalfate+', v:14, dermo:1}, {label:'Keracnyl', v:11, dermo:1}, {label:'Dexeryl', v:8, dermo:0}, {label:'TriXéra', v:6, dermo:1}], 320, 220, {
+        left:76, top:14, gap:7, barH:15
     });
-    drawRegClusterMonth('caSvgMonth', [8, 9, 9, 8, 10, 10, 9, 9, 10, 9, 10, 9], [14, 12, 15, 15, 15, 16, 15, 16, 17, 17, 18, 18], 400, 220);
-    drawRegDonut('caSvgTypeAe', [{v:52, c:'#557a61', l:'Quality'}, {v:12, c:'#b86462', l:'Quality w/ AE'}], 140, 95, 38, 72);
-    drawRegDonut('caSvgBrand', [{v:28, c:'#557a61', l:'Avène'}, {v:14, c:'#6f9278', l:'Ducray'}, {v:8, c:'#9aa69d', l:'Dexeryl'}, {v:6, c:'#b8c9bb', l:'Other'}], 140, 95, 38, 72);
-    drawRegDonut('caSvgTypePack', [{v:18, c:'#557a61', l:'Formula'}, {v:14, c:'#6f9278', l:'Prim. pack.'}, {v:10, c:'#8aab92', l:'Functioning'}, {v:8, c:'#9aa69d', l:'Other'}, {v:6, c:'#cfd7cf', l:'Sec. pack.'}], 140, 95, 38, 72);
-    drawRegTreemap('caSvgTreemap', [{label:'Formula', v:22}, {label:'Texture', v:14}, {label:'Odor', v:9}, {label:'Functioning', v:12}, {label:'Prim. pack.', v:16}, {label:'Sec. pack.', v:7}, {label:'Other', v:6}], 900, 180);
-    drawRegDonut('promoSvgAudience', [{v:38, c:'#557a61', l:'Público gral.'}, {v:62, c:'#6f9278', l:'Prof. salud'}], 140, 105, 40, 78);
-    drawRegHBar('promoSvgProduct', [{label:'Cicalfate+', v:28, dermo:1}, {label:'Cleanance', v:24, dermo:1}, {label:'Keracnyl', v:18, dermo:1}, {label:'Dexeryl', v:14, dermo:0}, {label:'Klorane', v:11, dermo:0}], 400, 240, {
-        left:92, top:18, gap:10, barH:18
+    drawRegDonut('caSvgBrand', [{v:28, c:'#557a61', l:'Avène'}, {v:14, c:'#6f9278', l:'Ducray'}, {v:8, c:'#9aa69d', l:'Dexeryl'}, {v:6, c:'#b8c9bb', l:'Other'}], 100, 44, 24, 42);
+    drawRegDonut('caSvgTypePack', [{v:18, c:'#557a61', l:'Formula'}, {v:14, c:'#6f9278', l:'Prim.'}, {v:10, c:'#8aab92', l:'Funct.'}, {v:8, c:'#9aa69d', l:'Other'}, {v:6, c:'#cfd7cf', l:'Sec.'}], 100, 40, 20, 36);
+    drawRegTreemap('caSvgTreemap', [{label:'Formula', v:22}, {label:'Texture', v:14}, {label:'Odor', v:9}, {label:'Functioning', v:12}, {label:'Prim. pack.', v:16}, {label:'Sec. pack.', v:7}, {label:'Other', v:6}], 420, 108);
+    drawPromoMonthlyVolumeLines('promoSvgVolumeMonth', promoMonthlyVol2025, promoMonthlyVol2026, 380, 200);
+    drawRegHBar('promoSvgBrandPromo', [{label:'Avène', v:58, dermo:1}, {label:'Ducray', v:42, dermo:1}, {label:'Dexeryl', v:28, dermo:0}, {label:'Klorane', v:22, dermo:0}, {label:'Other', v:36, dermo:0}], 300, 200, {
+        left:52, top:12, gap:5, barH:13
     });
-    drawRegVerticalBars('promoSvgMedium', [{label:'Digital', v:42}, {label:'Tarjeton', v:22}, {label:'Triptico', v:18}, {label:'Otros', v:10}, {label:'Poster', v:8}], 360, 220);
 }
 
 let regChartsReady=false;
@@ -1927,7 +2580,6 @@ function drawLineChart(svgId, series) {
 }
 
 drawLineChart('objChart', objData.gp);
-drawLineChart('secChart', secData.msgv);
 
 document.querySelectorAll('#objSelector button').forEach(btn=> {
         btn.addEventListener('click', ()=> {
@@ -1937,20 +2589,9 @@ document.querySelectorAll('#objSelector button').forEach(btn=> {
             });
     });
 
-document.querySelectorAll('#secSelector button').forEach(btn=> {
-        btn.addEventListener('click', ()=> {
-                document.querySelectorAll('#secSelector button').forEach(b=>b.classList.remove('active'));
-                btn.classList.add('active');
-                drawLineChart('secChart', secData[btn.dataset.key]);
-            });
-    });
-
 function initRegulatoryCharts() {
     if(regChartsReady) return;
     drawRegPrimaryBarChart('regPrimaryChart', regPrimaryData.npsInternalTraining);
-    drawLineChart('regSecondaryChart', regSecondaryData.totalComplaints);
-    drawLineChart('regMaActivityChart', regMaActivity);
-    drawLineChart('regMaNpsChart', regMaNpsTrend);
     drawRegulatoryAnalyticsCharts();
     regChartsReady = true;
 }
@@ -1979,14 +2620,6 @@ document.querySelectorAll('#regPrimarySelector button').forEach(btn=> {
                 document.querySelectorAll('#regPrimarySelector button').forEach(b=>b.classList.remove('active'));
                 btn.classList.add('active');
                 drawRegPrimaryBarChart('regPrimaryChart', regPrimaryData[btn.dataset.regKey]);
-            });
-    });
-
-document.querySelectorAll('#regSecondarySelector button').forEach(btn=> {
-        btn.addEventListener('click', ()=> {
-                document.querySelectorAll('#regSecondarySelector button').forEach(b=>b.classList.remove('active'));
-                btn.classList.add('active');
-                drawLineChart('regSecondaryChart', regSecondaryData[btn.dataset.regSec]);
             });
     });
 
@@ -2073,6 +2706,15 @@ document.querySelectorAll('.dual-toggles').forEach(group=> {
             });
     });
 
+function applyRegMatrixPriorityFilter(label) {
+    const table = document.querySelector('.reg-matrix-table tbody');
+    if(!table) return;
+    const key = label === 'All' ? null : 'priority-' + label.toLowerCase();
+    table.querySelectorAll('tr').forEach(tr=> {
+            tr.style.display = !key || tr.classList.contains(key) ? '' : 'none';
+        });
+}
+
 function closeAllFilterMenus() {
     document.querySelectorAll('.filter--dropdown.is-open').forEach(wrap=> {
             wrap.classList.remove('is-open');
@@ -2105,6 +2747,7 @@ document.querySelectorAll('.filter--dropdown').forEach(wrap=> {
                         current.textContent = opt.textContent;
                         wrap.classList.remove('is-open');
                         trigger.setAttribute('aria-expanded', 'false');
+                        if(wrap.getAttribute('data-filter') === 'cqa-priority') applyRegMatrixPriorityFilter(opt.textContent.trim());
                     });
             });
 
@@ -2115,4 +2758,5 @@ document.addEventListener('click', ()=> closeAllFilterMenus());
 document.addEventListener('keydown', e=> {
         if(e.key === 'Escape') closeAllFilterMenus();
     });
+
 </script></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Pierre Fabre Mexico — Executive Dashboard</title><style> :root {
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="Cache-Control" content="no-store, max-age=0, must-revalidate"><title>Pierre Fabre Mexico — Executive Dashboard</title><style> :root {
     --bg: #f6f7f4;
     --panel: #ffffff;
     --panel-2: #fbfcfa;
@@ -30,8 +30,28 @@ body {
 
 .page {
     width: 1480px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 22px 22px 34px;
+}
+
+.dashboard-build-banner {
+    background: #1f2a24;
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    line-height: 1.4
+}
+
+.dashboard-build-banner code {
+    background: rgba(255, 255, 255, .12);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px
 }
 
 .topbar {
@@ -1343,7 +1363,7 @@ body {
     letter-spacing: .01em;
 }
 
-#view-executive > .section-title:first-of-type,
+#view-executive > .section-title,
 #view-marketing > .section-title:first-of-type {
     margin-left: 0;
     margin-right: 0
@@ -1620,6 +1640,99 @@ body {
     max-width: 100%;
     margin: 4px auto 0;
     display: block;
+}
+
+.exec-sec-filters {
+    margin-bottom: 14px;
+    grid-template-columns: repeat(3, 1fr)
+}
+
+.sec-metric-card.card:before {
+    display: none
+}
+
+.sec-metric-card.card {
+    background: #fafaf8;
+    box-shadow: 0 1px 0 rgba(24, 36, 27, .04)
+}
+
+.sec-metric-card .metric-value.negative-main {
+    color: var(--red)
+}
+
+.sec-matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 980px
+}
+
+.sec-matrix-table thead th {
+    font-size: 8px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: #5a635e;
+    background: #f5f7f5;
+    padding: 8px 5px;
+    border-bottom: 1px solid var(--line);
+    text-align: right;
+    font-weight: 650;
+    white-space: nowrap
+}
+
+.sec-matrix-table thead th:first-child {
+    text-align: left;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: #f5f7f5
+}
+
+.sec-matrix-table tbody td {
+    font-size: 9px;
+    padding: 7px 5px;
+    border-bottom: 1px solid #ecefec;
+    text-align: right;
+    color: #334039;
+    font-variant-numeric: tabular-nums
+}
+
+.sec-matrix-table tbody td:first-child {
+    text-align: left;
+    position: sticky;
+    left: 0;
+    background: var(--panel);
+    box-shadow: 1px 0 0 var(--line);
+    z-index: 1;
+    max-width: 200px;
+    line-height: 1.3;
+    white-space: normal
+}
+
+.sec-matrix-table .positive {
+    color: #4a6b54;
+    font-weight: 600
+}
+
+.sec-matrix-table .negative {
+    color: #8f5a58;
+    font-weight: 600
+}
+
+.sec-matrix-wrap {
+    overflow-x: auto;
+    padding: 2px 2px 10px
+}
+
+.segmented.sec-pills {
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px
+}
+
+.segmented.sec-pills button {
+    font-size: 9px;
+    padding: 6px 9px;
+    font-weight: 600
 }
 
 .card:before {
@@ -2179,11 +2292,11 @@ tbody tr:nth-child(even) {
     color: var(--muted)
 }
 
-</style></head><body><div class="page"><header class="topbar"><div class="brand"><div class="brand-mark"><img class="brand-mark-img" src="pierre-fabre-logo.png" alt="Pierre Fabre" width="225" height="135" decoding="async"></div><div class="brand-copy"><h1>Pierre Fabre Mexico</h1><div class="sub">Executive Dashboard</div></div></div><div></div></header><nav class="nav"><a class="active" href="#" data-app-view="executive">Overview</a><a href="#">Commercial</a><a href="#">Finance</a><a href="#" data-app-view="marketing">Mkt</a><a href="#">Dermo</a><a href="#">Medical</a><a href="#" data-app-view="regulatory">Regulatory</a><a href="#">RH</a></nav><div id="view-executive" class="dashboard-view"><div class="section-title">Mexico Objectives</div><section class="cards-row obj-cards"><div class="card"><div class="metric-label">Market Share Value Gain</div><div class="metric-value">+0.42 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.42 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.50 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">84.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 41 L18 39 L36 37 L54 33 L72 31 L90 26 L108 24 L126 18 L144 14 L144 48 L0 48 Z"></path><polyline points="0,41 18,39 36,37 54,33 72,31 90,26 108,24 126,18 144,14"></polyline></svg></div><div class="card"><div class="metric-label">GP %</div><div class="metric-value">68.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">68.6%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">70.0%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">98.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L18 29 L36 31 L54 28 L72 27 L90 24 L108 25 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,30 18,29 36,31 54,28 72,27 90,24 108,25 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Staff Cost % Revenue</div><div class="metric-value">14.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">14.8%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">14.2%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">95.9%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 18 L18 20 L36 22 L54 23 L72 24 L90 26 L108 25 L126 27 L144 28 L144 48 L0 48 Z"></path><polyline points="0,18 18,20 36,22 54,23 72,24 90,26 108,25 126,27 144,28"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain DCPC</div><div class="metric-value">+0.31 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.31 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.35 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">88.6%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 39 L18 37 L36 36 L54 34 L72 31 L90 28 L108 24 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,39 18,37 36,36 54,34 72,31 90,28 108,24 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain MC including Dexeryl</div><div class="metric-value">+0.27 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.27 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.30 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">90.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 40 L18 40 L36 38 L54 35 L72 34 L90 31 L108 28 L126 24 L144 23 L144 48 L0 48 Z"></path><polyline points="0,40 18,40 36,38 54,35 72,34 90,31 108,28 126,24 144,23"></polyline></svg></div></section><section class="analysis-row analysis-row--objectives"><div class="panel"><div class="panel-head"><h3 class="panel-title">Objectives Period Matrix</h3><p class="panel-sub">Standardized comparative read across fiscal year,
+</style></head><body><div class="page"><div class="dashboard-build-banner">Vista local: orden Overview — <strong>Mexico Objectives</strong>, luego <strong>Métricas secundarias</strong> (13 KPIs), Dual Metrics, etc. Comprueba <code>/dashboard-build-id.txt</code> si el puerto no coincide con esta carpeta.</div><header class="topbar"><div class="brand"><div class="brand-mark"><img class="brand-mark-img" src="pierre-fabre-logo.png" alt="Pierre Fabre" width="225" height="135" decoding="async"></div><div class="brand-copy"><h1>Pierre Fabre Mexico</h1><div class="sub">Executive Dashboard</div></div></div><div></div></header><nav class="nav"><a class="active" href="#" data-app-view="executive">Overview</a><a href="#">Commercial</a><a href="#">Finance</a><a href="#" data-app-view="marketing">Mkt</a><a href="#">Dermo</a><a href="#">Medical</a><a href="#" data-app-view="regulatory">Regulatory</a><a href="#">RH</a></nav><div id="view-executive" class="dashboard-view"><div class="section-title">Mexico Objectives</div><section class="cards-row obj-cards"><div class="card"><div class="metric-label">Market Share Value Gain</div><div class="metric-value">+0.42 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.42 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.50 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">84.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 41 L18 39 L36 37 L54 33 L72 31 L90 26 L108 24 L126 18 L144 14 L144 48 L0 48 Z"></path><polyline points="0,41 18,39 36,37 54,33 72,31 90,26 108,24 126,18 144,14"></polyline></svg></div><div class="card"><div class="metric-label">GP %</div><div class="metric-value">68.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">68.6%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">70.0%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">98.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L18 29 L36 31 L54 28 L72 27 L90 24 L108 25 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,30 18,29 36,31 54,28 72,27 90,24 108,25 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Staff Cost % Revenue</div><div class="metric-value">14.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">14.8%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">14.2%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">95.9%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 18 L18 20 L36 22 L54 23 L72 24 L90 26 L108 25 L126 27 L144 28 L144 48 L0 48 Z"></path><polyline points="0,18 18,20 36,22 54,23 72,24 90,26 108,25 126,27 144,28"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain DCPC</div><div class="metric-value">+0.31 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.31 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.35 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">88.6%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 39 L18 37 L36 36 L54 34 L72 31 L90 28 L108 24 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,39 18,37 36,36 54,34 72,31 90,28 108,24 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain MC including Dexeryl</div><div class="metric-value">+0.27 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.27 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.30 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">90.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 40 L18 40 L36 38 L54 35 L72 34 L90 31 L108 28 L126 24 L144 23 L144 48 L0 48 Z"></path><polyline points="0,40 18,40 36,38 54,35 72,34 90,31 108,28 126,24 144,23"></polyline></svg></div></section><section class="analysis-row analysis-row--objectives"><div class="panel"><div class="panel-head"><h3 class="panel-title">Objectives Period Matrix</h3><p class="panel-sub">Standardized comparative read across fiscal year,
 YTD,
 quarterly and monthly cuts,
 including explicit market share views by business unit.</p></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>Y-1</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Y-1</th><th>ene-25</th><th>ene-26</th><th>Y-1</th></tr></thead><tbody><tr><td class="rowhead">MS Value Gain DC</td><td class="positive">+0.58</td><td class="positive">+0.22</td><td class="positive">+0.42</td><td class="positive">+0.20</td><td>+0.18</td><td>+0.11</td><td>+0.16</td><td>+0.13</td><td>+0.07</td><td>+0.14</td><td class="positive">+0.19</td><td>+0.05</td></tr><tr><td class="rowhead">MS Value Gain DCPC</td><td class="positive">+0.44</td><td class="positive">+0.16</td><td class="positive">+0.31</td><td class="positive">+0.15</td><td>+0.09</td><td>+0.10</td><td>+0.12</td><td>+0.13</td><td>+0.05</td><td>+0.11</td><td class="positive">+0.15</td><td>+0.04</td></tr><tr><td class="rowhead">MS Value Gain MC incl. Dexeryl</td><td class="positive">+0.37</td><td class="positive">+0.12</td><td class="positive">+0.27</td><td class="positive">+0.15</td><td>+0.07</td><td>+0.08</td><td>+0.10</td><td>+0.12</td><td>+0.04</td><td>+0.08</td><td class="positive">+0.12</td><td>+0.04</td></tr><tr><td class="rowhead">GP %</td><td>69.4%</td><td>67.9%</td><td class="positive">68.6%</td><td class="positive">+0.7</td><td>68.2%</td><td>69.0%</td><td>69.6%</td><td>70.1%</td><td>+0.5</td><td>67.8%</td><td class="positive">68.4%</td><td>+0.6</td></tr><tr><td class="rowhead">Staff Cost % Revenue</td><td>14.3%</td><td>14.6%</td><td class="negative">14.8%</td><td class="negative">+0.2</td><td>14.2%</td><td>14.4%</td><td>14.3%</td><td>14.5%</td><td>+0.1</td><td>14.5%</td><td class="negative">14.8%</td><td>+0.3</td></tr><tr><td class="rowhead">Revenue MXN</td><td>$2.94B</td><td>$598M</td><td class="positive">$662M</td><td class="positive">+10.7%</td><td>$721M</td><td>$738M</td><td>$744M</td><td>$737M</td><td>+7.4%</td><td>$201M</td><td class="positive">$224M</td><td>+11.4%</td></tr></tbody></table></div></div><div class="panel"><div class="panel-head"><h3 class="panel-title">KPI Year vs Prior Year Trend</h3><p class="panel-sub">Monthly comparison view across the core objective KPIs,
-keeping a compact executive read with standardized current year versus prior year structure.</p><div class="segmented" id="objSelector"><button data-key="gp" class="active">GP %</button><button data-key="staff" class="">Staff Cost % Revenue</button><button data-key="dcpc" class="">MS Gain DCPC</button><button data-key="mc" class="">MS Gain MC incl. Dexeryl</button></div></div><div class="chart-area"><svg class="chart-svg" id="objChart" viewBox="0 0 560 250"><g class="grid"><line x1="40" y1="14" x2="544" y2="14"></line><line x1="40" y1="81.33333333333333" x2="544" y2="81.33333333333333"></line><line x1="40" y1="148.66666666666666" x2="544" y2="148.66666666666666"></line><line x1="40" y1="216" x2="544" y2="216"></line></g><g class="axis"><text x="40" y="238" text-anchor="middle">Jan</text><text x="85.81818181818181" y="238" text-anchor="middle">Feb</text><text x="131.63636363636363" y="238" text-anchor="middle">Mar</text><text x="177.45454545454547" y="238" text-anchor="middle">Apr</text><text x="223.27272727272728" y="238" text-anchor="middle">May</text><text x="269.0909090909091" y="238" text-anchor="middle">Jun</text><text x="314.90909090909093" y="238" text-anchor="middle">Jul</text><text x="360.72727272727275" y="238" text-anchor="middle">Aug</text><text x="406.54545454545456" y="238" text-anchor="middle">Sep</text><text x="452.3636363636364" y="238" text-anchor="middle">Oct</text><text x="498.1818181818182" y="238" text-anchor="middle">Nov</text><text x="544" y="238" text-anchor="middle">Dec</text></g><path class="series-b" d="M 40 192.6923076923077 L 85.81818181818181 188.25274725274727 L 131.63636363636363 174.93406593406593 L 177.45454545454547 166.05494505494508 L 223.27272727272728 152.73626373626377 L 269.0909090909091 148.2967032967033 L 314.90909090909093 134.978021978022 L 360.72727272727275 130.53846153846155 L 406.54545454545456 121.65934065934069 L 452.3636363636364 108.34065934065936 L 498.1818181818182 99.46153846153847 L 544 90.58241758241758"></path><path class="series-a" d="M 40 174.93406593406593 L 85.81818181818181 157.1758241758242 L 131.63636363636363 152.73626373626377 L 177.45454545454547 130.53846153846155 L 223.27272727272728 112.7802197802198 L 269.0909090909091 99.46153846153847 L 314.90909090909093 86.14285714285717 L 360.72727272727275 77.26373626373629 L 406.54545454545456 63.94505494505495 L 452.3636363636364 55.0659340659341 L 498.1818181818182 50.62637362637366 L 544 37.30769230769232"></path></svg></div><div class="legend"><div class="lg"><span></span>2026</div><div class="lg"><span class="dashed"></span>2025</div></div></div></section><section class="secondary-block"><div class="section-title">Dual Metrics</div> <div class="filters"><div class="filter filter--dropdown" data-filter="brand"><div class="label">Brand</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-brand-dual"><span class="filter-current">Portfolio total</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-brand-dual"><li><button type="button" class="filter-option is-selected" role="option">Portfolio total</button></li><li><button type="button" class="filter-option" role="option">Eau Thermale Avène</button></li><li><button type="button" class="filter-option" role="option">Ducray</button></li><li><button type="button" class="filter-option" role="option">Klorane</button></li><li><button type="button" class="filter-option" role="option">René Furterer</button></li><li><button type="button" class="filter-option" role="option">Dexeryl</button></li><li><button type="button" class="filter-option" role="option">Pierre Fabre Dermo (combined)</button></li><li><button type="button" class="filter-option" role="option">Rx-focused basket</button></li></ul></div><div class="filter filter--dropdown" data-filter="category"><div class="label">Categoría</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-period-dual"><span class="filter-current">Todas las categorías</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-period-dual"><li><button type="button" class="filter-option is-selected" role="option">Todas las categorías</button></li><li><button type="button" class="filter-option" role="option">Acné e imperfecciones</button></li><li><button type="button" class="filter-option" role="option">Dermo aclarantes / anti-manchas</button></li><li><button type="button" class="filter-option" role="option">Rosácea y piel sensible</button></li><li><button type="button" class="filter-option" role="option">Piel atópica / dermatitis</button></li><li><button type="button" class="filter-option" role="option">Antiedad y reparación cutánea</button></li><li><button type="button" class="filter-option" role="option">Fotoprotección solar</button></li><li><button type="button" class="filter-option" role="option">Cuidado capilar</button></li><li><button type="button" class="filter-option" role="option">Higiene dermatológica</button></li><li><button type="button" class="filter-option" role="option">Oncología dermatológica</button></li><li><button type="button" class="filter-option" role="option">Pediatría / dermo pediátrica</button></li></ul></div></div>
+keeping a compact executive read with standardized current year versus prior year structure.</p><div class="segmented" id="objSelector"><button data-key="gp" class="active">GP %</button><button data-key="staff" class="">Staff Cost % Revenue</button><button data-key="dcpc" class="">MS Gain DCPC</button><button data-key="mc" class="">MS Gain MC incl. Dexeryl</button></div></div><div class="chart-area"><svg class="chart-svg" id="objChart" viewBox="0 0 560 250"><g class="grid"><line x1="40" y1="14" x2="544" y2="14"></line><line x1="40" y1="81.33333333333333" x2="544" y2="81.33333333333333"></line><line x1="40" y1="148.66666666666666" x2="544" y2="148.66666666666666"></line><line x1="40" y1="216" x2="544" y2="216"></line></g><g class="axis"><text x="40" y="238" text-anchor="middle">Jan</text><text x="85.81818181818181" y="238" text-anchor="middle">Feb</text><text x="131.63636363636363" y="238" text-anchor="middle">Mar</text><text x="177.45454545454547" y="238" text-anchor="middle">Apr</text><text x="223.27272727272728" y="238" text-anchor="middle">May</text><text x="269.0909090909091" y="238" text-anchor="middle">Jun</text><text x="314.90909090909093" y="238" text-anchor="middle">Jul</text><text x="360.72727272727275" y="238" text-anchor="middle">Aug</text><text x="406.54545454545456" y="238" text-anchor="middle">Sep</text><text x="452.3636363636364" y="238" text-anchor="middle">Oct</text><text x="498.1818181818182" y="238" text-anchor="middle">Nov</text><text x="544" y="238" text-anchor="middle">Dec</text></g><path class="series-b" d="M 40 192.6923076923077 L 85.81818181818181 188.25274725274727 L 131.63636363636363 174.93406593406593 L 177.45454545454547 166.05494505494508 L 223.27272727272728 152.73626373626377 L 269.0909090909091 148.2967032967033 L 314.90909090909093 134.978021978022 L 360.72727272727275 130.53846153846155 L 406.54545454545456 121.65934065934069 L 452.3636363636364 108.34065934065936 L 498.1818181818182 99.46153846153847 L 544 90.58241758241758"></path><path class="series-a" d="M 40 174.93406593406593 L 85.81818181818181 157.1758241758242 L 131.63636363636363 152.73626373626377 L 177.45454545454547 130.53846153846155 L 223.27272727272728 112.7802197802198 L 269.0909090909091 99.46153846153847 L 314.90909090909093 86.14285714285717 L 360.72727272727275 77.26373626373629 L 406.54545454545456 63.94505494505495 L 452.3636363636364 55.0659340659341 L 498.1818181818182 50.62637362637366 L 544 37.30769230769232"></path></svg></div><div class="legend"><div class="lg"><span></span>2026</div><div class="lg"><span class="dashed"></span>2025</div></div></div></section><div class="section-title">Métricas secundarias</div><div class="sec-cards-wrap"><div class="filters exec-sec-filters"><div class="filter filter--dropdown" data-filter="exec-brand"><div class="label">Brand</div><button type="button" class="filter-trigger" aria-expanded="false" id="ft-exec-brand"><span class="filter-current">Portfolio total</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">Portfolio total</button></li><li><button type="button" class="filter-option" role="option">Eau Thermale Avène</button></li><li><button type="button" class="filter-option" role="option">Ducray</button></li><li><button type="button" class="filter-option" role="option">Portfolio dermo</button></li></ul></div><div class="filter filter--dropdown" data-filter="exec-channel"><div class="label">Channel / Customer</div><button type="button" class="filter-trigger" id="ft-exec-ch"><span class="filter-current">All channels</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">All channels</button></li><li><button type="button" class="filter-option" role="option">Pharmacy</button></li><li><button type="button" class="filter-option" role="option">Pure players</button></li></ul></div><div class="filter filter--dropdown" data-filter="exec-cat"><div class="label">Categoría</div><button type="button" class="filter-trigger" id="ft-exec-cat"><span class="filter-current">Todas las categorías</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu"><li><button type="button" class="filter-option is-selected" role="option">Todas las categorías</button></li><li><button type="button" class="filter-option" role="option">Acné</button></li><li><button type="button" class="filter-option" role="option">Fotoprotección</button></li></ul></div></div><section class="cards-row sec-cards sec-cards-top"><div class="card sec-metric-card"><div class="metric-label">Market Share Value Gain DC (MS Gain Value)</div><div class="metric-value">+0.42 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v positive">+0.05</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.12</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 22 L150 22 L150 48 L0 48 Z"></path><polyline points="0,38 18,36 36,34 54,32 72,30 90,28 108,26 126,24 144,22"></polyline></svg></div><div class="card sec-metric-card"><div class="metric-label">GP %</div><div class="metric-value">68.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v positive">+0.3</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.8</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 20 L150 22 L150 48 L0 48 Z"></path><polyline points="0,28 18,27 36,26 54,25 72,24 90,23 108,22 126,21 144,20"></polyline></svg></div><div class="card sec-metric-card"><div class="metric-label">Sell In</div><div class="metric-value">$662M</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v positive">+4.2%</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+10.7%</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 16 L150 22 L150 48 L0 48 Z"></path><polyline points="0,32 18,30 36,28 54,26 72,24 90,22 108,20 126,18 144,16"></polyline></svg></div><div class="card sec-metric-card"><div class="metric-label">Sell Out</div><div class="metric-value">$618M</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v positive">+3.8%</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+9.1%</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 18 L150 22 L150 48 L0 48 Z"></path><polyline points="0,34 18,32 36,30 54,28 72,26 90,24 108,22 126,20 144,18"></polyline></svg></div><div class="card sec-metric-card"><div class="metric-label">Budget vs Actual</div><div class="metric-value">101.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v positive">+0.4</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.2</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 22 L150 22 L150 48 L0 48 Z"></path><polyline points="0,30 18,29 36,28 54,27 72,26 90,25 108,24 126,23 144,22"></polyline></svg></div><div class="card sec-metric-card"><div class="metric-label">Share of Business</div><div class="metric-value">34.7%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v positive">+0.6</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.1</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 18 L150 22 L150 48 L0 48 Z"></path><polyline points="0,26 18,25 36,24 54,23 72,22 90,21 108,20 126,19 144,18"></polyline></svg></div><div class="card sec-metric-card"><div class="metric-label">Days on Hand</div><div class="metric-value">54</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v negative">-2</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 22 L150 22 L150 48 L0 48 Z"></path><polyline points="0,20 18,21 36,22 54,21 72,20 90,19 108,20 126,21 144,22"></polyline></svg></div></section><section class="cards-row sec-cards sec-cards-bottom"><div class="card sec-metric-card"><div class="metric-label">TIFI / OTIF</div><div class="metric-value">94.2%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v positive">+0.8</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.4</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 16 L150 22 L150 48 L0 48 Z"></path><polyline points="0,24 18,23 36,22 54,21 72,20 90,19 108,18 126,17 144,16"></polyline></svg></div><div class="card sec-metric-card"><div class="metric-label">Fill Rate</div><div class="metric-value">96.1%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v positive">+0.5</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+1.0</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 14 L150 22 L150 48 L0 48 Z"></path><polyline points="0,22 18,21 36,20 54,19 72,18 90,17 108,16 126,15 144,14"></polyline></svg></div><div class="card sec-metric-card"><div class="metric-label">PM / Credit Notes</div><div class="metric-value negative-main">2.4%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v negative">+0.2</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v negative">-0.1</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 18 L150 22 L150 48 L0 48 Z"></path><polyline points="0,18 18,19 36,20 54,19 72,18 90,19 108,20 126,19 144,18"></polyline></svg></div><div class="card sec-metric-card"><div class="metric-label">SOI</div><div class="metric-value">14.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v positive">+0.3</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.9</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 20 L150 22 L150 48 L0 48 Z"></path><polyline points="0,28 18,27 36,26 54,25 72,24 90,23 108,22 126,21 144,20"></polyline></svg></div><div class="card sec-metric-card"><div class="metric-label">SOE</div><div class="metric-value">12.1%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v positive">+0.2</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+0.7</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 22 L150 22 L150 48 L0 48 Z"></path><polyline points="0,30 18,29 36,28 54,27 72,26 90,25 108,24 126,23 144,22"></polyline></svg></div><div class="card sec-metric-card"><div class="metric-label">CARS</div><div class="metric-value">89.4%</div><div class="metric-meta"><div class="meta-box"><div class="k">vs PREV.</div><div class="v positive">+1.1</div></div><div class="meta-box"><div class="k">vs PY</div><div class="v positive">+2.4%</div></div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 16 L150 22 L150 48 L0 48 Z"></path><polyline points="0,32 18,30 36,28 54,26 72,24 90,22 108,20 126,18 144,16"></polyline></svg></div></section></div><section class="analysis-row analysis-row--objectives exec-secondary-block"><div class="panel"><div class="panel-head"><h3 class="panel-title">Secondary Metrics Matrix</h3><p class="panel-sub">Standardized comparative read across fiscal year, YTD, quarterly and monthly cuts — same period schema as Power BI executive view.</p></div><div class="table-wrap sec-matrix-wrap"><table class="sec-matrix-table"><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>Y-1</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Y-1</th><th>ENE-25</th><th>ENE-26</th><th>Y-1</th></tr></thead><tbody><tr><td class="rowhead">MS Gain DC (value)</td><td>+0.58</td><td>+0.22</td><td>+0.42</td><td>+0.20</td><td class="positive">+0.18</td><td>+0.11</td><td>+0.16</td><td>+0.13</td><td>+0.07</td><td>+0.14</td><td>+0.19</td><td>+0.05</td></tr><tr><td class="rowhead">GP %</td><td>69.4%</td><td>67.9%</td><td>68.6%</td><td>+0.7</td><td>68.2%</td><td>69.0%</td><td>69.6%</td><td>70.1%</td><td>+0.5</td><td>67.8%</td><td>68.4%</td><td>+0.6</td></tr><tr><td class="rowhead">Sell In</td><td>$2.94B</td><td>$598M</td><td>$662M</td><td>+10.7%</td><td>$721M</td><td>$738M</td><td>$744M</td><td>$737M</td><td>+7.4%</td><td>$201M</td><td>$224M</td><td>+11.4%</td></tr><tr><td class="rowhead">Sell Out</td><td>$2.76B</td><td>$562M</td><td>$618M</td><td>+10.0%</td><td>$678M</td><td>$692M</td><td>$698M</td><td>$688M</td><td>+6.9%</td><td>$188M</td><td>$208M</td><td>+10.6%</td></tr><tr><td class="rowhead">Budget vs Actual</td><td>99.2%</td><td>100.1%</td><td>101.8%</td><td>+1.6</td><td>99.8%</td><td>100.4%</td><td>100.9%</td><td>101.2%</td><td>+0.8</td><td>99.5%</td><td>101.5%</td><td>+2.0</td></tr><tr><td class="rowhead">Share of Business</td><td>32.8%</td><td>33.4%</td><td>34.7%</td><td>+1.3</td><td>33.0%</td><td>33.6%</td><td>34.0%</td><td>34.4%</td><td>+0.9</td><td>32.9%</td><td>34.8%</td><td>+1.9</td></tr><tr><td class="rowhead">Days on Hand</td><td>56</td><td>55</td><td>54</td><td class="negative">-1</td><td>57</td><td>56</td><td>55</td><td>54</td><td class="negative">-2</td><td>58</td><td>54</td><td class="negative">-4</td></tr><tr><td class="rowhead">TIFI / OTIF</td><td>92.8%</td><td>93.5%</td><td>94.2%</td><td>+0.7</td><td>92.0%</td><td>92.8%</td><td>93.2%</td><td>93.8%</td><td>+0.6</td><td>91.8%</td><td>94.0%</td><td>+2.2</td></tr><tr><td class="rowhead">Fill Rate</td><td>95.2%</td><td>95.8%</td><td>96.1%</td><td>+0.3</td><td>94.8%</td><td>95.4%</td><td>95.7%</td><td>96.0%</td><td>+0.4</td><td>94.5%</td><td>96.2%</td><td>+1.7</td></tr><tr><td class="rowhead">PM / Credit Notes</td><td>2.1%</td><td>2.3%</td><td>2.4%</td><td>+0.1</td><td>2.2%</td><td>2.35%</td><td>2.38%</td><td>2.40%</td><td>+0.05</td><td>2.25%</td><td>2.42%</td><td>+0.17</td></tr><tr><td class="rowhead">SOI</td><td>13.6%</td><td>14.0%</td><td>14.6%</td><td>+0.6</td><td>13.2%</td><td>13.8%</td><td>14.1%</td><td>14.4%</td><td>+0.5</td><td>13.0%</td><td>14.8%</td><td>+1.8</td></tr><tr><td class="rowhead">SOE</td><td>11.4%</td><td>11.8%</td><td>12.1%</td><td>+0.3</td><td>11.0%</td><td>11.5%</td><td>11.7%</td><td>11.9%</td><td>+0.4</td><td>10.9%</td><td>12.2%</td><td>+1.3</td></tr><tr><td class="rowhead">CARS</td><td>86.8%</td><td>88.2%</td><td>89.4%</td><td>+1.2</td><td>85.5%</td><td>87.0%</td><td>88.0%</td><td>89.0%</td><td>+1.8</td><td>85.0%</td><td>89.8%</td><td>+4.8</td></tr></tbody></table></div></div><div class="panel"><div class="panel-head"><h3 class="panel-title">Secondary Metrics Year vs Prior Year</h3><p class="panel-sub">Monthly comparison of selected secondary metrics versus prior year</p><div class="segmented sec-pills" id="secObjSelector"><button type="button" class="active" data-sec-key="msdc">MS Gain DC</button><button type="button" class="" data-sec-key="gp">GP %</button><button type="button" class="" data-sec-key="sellin">Sell In</button><button type="button" class="" data-sec-key="sellout">Sell Out</button><button type="button" class="" data-sec-key="bva">Budget vs Act.</button><button type="button" class="" data-sec-key="sob">Share of Bus.</button><button type="button" class="" data-sec-key="doh">Days on Hand</button><button type="button" class="" data-sec-key="tifi">TIFI / OTIF</button><button type="button" class="" data-sec-key="fill">Fill Rate</button><button type="button" class="" data-sec-key="pm">PM / Credit</button><button type="button" class="" data-sec-key="soi">SOI</button><button type="button" class="" data-sec-key="soe">SOE</button><button type="button" class="" data-sec-key="cars">CARS</button></div></div><div class="chart-area"><svg class="chart-svg" id="secObjChart" viewBox="0 0 560 250"></svg></div><div class="legend"><div class="lg"><span></span>2026</div><div class="lg"><span class="dashed"></span>2025</div></div></div></section><section class="secondary-block"><div class="section-title">Dual Metrics</div> <div class="filters"><div class="filter filter--dropdown" data-filter="brand"><div class="label">Brand</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-brand-dual"><span class="filter-current">Portfolio total</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-brand-dual"><li><button type="button" class="filter-option is-selected" role="option">Portfolio total</button></li><li><button type="button" class="filter-option" role="option">Eau Thermale Avène</button></li><li><button type="button" class="filter-option" role="option">Ducray</button></li><li><button type="button" class="filter-option" role="option">Klorane</button></li><li><button type="button" class="filter-option" role="option">René Furterer</button></li><li><button type="button" class="filter-option" role="option">Dexeryl</button></li><li><button type="button" class="filter-option" role="option">Pierre Fabre Dermo (combined)</button></li><li><button type="button" class="filter-option" role="option">Rx-focused basket</button></li></ul></div><div class="filter filter--dropdown" data-filter="category"><div class="label">Categoría</div><button type="button" class="filter-trigger" aria-expanded="false" aria-haspopup="listbox" id="ft-period-dual"><span class="filter-current">Todas las categorías</span><span class="filter-chev" aria-hidden="true">▾</span></button><ul class="filter-menu" role="listbox" aria-labelledby="ft-period-dual"><li><button type="button" class="filter-option is-selected" role="option">Todas las categorías</button></li><li><button type="button" class="filter-option" role="option">Acné e imperfecciones</button></li><li><button type="button" class="filter-option" role="option">Dermo aclarantes / anti-manchas</button></li><li><button type="button" class="filter-option" role="option">Rosácea y piel sensible</button></li><li><button type="button" class="filter-option" role="option">Piel atópica / dermatitis</button></li><li><button type="button" class="filter-option" role="option">Antiedad y reparación cutánea</button></li><li><button type="button" class="filter-option" role="option">Fotoprotección solar</button></li><li><button type="button" class="filter-option" role="option">Cuidado capilar</button></li><li><button type="button" class="filter-option" role="option">Higiene dermatológica</button></li><li><button type="button" class="filter-option" role="option">Oncología dermatológica</button></li><li><button type="button" class="filter-option" role="option">Pediatría / dermo pediátrica</button></li></ul></div></div>
 
 <div class="dual-grid"><div class="dual-panel"><div class="panel-head"><h3 class="panel-title">Sell Out: Client View vs Auditable View</h3><p class="panel-sub">Weekly follow-up lens for commercial tracking versus auditable consolidation.</p></div><div class="dual-body"><div class="dual-toggles" data-dual="sellout"><button class="active" data-view="client">Client View</button><button data-view="audit">Auditable View</button></div><div class="dual-main"><div><div class="dual-big" id="selloutValue">$618M</div><div class="dual-mini" id="selloutMeta"></div></div><div class="bars"><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="selloutBar1" style="width:78%"></div></div><div id="selloutLbl1">78%</div></div><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="selloutBar2" style="width:84%"></div></div><div id="selloutLbl2">84%</div></div><div class="note" id="selloutNote"></div></div></div></div></div><div class="dual-panel"><div class="panel-head"><h3 class="panel-title">Market Share: With Amazon vs Without Amazon</h3><p class="panel-sub">Monthly market share view showing the effect of marketplace inclusion on the executive read.</p></div><div class="dual-body"><div class="dual-toggles" data-dual="share"><button class="active" data-view="with">With Amazon</button><button data-view="without">Without Amazon</button></div><div class="dual-main"><div><div class="dual-big" id="shareValue">12.8%</div><div class="dual-mini" id="shareMeta"></div></div><div class="bars"><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="shareBar1" style="width:64%"></div></div><div id="shareLbl1">12.8%</div></div><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="shareBar2" style="width:58%"></div></div><div id="shareLbl2">11.6%</div></div><div class="note" id="shareNote"></div></div></div></div></div><div class="dual-panel"><div class="panel-head"><h3 class="panel-title">Days on Hand: Client Reported vs Finance Calculated</h3><p class="panel-sub">Inventory lens to surface operational reading differences while preserving a single executive visual frame.</p></div><div class="dual-body"><div class="dual-toggles" data-dual="dohdual"><button class="active" data-view="client">Client Reported</button><button data-view="finance">Finance Calculated</button></div><div class="dual-main"><div><div class="dual-big" id="dohValue">54</div><div class="dual-mini" id="dohMeta"></div></div><div class="bars"><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="dohBar1" style="width:54%"></div></div><div id="dohLbl1">54 days</div></div><div class="bar-row"><div class="bar-track"><div class="bar-fill" id="dohBar2" style="width:48%"></div></div><div id="dohLbl2">48 days</div></div><div class="note" id="dohNote"></div></div></div></div></div></div></section><section class="bottom-row"><div class="panel"><div class="panel-head"><h3 class="panel-title">Share of Business</h3><p class="panel-sub">Ranked customer distribution with contribution,
 value and in-line trend,
@@ -2299,6 +2412,66 @@ const mktObjData= {
     ,
     fasp: {
         current:[0.10, 0.105, 0.11, 0.115, 0.12, 0.128, 0.135, 0.142, 0.148, 0.152, 0.156, 0.16], prior:[0.07, 0.075, 0.08, 0.085, 0.09, 0.095, 0.10, 0.105, 0.11, 0.112, 0.114, 0.116]
+    }
+}
+
+;
+
+const secMetricsData= {
+    msdc: objData.dc,
+    gp: objData.gp,
+    sellin: {
+        current:[520, 535, 548, 562, 575, 588, 600, 615, 628, 640, 652, 662], prior:[480, 495, 510, 525, 540, 552, 565, 575, 588, 598, 608, 615]
+    }
+
+    ,
+    sellout: {
+        current:[480, 498, 512, 528, 545, 560, 572, 585, 595, 605, 612, 618], prior:[440, 458, 472, 488, 502, 518, 532, 545, 555, 565, 575, 585]
+    }
+
+    ,
+    bva: {
+        current:[99.2, 99.4, 100.1, 100.5, 101.0, 101.2, 101.4, 101.5, 101.6, 101.7, 101.75, 101.8], prior:[98.5, 98.8, 99.0, 99.2, 99.5, 99.7, 99.9, 100.0, 100.2, 100.35, 100.5, 100.65]
+    }
+
+    ,
+    sob: {
+        current:[32.8, 33.0, 33.2, 33.4, 33.6, 33.8, 34.0, 34.2, 34.4, 34.5, 34.6, 34.7], prior:[31.5, 31.7, 31.9, 32.0, 32.2, 32.4, 32.5, 32.6, 32.7, 32.75, 32.8, 32.85]
+    }
+
+    ,
+    doh: {
+        current:[58, 57, 56, 55, 56, 55, 54, 55, 54, 54, 54, 54], prior:[60, 59, 58, 57, 58, 57, 56, 56, 55, 55, 55, 56]
+    }
+
+    ,
+    tifi: {
+        current:[91.5, 92.0, 92.5, 92.8, 93.0, 93.2, 93.5, 93.8, 94.0, 94.1, 94.15, 94.2], prior:[90.5, 91.0, 91.2, 91.5, 91.8, 92.0, 92.2, 92.4, 92.6, 92.7, 92.75, 92.8]
+    }
+
+    ,
+    fill: {
+        current:[94.5, 94.7, 94.9, 95.0, 95.2, 95.4, 95.5, 95.7, 95.85, 95.95, 96.05, 96.1], prior:[93.8, 94.0, 94.2, 94.4, 94.5, 94.6, 94.7, 94.8, 94.9, 95.0, 95.05, 95.1]
+    }
+
+    ,
+    pm: {
+        current:[2.8, 2.7, 2.65, 2.55, 2.5, 2.45, 2.42, 2.38, 2.36, 2.38, 2.39, 2.4], prior:[3.1, 3.0, 2.95, 2.9, 2.85, 2.75, 2.7, 2.65, 2.55, 2.5, 2.45, 2.4]
+    }
+
+    ,
+    soi: {
+        current:[13.6, 13.8, 14.0, 14.1, 14.2, 14.3, 14.35, 14.4, 14.45, 14.5, 14.55, 14.6], prior:[12.8, 12.9, 13.0, 13.15, 13.25, 13.35, 13.4, 13.45, 13.5, 13.52, 13.54, 13.6]
+    }
+
+    ,
+    soe: {
+        current:[11.2, 11.35, 11.5, 11.6, 11.65, 11.7, 11.8, 11.85, 11.9, 11.95, 12.0, 12.1], prior:[10.5, 10.6, 10.7, 10.8, 10.85, 10.9, 10.95, 11.0, 11.05, 11.1, 11.15, 11.2]
+    }
+
+    ,
+    cars: {
+        current:[86.8, 87.2, 87.6, 87.9, 88.2, 88.5, 88.7, 88.9, 89.0, 89.15, 89.25, 89.4], prior:[84.5, 85.0, 85.5, 86.0, 86.3, 86.5, 86.7, 86.9, 87.0, 87.2, 87.35, 87.5]
     }
 }
 
@@ -2795,6 +2968,17 @@ function drawLineChart(svgId, series) {
 }
 
 drawLineChart('objChart', objData.gp);
+
+drawLineChart('secObjChart', secMetricsData.msdc);
+
+document.querySelectorAll('#secObjSelector button').forEach(btn=> {
+        btn.addEventListener('click', ()=> {
+                document.querySelectorAll('#secObjSelector button').forEach(b=>b.classList.remove('active'));
+                btn.classList.add('active');
+                const sk=btn.dataset.secKey;
+                if(sk && secMetricsData[sk]) drawLineChart('secObjChart', secMetricsData[sk]);
+            });
+    });
 
 document.querySelectorAll('#objSelector button').forEach(btn=> {
         btn.addEventListener('click', ()=> {

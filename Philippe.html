@@ -3158,7 +3158,144 @@ tbody tr:nth-child(even) {
     color: var(--muted)
 }
 
-</style></head><body><div class="page"><header class="topbar"><div class="brand"><div class="brand-mark"><img class="brand-mark-img" src="pierre-fabre-logo.png" alt="Pierre Fabre" width="225" height="135" decoding="async"></div><div class="brand-copy"><h1>Pierre Fabre Mexico</h1><div class="sub">Executive Dashboard</div></div></div><div></div></header><nav class="nav"><a class="active" href="#" data-app-view="executive">Overview</a><a href="#">Commercial</a><a href="#">Finance</a><a href="#" data-app-view="marketing">Mkt</a><a href="#">Dermo</a><a href="#">Medical</a><a href="#" data-app-view="regulatory">Regulatory</a><a href="#">RH</a></nav><div id="view-executive" class="dashboard-view"><div class="section-title">Mexico Objectives</div><section class="cards-row obj-cards"><div class="card"><div class="metric-label">Market Share Value Gain</div><div class="metric-value">+0.42 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.42 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.50 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">84.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 41 L18 39 L36 37 L54 33 L72 31 L90 26 L108 24 L126 18 L144 14 L144 48 L0 48 Z"></path><polyline points="0,41 18,39 36,37 54,33 72,31 90,26 108,24 126,18 144,14"></polyline></svg></div><div class="card"><div class="metric-label">GP %</div><div class="metric-value">68.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">68.6%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">70.0%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">98.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L18 29 L36 31 L54 28 L72 27 L90 24 L108 25 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,30 18,29 36,31 54,28 72,27 90,24 108,25 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Staff Cost % Revenue</div><div class="metric-value">14.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">14.8%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">14.2%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">95.9%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 18 L18 20 L36 22 L54 23 L72 24 L90 26 L108 25 L126 27 L144 28 L144 48 L0 48 Z"></path><polyline points="0,18 18,20 36,22 54,23 72,24 90,26 108,25 126,27 144,28"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain DCPC</div><div class="metric-value">+0.31 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.31 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.35 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">88.6%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 39 L18 37 L36 36 L54 34 L72 31 L90 28 L108 24 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,39 18,37 36,36 54,34 72,31 90,28 108,24 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain MC including Dexeryl</div><div class="metric-value">+0.27 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.27 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.30 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">90.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 40 L18 40 L36 38 L54 35 L72 34 L90 31 L108 28 L126 24 L144 23 L144 48 L0 48 Z"></path><polyline points="0,40 18,40 36,38 54,35 72,34 90,31 108,28 126,24 144,23"></polyline></svg></div></section><section class="analysis-row analysis-row--objectives"><div class="panel"><div class="panel-head"><h3 class="panel-title">Objectives Period Matrix</h3><p class="panel-sub">Standardized comparative read across fiscal year,
+#view-hr > .section-title:first-of-type {
+    margin-top: 0
+}
+
+#view-hr .hr-view-sub {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--muted);
+    margin: -6px 0 14px
+}
+
+#view-hr .hr-obj-cards {
+    grid-template-columns: repeat(4, 1fr)
+}
+
+#view-hr .analysis-row--hr-matrix {
+    grid-template-columns: 1fr;
+    margin-top: 14px
+}
+
+#view-hr .hr-matrix-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 4px 16px 18px
+}
+
+#view-hr .hr-matrix-group-label {
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--line)
+}
+
+#view-hr .hr-matrix-block--strategic .hr-matrix-group-label {
+    letter-spacing: .08em;
+    color: #5a635e
+}
+
+#view-hr .hr-matrix-wrap {
+    overflow-x: auto;
+    padding: 2px 0 6px
+}
+
+#view-hr .hr-matrix-core,
+#view-hr .hr-matrix-strategic {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 880px
+}
+
+#view-hr .hr-matrix-strategic {
+    min-width: 720px
+}
+
+#view-hr .hr-matrix-core thead th,
+#view-hr .hr-matrix-strategic thead th {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+    padding: 8px 5px;
+    border-bottom: 1px solid var(--line-strong);
+    background: linear-gradient(180deg, #fbfcfa, #f4f7f4);
+    white-space: nowrap
+}
+
+#view-hr .hr-matrix-core thead th:first-child,
+#view-hr .hr-matrix-strategic thead th:first-child {
+    text-align: left;
+    padding-left: 2px
+}
+
+#view-hr .hr-matrix-core tbody td,
+#view-hr .hr-matrix-strategic tbody td {
+    font-size: 10px;
+    padding: 8px 5px;
+    border-bottom: 1px solid #ecefec;
+    text-align: right;
+    color: #334039;
+    font-variant-numeric: tabular-nums;
+    vertical-align: middle
+}
+
+#view-hr .hr-matrix-core tbody td:first-child,
+#view-hr .hr-matrix-strategic tbody td:first-child {
+    text-align: left;
+    font-weight: 650;
+    color: var(--ink);
+    white-space: nowrap
+}
+
+#view-hr .hr-matrix-strategic tbody td {
+    background: #fafbf9;
+    font-size: 10px;
+    color: #3d4a42
+}
+
+#view-hr .hr-matrix-strategic tbody td:first-child {
+    background: #f6f8f5;
+    font-weight: 650
+}
+
+#view-hr .hr-matrix-strategic .hr-milestone-note {
+    text-align: left;
+    max-width: 220px;
+    white-space: normal;
+    line-height: 1.35;
+    font-weight: 500;
+    color: #4a554e
+}
+
+#view-hr .hr-matrix-core .positive {
+    color: #4a6b54;
+    font-weight: 600
+}
+
+#view-hr .hr-matrix-core .negative {
+    color: #8f5a58;
+    font-weight: 600
+}
+
+#view-hr .hr-matrix-strategic .hr-status {
+    font-weight: 600;
+    color: #4a6352
+}
+
+#view-hr .hr-matrix-strategic .hr-status--watch {
+    color: #6f6350
+}
+
+</style></head><body><div class="page"><header class="topbar"><div class="brand"><div class="brand-mark"><img class="brand-mark-img" src="pierre-fabre-logo.png" alt="Pierre Fabre" width="225" height="135" decoding="async"></div><div class="brand-copy"><h1>Pierre Fabre Mexico</h1><div class="sub">Executive Dashboard</div></div></div><div></div></header><nav class="nav"><a class="active" href="#" data-app-view="executive">Overview</a><a href="#">Commercial</a><a href="#">Finance</a><a href="#" data-app-view="marketing">Mkt</a><a href="#">Dermo</a><a href="#">Medical</a><a href="#" data-app-view="regulatory">Regulatory</a><a href="#" data-app-view="hr">RH</a></nav><div id="view-executive" class="dashboard-view"><div class="section-title">Mexico Objectives</div><section class="cards-row obj-cards"><div class="card"><div class="metric-label">Market Share Value Gain</div><div class="metric-value">+0.42 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.42 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.50 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">84.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 41 L18 39 L36 37 L54 33 L72 31 L90 26 L108 24 L126 18 L144 14 L144 48 L0 48 Z"></path><polyline points="0,41 18,39 36,37 54,33 72,31 90,26 108,24 126,18 144,14"></polyline></svg></div><div class="card"><div class="metric-label">GP %</div><div class="metric-value">68.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">68.6%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">70.0%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">98.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L18 29 L36 31 L54 28 L72 27 L90 24 L108 25 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,30 18,29 36,31 54,28 72,27 90,24 108,25 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Staff Cost % Revenue</div><div class="metric-value">14.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">14.8%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">14.2%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">95.9%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 18 L18 20 L36 22 L54 23 L72 24 L90 26 L108 25 L126 27 L144 28 L144 48 L0 48 Z"></path><polyline points="0,18 18,20 36,22 54,23 72,24 90,26 108,25 126,27 144,28"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain DCPC</div><div class="metric-value">+0.31 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.31 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.35 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">88.6%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 39 L18 37 L36 36 L54 34 L72 31 L90 28 L108 24 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,39 18,37 36,36 54,34 72,31 90,28 108,24 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain MC including Dexeryl</div><div class="metric-value">+0.27 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.27 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.30 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">90.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 40 L18 40 L36 38 L54 35 L72 34 L90 31 L108 28 L126 24 L144 23 L144 48 L0 48 Z"></path><polyline points="0,40 18,40 36,38 54,35 72,34 90,31 108,28 126,24 144,23"></polyline></svg></div></section><section class="analysis-row analysis-row--objectives"><div class="panel"><div class="panel-head"><h3 class="panel-title">Objectives Period Matrix</h3><p class="panel-sub">Standardized comparative read across fiscal year,
 YTD,
 quarterly and monthly cuts,
 including explicit market share views by business unit.</p></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>Y-1</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Y-1</th><th>ene-25</th><th>ene-26</th><th>Y-1</th></tr></thead><tbody><tr><td class="rowhead">MS Value Gain DC</td><td class="positive">+0.58</td><td class="positive">+0.22</td><td class="positive">+0.42</td><td class="positive">+0.20</td><td>+0.18</td><td>+0.11</td><td>+0.16</td><td>+0.13</td><td>+0.07</td><td>+0.14</td><td class="positive">+0.19</td><td>+0.05</td></tr><tr><td class="rowhead">MS Value Gain DCPC</td><td class="positive">+0.44</td><td class="positive">+0.16</td><td class="positive">+0.31</td><td class="positive">+0.15</td><td>+0.09</td><td>+0.10</td><td>+0.12</td><td>+0.13</td><td>+0.05</td><td>+0.11</td><td class="positive">+0.15</td><td>+0.04</td></tr><tr><td class="rowhead">MS Value Gain MC incl. Dexeryl</td><td class="positive">+0.37</td><td class="positive">+0.12</td><td class="positive">+0.27</td><td class="positive">+0.15</td><td>+0.07</td><td>+0.08</td><td>+0.10</td><td>+0.12</td><td>+0.04</td><td>+0.08</td><td class="positive">+0.12</td><td>+0.04</td></tr><tr><td class="rowhead">GP %</td><td>69.4%</td><td>67.9%</td><td class="positive">68.6%</td><td class="positive">+0.7</td><td>68.2%</td><td>69.0%</td><td>69.6%</td><td>70.1%</td><td>+0.5</td><td>67.8%</td><td class="positive">68.4%</td><td>+0.6</td></tr><tr><td class="rowhead">Staff Cost % Revenue</td><td>14.3%</td><td>14.6%</td><td class="negative">14.8%</td><td class="negative">+0.2</td><td>14.2%</td><td>14.4%</td><td>14.3%</td><td>14.5%</td><td>+0.1</td><td>14.5%</td><td class="negative">14.8%</td><td>+0.3</td></tr><tr><td class="rowhead">Revenue MXN</td><td>$2.94B</td><td>$598M</td><td class="positive">$662M</td><td class="positive">+10.7%</td><td>$721M</td><td>$738M</td><td>$744M</td><td>$737M</td><td>+7.4%</td><td>$201M</td><td class="positive">$224M</td><td>+11.4%</td></tr></tbody></table></div></div><div class="panel"><div class="panel-head"><h3 class="panel-title">KPI Year vs Prior Year Trend</h3><p class="panel-sub">Monthly comparison view across the core objective KPIs,
@@ -3427,7 +3564,8 @@ preserving a table-led read for executive monitoring.</p></div><div class="table
 </div>
 <div class="panel promo-queue-row promo-op-queue" id="promoOpQueuePanel" style="margin-top:14px"><div class="panel-head"><h3 class="panel-title">Operational queue</h3></div><div class="promo-op-queue__toolbar"><input type="search" class="promo-op-queue__search" id="promoOpQueueSearch" placeholder="Search ID, product, requester…" autocomplete="off" aria-label="Search queue" /><div class="promo-op-queue__filters"><label class="promo-op-queue__filter"><span>Directed to</span><select class="promo-op-queue__select" id="promoOpQueueFilterDir" aria-label="Filter by directed to"></select></label><label class="promo-op-queue__filter"><span>Status</span><select class="promo-op-queue__select" id="promoOpQueueFilterStatus" aria-label="Filter by status"></select></label></div></div><div class="table-wrap"><table class="promo-op-queue-table"><thead><tr><th class="promo-op-queue-col--id">ID</th><th>Product</th><th>Requester</th><th><button type="button" class="promo-op-queue-th-sort" data-promo-sort="directed" aria-label="Sort by directed to">Directed to <span class="promo-op-queue-sort-ind" aria-hidden="true"></span></button></th><th class="promo-op-queue-col--date"><button type="button" class="promo-op-queue-th-sort" data-promo-sort="date" aria-label="Sort by request date">Request date <span class="promo-op-queue-sort-ind" aria-hidden="true">↓</span></button></th><th class="promo-op-queue-col--status"><button type="button" class="promo-op-queue-th-sort" data-promo-sort="status" aria-label="Sort by status">Status <span class="promo-op-queue-sort-ind" aria-hidden="true"></span></button></th><th class="promo-op-queue-col--attempts"><button type="button" class="promo-op-queue-th-sort" data-promo-sort="attempts" aria-label="Sort by submission attempts">Attempts <span class="promo-op-queue-sort-ind" aria-hidden="true"></span></button></th><th class="promo-op-queue-col--reason">Rejection reason</th></tr></thead><tbody id="promoOpQueueBody"></tbody></table></div></div>
 </section>
-</div></div>
+</div>
+<div id="view-hr" class="dashboard-view" hidden><div class="section-title">HR · Objectives</div><p class="hr-view-sub">Company-level people performance: comparable monthly KPIs first, then strategic transformation milestones — aligned to the executive committee read.</p><section class="cards-row obj-cards hr-obj-cards"><div class="card"><div class="metric-label">Productivity</div><div class="metric-value">102.4</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">YTD · sales / FTE</div></div><div class="meta-box"><div class="k">Budget ref.</div><div class="v">100.0</div></div></div><div class="attain"><div class="k">vs budget · PY ref. 98.2</div><div class="v">+2.4%</div></div><svg class="spark" viewBox="0 0 150 48" aria-hidden="true"><path class="fill" d="M0 38 L18 36 L36 34 L54 32 L72 30 L90 27 L108 25 L126 22 L144 18 L144 48 L0 48 Z"></path><polyline points="0,38 18,36 36,34 54,32 72,30 90,27 108,25 126,22 144,18"></polyline></svg></div><div class="card"><div class="metric-label">Staff Cost / Revenue</div><div class="metric-value">15.2%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">15.2%</div></div><div class="meta-box"><div class="k">Target / ref.</div><div class="v">15.0% · 16% budget</div></div></div><div class="attain"><div class="k">vs budget corridor</div><div class="v">−0.8 pts</div></div><svg class="spark" viewBox="0 0 150 48" aria-hidden="true"><path class="fill" d="M0 22 L18 24 L36 26 L54 25 L72 27 L90 28 L108 26 L126 25 L144 24 L144 48 L0 48 Z"></path><polyline points="0,22 18,24 36,26 54,25 72,27 90,28 108,26 126,25 144,24"></polyline></svg></div><div class="card"><div class="metric-label">Total Turnover</div><div class="metric-value">13.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">Annualized YTD</div></div><div class="meta-box"><div class="k">Prior year</div><div class="v">14.6%</div></div></div><div class="attain"><div class="k">vs prior year</div><div class="v">−0.8 pts</div></div><svg class="spark" viewBox="0 0 150 48" aria-hidden="true"><path class="fill" d="M0 28 L18 29 L36 30 L54 31 L72 30 L90 29 L108 30 L126 29 L144 28 L144 48 L0 48 Z"></path><polyline points="0,28 18,29 36,30 54,31 72,30 90,29 108,30 126,29 144,28"></polyline></svg></div><div class="card"><div class="metric-label">Voluntary Turnover</div><div class="metric-value">7.9%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">Resignations YTD</div></div><div class="meta-box"><div class="k">Prior year</div><div class="v">8.6%</div></div></div><div class="attain"><div class="k">vs prior year</div><div class="v">−0.7 pts</div></div><svg class="spark" viewBox="0 0 150 48" aria-hidden="true"><path class="fill" d="M0 30 L18 31 L36 32 L54 32 L72 31 L90 32 L108 31 L126 30 L144 29 L144 48 L0 48 Z"></path><polyline points="0,30 18,31 36,32 54,32 72,31 90,32 108,31 126,30 144,29"></polyline></svg></div></section><section class="analysis-row analysis-row--hr-matrix"><div class="panel"><div class="panel-head"><h3 class="panel-title">Objectives matrix</h3><p class="panel-sub">Quantitative objectives use fiscal, YTD, budget and period cuts (drill to area, tenure and reasons in Power BI). Strategic programs use milestone progress, not the same numeric schema as core KPIs.</p></div><div class="hr-matrix-stack"><div class="hr-matrix-block"><div class="hr-matrix-group-label">Core People Performance Objectives</div><div class="table-wrap hr-matrix-wrap"><table class="hr-matrix-core"><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>vs Y-1</th><th>Budget</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Jan-25</th><th>Jan-26</th><th>vs Y-1</th></tr></thead><tbody><tr><td class="rowhead">Productivity</td><td>98.6</td><td>99.8</td><td class="positive">102.4</td><td class="positive">+2.6</td><td>100.0</td><td>99.2</td><td>99.6</td><td>100.1</td><td>100.4</td><td>99.4</td><td class="positive">101.8</td><td class="positive">+2.4</td></tr><tr><td class="rowhead">Staff Cost / Revenue</td><td>14.9%</td><td>15.1%</td><td>15.2%</td><td class="negative">+0.1</td><td>16.0%</td><td>15.0%</td><td>15.1%</td><td>15.0%</td><td>15.2%</td><td>15.3%</td><td>15.2%</td><td class="positive">−0.1</td></tr><tr><td class="rowhead">Total Turnover</td><td>14.2%</td><td>14.4%</td><td>13.8%</td><td class="positive">−0.6</td><td>14.0%</td><td>14.1%</td><td>14.5%</td><td>14.3%</td><td>14.0%</td><td>14.8%</td><td>13.6%</td><td class="positive">−0.8</td></tr><tr><td class="rowhead">Voluntary Turnover</td><td>8.4%</td><td>8.5%</td><td>7.9%</td><td class="positive">−0.6</td><td>8.0%</td><td>8.2%</td><td>8.6%</td><td>8.5%</td><td>8.3%</td><td>8.7%</td><td>7.8%</td><td class="positive">−0.7</td></tr></tbody></table></div></div><div class="hr-matrix-block hr-matrix-block--strategic"><div class="hr-matrix-group-label">Strategic HR Transformation Objectives</div><div class="table-wrap hr-matrix-wrap"><table class="hr-matrix-strategic"><thead><tr><th>Program</th><th>Weight</th><th>Progress %</th><th>Timing</th><th>Current milestone</th><th>Next milestone</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Status</th></tr></thead><tbody><tr><td class="rowhead">I Blue</td><td>40%</td><td>62%</td><td>FY26</td><td class="hr-milestone-note">Wave 2 adoption · productivity trajectory embedded in governance</td><td class="hr-milestone-note">National rollout sign-off</td><td>On plan</td><td>Key gate</td><td>Close-out rev.</td><td class="hr-status">On track</td></tr><tr><td class="rowhead">Talent Roadmap</td><td>30%</td><td>55%</td><td>FY26</td><td class="hr-milestone-note">Critical roles mapped · succession depth review</td><td class="hr-milestone-note">Development cycle launch</td><td>In flight</td><td>Design lock</td><td>Review</td><td class="hr-status">On track</td></tr><tr><td class="rowhead">HR Org Strategic Plan</td><td>30%</td><td>48%</td><td>FY26</td><td class="hr-milestone-note">Operating model principles agreed</td><td class="hr-milestone-note">Service catalogue pilot</td><td>Define</td><td>Pilot</td><td>Scale</td><td class="hr-status hr-status--watch">Watch</td></tr></tbody></table></div></div></div></div></section></div></div>
 <script>const monthLabels=['Jan',
 'Feb',
 'Mar',
@@ -4120,10 +4258,12 @@ function setAppView(view) {
     const ve = document.getElementById('view-executive');
     const vr = document.getElementById('view-regulatory');
     const vm = document.getElementById('view-marketing');
+    const vh = document.getElementById('view-hr');
     if(!ve || !vr) return;
     ve.hidden = view !== 'executive';
     vr.hidden = view !== 'regulatory';
     if(vm) vm.hidden = view !== 'marketing';
+    if(vh) vh.hidden = view !== 'hr';
     document.querySelectorAll('.nav a[data-app-view]').forEach(a=> {
             a.classList.toggle('active', a.dataset.appView === view);
         });

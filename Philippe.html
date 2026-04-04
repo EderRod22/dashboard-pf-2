@@ -3295,7 +3295,452 @@ tbody tr:nth-child(even) {
     color: #6f6350
 }
 
-</style></head><body><div class="page"><header class="topbar"><div class="brand"><div class="brand-mark"><img class="brand-mark-img" src="pierre-fabre-logo.png" alt="Pierre Fabre" width="225" height="135" decoding="async"></div><div class="brand-copy"><h1>Pierre Fabre Mexico</h1><div class="sub">Executive Dashboard</div></div></div><div></div></header><nav class="nav"><a class="active" href="#" data-app-view="executive">Overview</a><a href="#">Commercial</a><a href="#">Finance</a><a href="#" data-app-view="marketing">Mkt</a><a href="#">Dermo</a><a href="#">Medical</a><a href="#" data-app-view="regulatory">Regulatory</a><a href="#" data-app-view="hr">RH</a></nav><div id="view-executive" class="dashboard-view"><div class="section-title">Mexico Objectives</div><section class="cards-row obj-cards"><div class="card"><div class="metric-label">Market Share Value Gain</div><div class="metric-value">+0.42 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.42 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.50 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">84.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 41 L18 39 L36 37 L54 33 L72 31 L90 26 L108 24 L126 18 L144 14 L144 48 L0 48 Z"></path><polyline points="0,41 18,39 36,37 54,33 72,31 90,26 108,24 126,18 144,14"></polyline></svg></div><div class="card"><div class="metric-label">GP %</div><div class="metric-value">68.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">68.6%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">70.0%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">98.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L18 29 L36 31 L54 28 L72 27 L90 24 L108 25 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,30 18,29 36,31 54,28 72,27 90,24 108,25 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Staff Cost % Revenue</div><div class="metric-value">14.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">14.8%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">14.2%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">95.9%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 18 L18 20 L36 22 L54 23 L72 24 L90 26 L108 25 L126 27 L144 28 L144 48 L0 48 Z"></path><polyline points="0,18 18,20 36,22 54,23 72,24 90,26 108,25 126,27 144,28"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain DCPC</div><div class="metric-value">+0.31 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.31 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.35 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">88.6%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 39 L18 37 L36 36 L54 34 L72 31 L90 28 L108 24 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,39 18,37 36,36 54,34 72,31 90,28 108,24 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain MC including Dexeryl</div><div class="metric-value">+0.27 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.27 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.30 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">90.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 40 L18 40 L36 38 L54 35 L72 34 L90 31 L108 28 L126 24 L144 23 L144 48 L0 48 Z"></path><polyline points="0,40 18,40 36,38 54,35 72,34 90,31 108,28 126,24 144,23"></polyline></svg></div></section><section class="analysis-row analysis-row--objectives"><div class="panel"><div class="panel-head"><h3 class="panel-title">Objectives Period Matrix</h3><p class="panel-sub">Standardized comparative read across fiscal year,
+#view-finance.view-finance {
+    max-width: 100%
+}
+
+#view-finance .fin-page-head {
+    margin-bottom: 12px
+}
+
+#view-finance .fin-page-head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
+#view-finance .fin-page-title {
+    font-size: 21px;
+    font-weight: 650;
+    color: var(--ink);
+    margin: 0 0 4px;
+    letter-spacing: .01em
+}
+
+#view-finance .fin-page-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 12px;
+    max-width: 960px;
+    line-height: 1.45
+}
+
+#view-finance .fin-toolbar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap
+}
+
+#view-finance .fin-select {
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--ink);
+    font-family: inherit
+}
+
+#view-finance .fin-onepage {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+#view-finance .fin-row {
+    display: grid;
+    gap: 12px
+}
+
+#view-finance .fin-row--3 {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.28fr) minmax(0, 1fr)
+}
+
+#view-finance .fin-row--2 {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr)
+}
+
+#view-finance .fin-panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 13px 14px 14px;
+    min-height: 0
+}
+
+#view-finance .fin-panel__head {
+    font-size: 11px;
+    font-weight: 650;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 11px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line)
+}
+
+#view-finance .fin-comment {
+    font-size: 11px;
+    color: #5a635e;
+    line-height: 1.45;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line)
+}
+
+#view-finance .fin-sobar {
+    display: grid;
+    grid-template-columns: 88px 1fr auto;
+    gap: 8px;
+    align-items: center;
+    font-size: 10px
+}
+
+#view-finance .fin-sobar__lab {
+    color: var(--muted);
+    font-weight: 600
+}
+
+#view-finance .fin-sobar__track {
+    height: 8px;
+    border-radius: 6px;
+    background: #ecefec;
+    overflow: hidden
+}
+
+#view-finance .fin-sobar__fill {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #7a9a82, #557a61)
+}
+
+#view-finance .fin-sobar__pct {
+    font-weight: 650;
+    white-space: nowrap
+}
+
+#view-finance .fin-doh-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 10px
+}
+
+#view-finance .fin-doh-ring {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    border: 2px solid var(--line-strong);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #fff, #f2f6f2);
+    flex-shrink: 0
+}
+
+#view-finance .fin-doh-ring__n {
+    font-size: 20px;
+    font-weight: 650;
+    line-height: 1.1
+}
+
+#view-finance .fin-doh-ring__u {
+    font-size: 9px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .08em
+}
+
+#view-finance .fin-rev-inner {
+    display: grid;
+    grid-template-columns: 1fr 0.92fr;
+    gap: 12px
+}
+
+@media (max-width: 1200px) {
+    #view-finance .fin-rev-inner {
+        grid-template-columns: 1fr
+    }
+
+    #view-finance .fin-row--3 {
+        grid-template-columns: 1fr
+    }
+}
+
+#view-finance .fin-bubbles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px
+}
+
+#view-finance .fin-bubble {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 8px 9px;
+    background: #fbfcfa;
+    text-align: center
+}
+
+#view-finance .fin-bubble__ring {
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 5px;
+    border-radius: 50%;
+    border: 3px solid #b8cbb8;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700
+}
+
+#view-finance .fin-bubble--amber .fin-bubble__ring {
+    border-color: #d4c49a
+}
+
+#view-finance .fin-bubble--rose .fin-bubble__ring {
+    border-color: #d4b8b6
+}
+
+#view-finance .fin-bubble__tag {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: var(--muted)
+}
+
+#view-finance .fin-bubble__val {
+    font-size: 12px;
+    font-weight: 700
+}
+
+#view-finance .fin-bubble__sub {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 2px
+}
+
+#view-finance .fin-bridge-title {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    margin: 10px 0 6px
+}
+
+#view-finance .fin-bridge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 10px;
+    padding: 4px 0;
+    border-bottom: 1px solid #eef2ee;
+    gap: 8px
+}
+
+#view-finance .fin-bridge-row span:first-child {
+    color: #4a554e
+}
+
+#view-finance .fin-ytg-wrap {
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    padding: 9px 10px;
+    background: #fafbf9
+}
+
+#view-finance .fin-ytg-title {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    margin-bottom: 8px
+}
+
+#view-finance .fin-ytg-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px
+}
+
+#view-finance .fin-ytg-card {
+    padding: 7px 8px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: #fff;
+    font-size: 10px
+}
+
+#view-finance .fin-ytg-card__k {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--muted);
+    margin-bottom: 4px
+}
+
+#view-finance .fin-ytg-card__v {
+    font-size: 15px;
+    font-weight: 650
+}
+
+#view-finance .fin-metric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px
+}
+
+#view-finance .fin-kpi-ball {
+    text-align: center;
+    padding: 9px 8px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: #fbfcfa
+}
+
+#view-finance .fin-kpi-ball__v {
+    font-size: 20px;
+    font-weight: 650;
+    line-height: 1.15
+}
+
+#view-finance .fin-kpi-ball__l {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: .06em
+}
+
+#view-finance .fin-kpi-ball__d {
+    font-size: 10px;
+    margin-top: 4px
+}
+
+#view-finance .fin-pl-good {
+    color: #4a6b54;
+    font-weight: 600
+}
+
+#view-finance .fin-pl-bad {
+    color: #8f5a58;
+    font-weight: 600
+}
+
+#view-finance .fin-pl-warn {
+    color: #8a7350;
+    font-weight: 600
+}
+
+#view-finance .fin-opex-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #eef2ee;
+    font-size: 10px
+}
+
+#view-finance .fin-opex-row__n {
+    font-weight: 600;
+    color: var(--ink)
+}
+
+#view-finance .fin-ebit-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 8px
+}
+
+#view-finance .fin-ebit-ball {
+    flex: 1 1 30%;
+    min-width: 100px;
+    text-align: center;
+    padding: 10px 8px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: #f8faf8
+}
+
+#view-finance .fin-ebit-ball__v {
+    font-size: 22px;
+    font-weight: 650
+}
+
+#view-finance .fin-ebit-ball__l {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 4px
+}
+
+#view-finance .fin-insights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px
+}
+
+#view-finance .fin-insight-card {
+    padding: 9px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, #fff, #fbfcfa);
+    font-size: 10px;
+    line-height: 1.45
+}
+
+#view-finance .fin-insight-card h4 {
+    margin: 0 0 5px;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    font-weight: 650
+}
+
+#view-finance .fin-cash {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px
+}
+
+#view-finance .fin-cash-ball {
+    text-align: center;
+    padding: 12px 10px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: #fbfcfa
+}
+
+#view-finance .fin-cash-ball__v {
+    font-size: 22px;
+    font-weight: 650
+}
+
+#view-finance .fin-cash-ball__l {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: .06em
+}
+
+#view-finance .fin-lower-bridge .fin-bridge-row:last-child {
+    border-bottom: none
+}
+
+#view-finance > .fin-page-head + .fin-onepage {
+    margin-top: 0
+}
+
+</style></head><body><div class="page"><header class="topbar"><div class="brand"><div class="brand-mark"><img class="brand-mark-img" src="pierre-fabre-logo.png" alt="Pierre Fabre" width="225" height="135" decoding="async"></div><div class="brand-copy"><h1>Pierre Fabre Mexico</h1><div class="sub">Executive Dashboard</div></div></div><div></div></header><nav class="nav"><a class="active" href="#" data-app-view="executive">Overview</a><a href="#">Commercial</a><a href="#" data-app-view="finance">Finance</a><a href="#" data-app-view="marketing">Mkt</a><a href="#">Dermo</a><a href="#">Medical</a><a href="#" data-app-view="regulatory">Regulatory</a><a href="#" data-app-view="hr">RH</a></nav><div id="view-executive" class="dashboard-view"><div class="section-title">Mexico Objectives</div><section class="cards-row obj-cards"><div class="card"><div class="metric-label">Market Share Value Gain</div><div class="metric-value">+0.42 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.42 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.50 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">84.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 41 L18 39 L36 37 L54 33 L72 31 L90 26 L108 24 L126 18 L144 14 L144 48 L0 48 Z"></path><polyline points="0,41 18,39 36,37 54,33 72,31 90,26 108,24 126,18 144,14"></polyline></svg></div><div class="card"><div class="metric-label">GP %</div><div class="metric-value">68.6%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">68.6%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">70.0%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">98.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 30 L18 29 L36 31 L54 28 L72 27 L90 24 L108 25 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,30 18,29 36,31 54,28 72,27 90,24 108,25 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Staff Cost % Revenue</div><div class="metric-value">14.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">14.8%</div></div><div class="meta-box"><div class="k">Target</div><div class="v">14.2%</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">95.9%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 18 L18 20 L36 22 L54 23 L72 24 L90 26 L108 25 L126 27 L144 28 L144 48 L0 48 Z"></path><polyline points="0,18 18,20 36,22 54,23 72,24 90,26 108,25 126,27 144,28"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain DCPC</div><div class="metric-value">+0.31 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.31 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.35 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">88.6%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 39 L18 37 L36 36 L54 34 L72 31 L90 28 L108 24 L126 22 L144 20 L144 48 L0 48 Z"></path><polyline points="0,39 18,37 36,36 54,34 72,31 90,28 108,24 126,22 144,20"></polyline></svg></div><div class="card"><div class="metric-label">Market Share Value Gain MC including Dexeryl</div><div class="metric-value">+0.27 pts</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">+0.27 pts</div></div><div class="meta-box"><div class="k">Target</div><div class="v">+0.30 pts</div></div></div><div class="attain"><div class="k">Attainment vs target</div><div class="v">90.0%</div></div><svg class="spark" viewBox="0 0 150 48"><path class="fill" d="M0 40 L18 40 L36 38 L54 35 L72 34 L90 31 L108 28 L126 24 L144 23 L144 48 L0 48 Z"></path><polyline points="0,40 18,40 36,38 54,35 72,34 90,31 108,28 126,24 144,23"></polyline></svg></div></section><section class="analysis-row analysis-row--objectives"><div class="panel"><div class="panel-head"><h3 class="panel-title">Objectives Period Matrix</h3><p class="panel-sub">Standardized comparative read across fiscal year,
 YTD,
 quarterly and monthly cuts,
 including explicit market share views by business unit.</p></div><div class="table-wrap"><table><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>Y-1</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Y-1</th><th>ene-25</th><th>ene-26</th><th>Y-1</th></tr></thead><tbody><tr><td class="rowhead">MS Value Gain DC</td><td class="positive">+0.58</td><td class="positive">+0.22</td><td class="positive">+0.42</td><td class="positive">+0.20</td><td>+0.18</td><td>+0.11</td><td>+0.16</td><td>+0.13</td><td>+0.07</td><td>+0.14</td><td class="positive">+0.19</td><td>+0.05</td></tr><tr><td class="rowhead">MS Value Gain DCPC</td><td class="positive">+0.44</td><td class="positive">+0.16</td><td class="positive">+0.31</td><td class="positive">+0.15</td><td>+0.09</td><td>+0.10</td><td>+0.12</td><td>+0.13</td><td>+0.05</td><td>+0.11</td><td class="positive">+0.15</td><td>+0.04</td></tr><tr><td class="rowhead">MS Value Gain MC incl. Dexeryl</td><td class="positive">+0.37</td><td class="positive">+0.12</td><td class="positive">+0.27</td><td class="positive">+0.15</td><td>+0.07</td><td>+0.08</td><td>+0.10</td><td>+0.12</td><td>+0.04</td><td>+0.08</td><td class="positive">+0.12</td><td>+0.04</td></tr><tr><td class="rowhead">GP %</td><td>69.4%</td><td>67.9%</td><td class="positive">68.6%</td><td class="positive">+0.7</td><td>68.2%</td><td>69.0%</td><td>69.6%</td><td>70.1%</td><td>+0.5</td><td>67.8%</td><td class="positive">68.4%</td><td>+0.6</td></tr><tr><td class="rowhead">Staff Cost % Revenue</td><td>14.3%</td><td>14.6%</td><td class="negative">14.8%</td><td class="negative">+0.2</td><td>14.2%</td><td>14.4%</td><td>14.3%</td><td>14.5%</td><td>+0.1</td><td>14.5%</td><td class="negative">14.8%</td><td>+0.3</td></tr><tr><td class="rowhead">Revenue MXN</td><td>$2.94B</td><td>$598M</td><td class="positive">$662M</td><td class="positive">+10.7%</td><td>$721M</td><td>$738M</td><td>$744M</td><td>$737M</td><td>+7.4%</td><td>$201M</td><td class="positive">$224M</td><td>+11.4%</td></tr></tbody></table></div></div><div class="panel"><div class="panel-head"><h3 class="panel-title">KPI Year vs Prior Year Trend</h3><p class="panel-sub">Monthly comparison view across the core objective KPIs,
@@ -3565,6 +4010,7 @@ preserving a table-led read for executive monitoring.</p></div><div class="table
 <div class="panel promo-queue-row promo-op-queue" id="promoOpQueuePanel" style="margin-top:14px"><div class="panel-head"><h3 class="panel-title">Operational queue</h3></div><div class="promo-op-queue__toolbar"><input type="search" class="promo-op-queue__search" id="promoOpQueueSearch" placeholder="Search ID, product, requester…" autocomplete="off" aria-label="Search queue" /><div class="promo-op-queue__filters"><label class="promo-op-queue__filter"><span>Directed to</span><select class="promo-op-queue__select" id="promoOpQueueFilterDir" aria-label="Filter by directed to"></select></label><label class="promo-op-queue__filter"><span>Status</span><select class="promo-op-queue__select" id="promoOpQueueFilterStatus" aria-label="Filter by status"></select></label></div></div><div class="table-wrap"><table class="promo-op-queue-table"><thead><tr><th class="promo-op-queue-col--id">ID</th><th>Product</th><th>Requester</th><th><button type="button" class="promo-op-queue-th-sort" data-promo-sort="directed" aria-label="Sort by directed to">Directed to <span class="promo-op-queue-sort-ind" aria-hidden="true"></span></button></th><th class="promo-op-queue-col--date"><button type="button" class="promo-op-queue-th-sort" data-promo-sort="date" aria-label="Sort by request date">Request date <span class="promo-op-queue-sort-ind" aria-hidden="true">↓</span></button></th><th class="promo-op-queue-col--status"><button type="button" class="promo-op-queue-th-sort" data-promo-sort="status" aria-label="Sort by status">Status <span class="promo-op-queue-sort-ind" aria-hidden="true"></span></button></th><th class="promo-op-queue-col--attempts"><button type="button" class="promo-op-queue-th-sort" data-promo-sort="attempts" aria-label="Sort by submission attempts">Attempts <span class="promo-op-queue-sort-ind" aria-hidden="true"></span></button></th><th class="promo-op-queue-col--reason">Rejection reason</th></tr></thead><tbody id="promoOpQueueBody"></tbody></table></div></div>
 </section>
 </div>
+<div id="view-finance" class="dashboard-view view-finance" hidden><header class="fin-page-head"><div class="fin-page-head-row"><div><h2 class="fin-page-title">Finance · YTD Mar 2026</h2><p class="fin-page-sub">Revenue and EBIT on budget, with margin, cash, and cost structure under close watch.</p></div><div class="fin-toolbar"><select class="fin-select" aria-label="Period"><option>YTD Mar 2026</option><option>Q1 2026</option></select><select class="fin-select" aria-label="YTD or YTG focus"><option>YTD</option><option>YTG</option></select><select class="fin-select" aria-label="Entity"><option>Mexico</option><option>DC total</option></select><select class="fin-select" aria-label="Currency"><option>EUR (k€)</option><option>MXN</option></select></div></div></header><div class="fin-onepage"><div class="fin-row fin-row--3"><article class="fin-panel" aria-labelledby="fin-h-sell"><h3 class="fin-panel__head" id="fin-h-sell">Sell Out DC &amp; DOH</h3><p style="font-size:10px;color:var(--muted);margin:0 0 8px">Dermocosmetics · value vs prior year</p><div class="fin-sell-bars"><div class="fin-sobar"><span class="fin-sobar__lab">DC</span><div class="fin-sobar__track"><div class="fin-sobar__fill" style="width:82%"></div></div><span class="fin-sobar__pct fin-pl-good">+8.2% vs PY</span></div><div class="fin-sobar"><span class="fin-sobar__lab">Avène</span><div class="fin-sobar__track"><div class="fin-sobar__fill" style="width:74%"></div></div><span class="fin-sobar__pct fin-pl-good">+6.1% vs PY</span></div></div><div class="fin-doh-row"><div class="fin-doh-ring" aria-label="DOH DC"><span class="fin-doh-ring__n">54</span><span class="fin-doh-ring__u">days DOH</span></div><div style="font-size:10px;line-height:1.45;color:#4a554e"><strong>DC inventory tension</strong><br />DOH stable vs last month; sell-out momentum supports coverage. Operational read — not cash DIO.</div></div><div class="fin-comment" contenteditable="true" title="Commentary placeholder — replace via PBI or manual input">Editorial · Mar: DC pull-through ahead of seasonality; DOH kept within corridor as Avène accelerates in pharmacy.</div></article><article class="fin-panel" aria-labelledby="fin-h-rev"><h3 class="fin-panel__head" id="fin-h-rev">Revenue</h3><div class="fin-rev-inner"><div><p style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 8px">YTD revenue · bridge to budget</p><div class="fin-bubbles"><div class="fin-bubble"><div class="fin-bubble__ring">FX</div><div class="fin-bubble__tag">FX</div><div class="fin-bubble__val">€198.4M</div><div class="fin-bubble__sub"><span class="fin-pl-good">+9.2% PY</span> · Δ budg. <span class="fin-pl-bad">−1.1%</span></div></div><div class="fin-bubble fin-bubble--amber"><div class="fin-bubble__ring">MX</div><div class="fin-bubble__tag">Mexico</div><div class="fin-bubble__val">€142.1M</div><div class="fin-bubble__sub"><span class="fin-pl-good">+8.4% PY</span> · Δ budg. <span class="fin-pl-good">+0.6%</span></div></div><div class="fin-bubble"><div class="fin-bubble__ring">DC</div><div class="fin-bubble__tag">DC</div><div class="fin-bubble__val">€118.6M</div><div class="fin-bubble__sub"><span class="fin-pl-good">+10.1% PY</span> · Δ budg. <span class="fin-pl-good">+1.2%</span></div></div><div class="fin-bubble fin-bubble--rose"><div class="fin-bubble__ring">MC</div><div class="fin-bubble__tag">MC</div><div class="fin-bubble__val">€36.2M</div><div class="fin-bubble__sub"><span class="fin-pl-good">+5.8% PY</span> · Δ budg. <span class="fin-pl-bad">−0.8%</span></div></div></div><div class="fin-bridge-title">Revenue decomposition · DC only</div><div class="fin-bridge-row"><span>Total growth (YTD)</span><span class="fin-pl-good">+10.1%</span></div><div class="fin-bridge-row"><span>Volume (incl. launch / DCX)</span><span class="fin-pl-good">+6.4%</span></div><div class="fin-bridge-row"><span>Price</span><span class="fin-pl-good">+2.0%</span></div><div class="fin-bridge-row"><span>Mix</span><span class="fin-pl-good">+1.7%</span></div><div class="fin-bridge-row"><span>Net sales (check)</span><span>100%</span></div><div class="fin-comment" contenteditable="true" title="Commentary placeholder — replace via PBI or manual input">DC bridge is executive-level; drill to SKU in PBI. Launch and discontinuation embedded in volume line.</div></div><div><div class="fin-ytg-wrap"><div class="fin-ytg-title">Year to go · outlook (Feb–Dec)</div><div class="fin-ytg-cards"><div class="fin-ytg-card"><div class="fin-ytg-card__k">DC</div><div class="fin-ytg-card__v">€86.4M</div><div style="font-size:9px;margin-top:4px">Δ budget <span class="fin-pl-good">+0.9%</span> · exp. vs PY <span class="fin-pl-good">+7.8%</span></div></div><div class="fin-ytg-card"><div class="fin-ytg-card__k">Avène</div><div class="fin-ytg-card__v">€52.0M</div><div style="font-size:9px;margin-top:4px">Δ budget <span class="fin-pl-bad">−0.4%</span> · trajectory <span class="fin-pl-good">+8.5%</span></div></div></div></div><p style="font-size:10px;color:var(--muted);margin:8px 0 0;line-height:1.4">YTG sits on the same visual language as YTD; figures mock for layout.</p></div></div></article><article class="fin-panel" aria-labelledby="fin-h-margin"><h3 class="fin-panel__head" id="fin-h-margin">G2N / GP / C2S / Gross Margin</h3><div class="fin-metric-grid"><div class="fin-kpi-ball"><div class="fin-kpi-ball__v">39.2%</div><div class="fin-kpi-ball__l">G2N</div><div class="fin-kpi-ball__d"><span class="fin-pl-good">+0.4 pp vs PY</span><br />vs budg. <span class="fin-pl-bad">−0.3 pp</span></div></div><div class="fin-kpi-ball"><div class="fin-kpi-ball__v">68.4%</div><div class="fin-kpi-ball__l">Gross profit</div><div class="fin-kpi-ball__d"><span class="fin-pl-good">+0.6 pp vs PY</span><br />vs budg. <span class="fin-pl-good">+0.2 pp</span></div></div><div class="fin-kpi-ball"><div class="fin-kpi-ball__v">14.1%</div><div class="fin-kpi-ball__l">Cost to serve</div><div class="fin-kpi-ball__d"><span class="fin-pl-bad">+0.2 pp vs PY</span><br />vs budg. <span class="fin-pl-bad">+0.1 pp</span></div></div><div class="fin-kpi-ball"><div class="fin-kpi-ball__v">54.3%</div><div class="fin-kpi-ball__l">Gross margin</div><div class="fin-kpi-ball__d"><span class="fin-pl-good">+0.4 pp vs PY</span><br />clarifies GP vs C2S</div></div></div><div class="fin-comment" contenteditable="true" title="Commentary placeholder — replace via PBI or manual input">Drivers: GP uplift from mix; C2S slightly higher on logistics — net margin story coherent with committee deck.</div></article></div><div class="fin-row fin-row--3"><article class="fin-panel" aria-labelledby="fin-h-opex"><h3 class="fin-panel__head" id="fin-h-opex">OPEX</h3><div class="fin-opex"><div class="fin-opex-row"><span class="fin-opex-row__n">Media DC</span><span class="fin-pl-warn">−1.8 pp vs budg.</span><span>€−420k xFX</span></div><div class="fin-opex-row"><span class="fin-opex-row__n">Other A&amp;P</span><span class="fin-pl-good">+0.6 pp vs budg.</span><span>€+180k xFX</span></div><div class="fin-opex-row"><span class="fin-opex-row__n">Staff</span><span class="fin-pl-good">+0.4 pp vs budg.</span><span>€+210k xFX</span></div><div class="fin-opex-row"><span class="fin-opex-row__n">Others</span><span class="fin-pl-bad">−0.3 pp vs budg.</span><span>€−95k xFX</span></div></div><p style="font-size:9px;color:var(--muted);margin:8px 0 0;line-height:1.35">P&amp;L sign logic: savings can show as positive; Media DC under-spend flagged as watch (under-investment risk), not as favourable variance.</p><div class="fin-comment" contenteditable="true" title="Commentary placeholder — replace via PBI or manual input">OPEX narrative · Mar: re-phase media into Q2; staff savings partly timing.</div></article><article class="fin-panel" aria-labelledby="fin-h-ebit"><h3 class="fin-panel__head" id="fin-h-ebit">EBIT</h3><div class="fin-ebit-row"><div class="fin-ebit-ball"><div class="fin-ebit-ball__v">€28.4M</div><div class="fin-ebit-ball__l">EBIT YTD</div><div style="font-size:10px;margin-top:4px" class="fin-pl-good">+11.2% vs PY</div></div><div class="fin-ebit-ball"><div class="fin-ebit-ball__v">+0.9%</div><div class="fin-ebit-ball__l">Δ vs budget</div><div style="font-size:10px;margin-top:4px">on plan corridor</div></div><div class="fin-ebit-ball"><div class="fin-ebit-ball__v">14.3%</div><div class="fin-ebit-ball__l">EBIT / revenue</div><div style="font-size:10px;margin-top:4px" class="fin-pl-good">+0.5 pp vs PY</div></div></div><div class="fin-comment" contenteditable="true" title="Commentary placeholder — replace via PBI or manual input">EBIT supported by DC top line; watch media phasing and C2S into H2.</div></article><article class="fin-panel" aria-labelledby="fin-h-conc"><h3 class="fin-panel__head" id="fin-h-conc">Conclusions &amp; Perspectives</h3><div class="fin-insights"><div class="fin-insight-card"><h4>Good trends</h4>DC revenue and GP ahead; Mexico FX-neutral track acceptable for committee.</div><div class="fin-insight-card"><h4>Warnings</h4>Media DC below plan — confirm H2 weighting vs sell-out.</div><div class="fin-insight-card"><h4>Risks / forecast</h4>Logistics cost pressure; competitor promo intensity in pharmacy.</div><div class="fin-insight-card"><h4>Under watch</h4>Avène YTG vs budget gap; remedial actions in trade.</div></div><p style="font-size:9px;color:var(--muted);margin:8px 0 0">Monthly briefing fields · connect to commentary table or manual cells in PBI.</p></article></div><div class="fin-row fin-row--2"><article class="fin-panel" aria-labelledby="fin-h-cash"><h3 class="fin-panel__head" id="fin-h-cash">Cash View</h3><p style="font-size:10px;color:var(--muted);margin:0 0 10px">Working-capital days · distinct from operational DOH above.</p><div class="fin-cash"><div class="fin-cash-ball"><div class="fin-cash-ball__v">48</div><div class="fin-cash-ball__l">DIO (days)</div><div style="font-size:10px;margin-top:6px"><span class="fin-pl-good">−3 vs PY</span> · <span class="fin-pl-good">−1 vs budg.</span></div></div><div class="fin-cash-ball"><div class="fin-cash-ball__v">62</div><div class="fin-cash-ball__l">DPO (days)</div><div style="font-size:10px;margin-top:6px"><span class="fin-pl-bad">+2 vs PY</span> · vs budg. <span class="fin-pl-warn">flat</span></div></div></div><div class="fin-comment" contenteditable="true" title="Commentary placeholder — replace via PBI or manual input">Lightweight treasury read — not a full cash-flow statement.</div></article><article class="fin-panel fin-lower-bridge" aria-labelledby="fin-h-lower"><h3 class="fin-panel__head" id="fin-h-lower">Revenue bridge &amp; YTG extension</h3><p style="font-size:10px;color:var(--muted);margin:0 0 8px">Supporting strip · DC detail (same scope as Revenue block)</p><div class="fin-bridge-row"><span>Volume — baseline</span><span class="fin-pl-good">+5.1%</span></div><div class="fin-bridge-row"><span>Volume — launch</span><span class="fin-pl-good">+1.9%</span></div><div class="fin-bridge-row"><span>Volume — discontinuation</span><span class="fin-pl-bad">−0.6%</span></div><div class="fin-bridge-row"><span>Price / mix / net</span><span class="fin-pl-good">+3.7%</span></div><div style="margin-top:10px;padding-top:8px;border-top:1px dashed var(--line)"><div class="fin-ytg-title" style="margin-bottom:6px">YTG extension · reminder</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:10px"><div>DC YTG €86.4M · gap vs budg. +0.9%</div><div>Avène YTG €52.0M · gap vs budg. −0.4%</div></div></div><div class="fin-comment" contenteditable="true" title="Commentary placeholder — replace via PBI or manual input">Optional monthly notes for leadership — same block can be fed from text measures.</div></article></div></div></div>
 <div id="view-hr" class="dashboard-view" hidden><div class="section-title">HR · Objectives</div><p class="hr-view-sub">Company-level people performance: comparable monthly KPIs first, then strategic transformation milestones — aligned to the executive committee read.</p><section class="cards-row obj-cards hr-obj-cards"><div class="card"><div class="metric-label">Productivity</div><div class="metric-value">102.4</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">YTD · sales / FTE</div></div><div class="meta-box"><div class="k">Budget ref.</div><div class="v">100.0</div></div></div><div class="attain"><div class="k">vs budget · PY ref. 98.2</div><div class="v">+2.4%</div></div><svg class="spark" viewBox="0 0 150 48" aria-hidden="true"><path class="fill" d="M0 38 L18 36 L36 34 L54 32 L72 30 L90 27 L108 25 L126 22 L144 18 L144 48 L0 48 Z"></path><polyline points="0,38 18,36 36,34 54,32 72,30 90,27 108,25 126,22 144,18"></polyline></svg></div><div class="card"><div class="metric-label">Staff Cost / Revenue</div><div class="metric-value">15.2%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">15.2%</div></div><div class="meta-box"><div class="k">Target / ref.</div><div class="v">15.0% · 16% budget</div></div></div><div class="attain"><div class="k">vs budget corridor</div><div class="v">−0.8 pts</div></div><svg class="spark" viewBox="0 0 150 48" aria-hidden="true"><path class="fill" d="M0 22 L18 24 L36 26 L54 25 L72 27 L90 28 L108 26 L126 25 L144 24 L144 48 L0 48 Z"></path><polyline points="0,22 18,24 36,26 54,25 72,27 90,28 108,26 126,25 144,24"></polyline></svg></div><div class="card"><div class="metric-label">Total Turnover</div><div class="metric-value">13.8%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">Annualized YTD</div></div><div class="meta-box"><div class="k">Prior year</div><div class="v">14.6%</div></div></div><div class="attain"><div class="k">vs prior year</div><div class="v">−0.8 pts</div></div><svg class="spark" viewBox="0 0 150 48" aria-hidden="true"><path class="fill" d="M0 28 L18 29 L36 30 L54 31 L72 30 L90 29 L108 30 L126 29 L144 28 L144 48 L0 48 Z"></path><polyline points="0,28 18,29 36,30 54,31 72,30 90,29 108,30 126,29 144,28"></polyline></svg></div><div class="card"><div class="metric-label">Voluntary Turnover</div><div class="metric-value">7.9%</div><div class="metric-meta"><div class="meta-box"><div class="k">Current</div><div class="v">Resignations YTD</div></div><div class="meta-box"><div class="k">Prior year</div><div class="v">8.6%</div></div></div><div class="attain"><div class="k">vs prior year</div><div class="v">−0.7 pts</div></div><svg class="spark" viewBox="0 0 150 48" aria-hidden="true"><path class="fill" d="M0 30 L18 31 L36 32 L54 32 L72 31 L90 32 L108 31 L126 30 L144 29 L144 48 L0 48 Z"></path><polyline points="0,30 18,31 36,32 54,32 72,31 90,32 108,31 126,30 144,29"></polyline></svg></div></section><section class="analysis-row analysis-row--hr-matrix"><div class="panel"><div class="panel-head"><h3 class="panel-title">Objectives matrix</h3><p class="panel-sub">Quantitative objectives use fiscal, YTD, budget and period cuts (drill to area, tenure and reasons in Power BI). Strategic programs use milestone progress, not the same numeric schema as core KPIs.</p></div><div class="hr-matrix-stack"><div class="hr-matrix-block"><div class="hr-matrix-group-label">Core People Performance Objectives</div><div class="table-wrap hr-matrix-wrap"><table class="hr-matrix-core"><thead><tr><th>Metric</th><th>FY 25</th><th>YTD 25</th><th>YTD 26</th><th>vs Y-1</th><th>Budget</th><th>Q1 25</th><th>Q2 25</th><th>Q3 25</th><th>Q4 25</th><th>Jan-25</th><th>Jan-26</th><th>vs Y-1</th></tr></thead><tbody><tr><td class="rowhead">Productivity</td><td>98.6</td><td>99.8</td><td class="positive">102.4</td><td class="positive">+2.6</td><td>100.0</td><td>99.2</td><td>99.6</td><td>100.1</td><td>100.4</td><td>99.4</td><td class="positive">101.8</td><td class="positive">+2.4</td></tr><tr><td class="rowhead">Staff Cost / Revenue</td><td>14.9%</td><td>15.1%</td><td>15.2%</td><td class="negative">+0.1</td><td>16.0%</td><td>15.0%</td><td>15.1%</td><td>15.0%</td><td>15.2%</td><td>15.3%</td><td>15.2%</td><td class="positive">−0.1</td></tr><tr><td class="rowhead">Total Turnover</td><td>14.2%</td><td>14.4%</td><td>13.8%</td><td class="positive">−0.6</td><td>14.0%</td><td>14.1%</td><td>14.5%</td><td>14.3%</td><td>14.0%</td><td>14.8%</td><td>13.6%</td><td class="positive">−0.8</td></tr><tr><td class="rowhead">Voluntary Turnover</td><td>8.4%</td><td>8.5%</td><td>7.9%</td><td class="positive">−0.6</td><td>8.0%</td><td>8.2%</td><td>8.6%</td><td>8.5%</td><td>8.3%</td><td>8.7%</td><td>7.8%</td><td class="positive">−0.7</td></tr></tbody></table></div></div><div class="hr-matrix-block hr-matrix-block--strategic"><div class="hr-matrix-group-label">Strategic HR Transformation Objectives</div><div class="table-wrap hr-matrix-wrap"><table class="hr-matrix-strategic"><thead><tr><th>Program</th><th>Weight</th><th>Progress %</th><th>Timing</th><th>Current milestone</th><th>Next milestone</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Status</th></tr></thead><tbody><tr><td class="rowhead">I Blue</td><td>40%</td><td>62%</td><td>FY26</td><td class="hr-milestone-note">Wave 2 adoption · productivity trajectory embedded in governance</td><td class="hr-milestone-note">National rollout sign-off</td><td>On plan</td><td>Key gate</td><td>Close-out rev.</td><td class="hr-status">On track</td></tr><tr><td class="rowhead">Talent Roadmap</td><td>30%</td><td>55%</td><td>FY26</td><td class="hr-milestone-note">Critical roles mapped · succession depth review</td><td class="hr-milestone-note">Development cycle launch</td><td>In flight</td><td>Design lock</td><td>Review</td><td class="hr-status">On track</td></tr><tr><td class="rowhead">HR Org Strategic Plan</td><td>30%</td><td>48%</td><td>FY26</td><td class="hr-milestone-note">Operating model principles agreed</td><td class="hr-milestone-note">Service catalogue pilot</td><td>Define</td><td>Pilot</td><td>Scale</td><td class="hr-status hr-status--watch">Watch</td></tr></tbody></table></div></div></div></div></section></div></div>
 <script>const monthLabels=['Jan',
 'Feb',
@@ -4259,11 +4705,13 @@ function setAppView(view) {
     const vr = document.getElementById('view-regulatory');
     const vm = document.getElementById('view-marketing');
     const vh = document.getElementById('view-hr');
+    const vf = document.getElementById('view-finance');
     if(!ve || !vr) return;
     ve.hidden = view !== 'executive';
     vr.hidden = view !== 'regulatory';
     if(vm) vm.hidden = view !== 'marketing';
     if(vh) vh.hidden = view !== 'hr';
+    if(vf) vf.hidden = view !== 'finance';
     document.querySelectorAll('.nav a[data-app-view]').forEach(a=> {
             a.classList.toggle('active', a.dataset.appView === view);
         });
